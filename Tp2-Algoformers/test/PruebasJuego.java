@@ -4,29 +4,35 @@
  * and open the template in the editor.
  */
 
+import junit.framework.Assert;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import org.junit.Assert;
-import batalladebotes.*;
+import tp2.algoformers.Algoformer;
+import tp2.algoformers.Juego;
+import tp2.algoformers.Jugador;
 
 /**
  *
  * @author LuuPesado
  */
-public class PruebasColumna {
+public class PruebasJuego {
     
-    public PruebasColumna() {
-    }
     
-    @Test 
-    public void laColumnaDeberiaTenerCeldasVacias(){
-        Columna columna = new Columna();
-        boolean ocupada = columna.celda(3).estaOcupada();
-        Assert.assertEquals("La celda estaba ocupada",false,ocupada);
+    @Test
+    public void creoUnJuegoYLosAlgoformersEstanBienUbicados(){
+        Jugador jugador1 = new Jugador("Martin");
+        Jugador jugador2 = new Jugador("Lucia");
+        Juego juego = new Juego(jugador1,jugador2);
+        juego.crearTablero(30,30);
+        Algoformer Optimus = juego.devolverOptimus();
+        Assert.assertTrue(Optimus.posicion().getFila() == 1);
+    }   
+    
+    
+    public PruebasJuego() {
     }
     
     @BeforeClass

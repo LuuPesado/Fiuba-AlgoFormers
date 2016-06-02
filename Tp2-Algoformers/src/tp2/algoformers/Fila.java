@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package batalladebotes;
+package tp2.algoformers;
+
+import tp2.algoformers.Columna;
 
 /**
  *
@@ -14,10 +16,10 @@ public class Fila {
     
     public Columna columnas[];
     
-    public Fila(){
-        columnas = new Columna[8];
-        for (int i = 0; i<8;i++){
-            columnas[i] = new Columna();
+    public Fila(int cantidadDeColumnas){
+        columnas = new Columna[cantidadDeColumnas];
+        for (int i = 0; i<cantidadDeColumnas;i++){
+            columnas[i] = new Columna(cantidadDeColumnas);
     }
     }
     

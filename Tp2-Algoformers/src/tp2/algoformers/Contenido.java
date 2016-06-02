@@ -1,22 +1,16 @@
-package batalladebotes;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package tp2.algoformers;
 
 /**
  *
- * @author LucyHeavy
+ * @author LuuPesado
  */
 public interface Contenido {
+
+    boolean estaOcupado();
     
-    public boolean estaOcupado();
-   
-    public void recibirMisil();
-    
-    public void recibirConvencional();
-    
-    public boolean loDestrui();
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package batalladebotes;
+package tp2.algoformers;
 
 /**
  *
@@ -13,11 +13,11 @@ public class Columna {
     
     public Celda celdas[];
     
-    public Columna(){
-        celdas = new Celda[8]; 
-        for (int i = 0; i<8;i++){
+    public Columna(int largoDeLaColumna){
+        celdas = new Celda[largoDeLaColumna]; 
+        for (int i = 0; i<largoDeLaColumna;i++){
             celdas[i] = new Celda();
-    }
+        }
     }
     
     public Celda celda(int posicion){

@@ -4,15 +4,17 @@
  * and open the template in the editor.
  */
 
+import tp2.algoformers.Algoformer;
+import tp2.algoformers.Celda;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.Assert;
-import batalladebotes.*;
-
+import tp2.algoformers.LaCeldaYaTieneUnAlgoformer;
+import tp2.algoformers.Megatron;
+import tp2.algoformers.OptimusPrime;
 /**
  *
  * @author LuuPesado
@@ -26,20 +28,20 @@ public class PruebasCelda {
     }
     
     @Test 
-    public void laCeldaDeberiaTenerUnBote(){
+    public void laCeldaDeberiaTenerUnAlgoformer(){
         Celda celda = new Celda();
-        BoteARemo bote = new BoteARemo();
-        celda.agregarBarco(bote);
+        Algoformer algoformer = new OptimusPrime();
+        celda.agregarAlgoformer(algoformer);
         Assert.assertTrue(celda.estaOcupada());
     }
     
-    @Test ( expected = LaCeldaYaTieneUnBote.class )
-    public void siLaCeldaYaTeniaUnBoteYQuieroPonerOtroMeDaError(){
-        BoteARemo bote1 = new BoteARemo();
-        BoteARemo bote2 = new BoteARemo();
+    @Test ( expected = LaCeldaYaTieneUnAlgoformer.class )
+    public void siLaCeldaYaTeniaUnAlgoformerYQuieroPonerOtroMeDaError(){
+        Algoformer algoformer1 = new OptimusPrime();
+        Algoformer algoformer2 = new Megatron();
         Celda celda = new Celda();
-        celda.agregarBarco(bote1);
-        celda.agregarBarco(bote2);
+        celda.agregarAlgoformer(algoformer1);
+        celda.agregarAlgoformer(algoformer2);
     }
     
     
