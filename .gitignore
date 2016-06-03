@@ -8,3 +8,6 @@ tmp/
 bin/
 build.xml.old
 *.jar
+*.class
+*.war
+*.ear
