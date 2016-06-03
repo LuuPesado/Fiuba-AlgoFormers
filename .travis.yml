@@ -1,6 +1,2 @@
 languaje: java
-sudo: required
 jdk: oraclejdk8
-branches:
-  only:
-    - test
