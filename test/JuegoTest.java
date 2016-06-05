@@ -16,7 +16,7 @@ public class JuegoTest {
        jugador1 = new Jugador("Martin");
        jugador2 = new Jugador("Lucia");
        juego = new Juego(jugador1,jugador2);
-       juego.crearTablero(100,100); 
+       juego.crearTablero(); 
     }
     
     

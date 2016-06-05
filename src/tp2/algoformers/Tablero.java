@@ -4,15 +4,15 @@ public class Tablero {
     
     
     public Fila filas[];
-    private int cantidadDeColumnas = 100;
-    private int cantidadDeFilas = 100;
+    private static final int CANTIDAD_COLUMNAS = 100;
+    private static final int CANTIDAD_FILAS = 100;
     private static Tablero instance = null;
     
     
     private Tablero(){
-        filas = new Fila[cantidadDeFilas];
-        for (int i = 0; i<cantidadDeFilas;i++){
-            filas[i] = new Fila(cantidadDeColumnas);
+        filas = new Fila[CANTIDAD_FILAS];
+        for (int i = 0; i<CANTIDAD_FILAS;i++){
+            filas[i] = new Fila(CANTIDAD_COLUMNAS);
          }
     }
     
@@ -38,8 +38,16 @@ public class Tablero {
     }
 
     void ubicarChispaSuprema(ChispaSuprema chispaSuprema) {
-        Posicion posicion = new Posicion(cantidadDeFilas/2,cantidadDeColumnas/2);
-        chispaSuprema.posicion(posicion);
+        Posicion posicion = new Posicion(CANTIDAD_FILAS/2,CANTIDAD_COLUMNAS/2);
+        chispaSuprema.setPosicion(posicion);
+    }
+    
+    public int cantidadDeFilas(){
+        return CANTIDAD_FILAS;
+    }
+    
+    public int cantidadDeColumnas(){
+        return CANTIDAD_COLUMNAS;
     }
        
 }

@@ -2,9 +2,11 @@ import tp2.algoformers.Algoformer;
 import tp2.algoformers.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
+import tp2.algoformers.ChispaSuprema;
 import tp2.algoformers.FueraDeRangoException;
 import tp2.algoformers.Megatron;
 import tp2.algoformers.OptimusPrime;
+import tp2.algoformers.Posicion;
 import tp2.algoformers.Ratchet;
 
 public class TableroTest {
@@ -58,4 +60,14 @@ public class TableroTest {
         unAlgoformer.moverAlgoformer(8, 10);
     }
     
+    @Test  
+    public void test06LuegoDeSacarUnAlgoformerDeUnaPosicionEstaSeEncuentraVacia(){
+        Tablero tablero = Tablero.getTablero();
+        Algoformer unAlgoformer = new Ratchet();
+        Posicion posicionAlgoformer = new Posicion(3, 5);
+        tablero.ubicarAlgoformerEnUnaPosicion(3, 5, unAlgoformer);
+        tablero.sacarAlgoformer(posicionAlgoformer);
+        Assert.assertFalse(tablero.fila(3).columna(5).estaOcupada());
+    } 
+       
 }

@@ -35,4 +35,11 @@ public class Posicion {
             throw new FueraDeRangoException();
         }
     }
+    
+    public boolean equals(Posicion posicion){
+        boolean esIgual;
+        esIgual = posicion.getFila() == this.fila;
+        esIgual = ((esIgual) && (posicion.getColumna()== this.columna));
+        return esIgual;
+    }
  }

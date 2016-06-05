@@ -25,8 +25,10 @@ public class Juego {
         chispaSuprema = new ChispaSuprema();
     }
     
-    public void crearTablero(int filas, int columnas){
+    public void crearTablero(){
         Tablero tablero = Tablero.getTablero();
+        int filas = tablero.cantidadDeFilas();
+        int columnas = tablero.cantidadDeColumnas();
         tablero.ubicarAlgoformerEnUnaPosicion(1,1 ,autobots.get(0));
         tablero.ubicarAlgoformerEnUnaPosicion(2,1, autobots.get(1));
         tablero.ubicarAlgoformerEnUnaPosicion(1,2, autobots.get(2));
