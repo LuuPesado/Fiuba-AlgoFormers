@@ -26,9 +26,9 @@ public class TableroTest {
     public void test02alUbicarUnAlgoformerEsteSabeSuPosicion(){
         Tablero tablero = Tablero.getTablero();
         Algoformer unAlgoformer = new OptimusPrime();
-        tablero.ubicarAlgoformerEnUnaPosicion(5, 5, unAlgoformer);
+        tablero.ubicarAlgoformerEnUnaPosicion(5, 12, unAlgoformer);
         Assert.assertTrue(unAlgoformer.posicion().getFila() == 5);
-        Assert.assertTrue(unAlgoformer.posicion().getColumna() == 5);
+        Assert.assertTrue(unAlgoformer.posicion().getColumna() == 12);
     }
         
     @Test
