@@ -2,58 +2,59 @@ package tp2.algoformers;
 
 public class Humanoide implements Estado {
     
-    private static Humanoide instance = null;
-
-    private Humanoide(){
+    public Humanoide(){
     }
 
-    public static Humanoide getInstance(){
-       if (Humanoide.instance == null){
-           Humanoide.instance = new Humanoide();
-       }
-       return Humanoide.instance;
-    }
-
-
+    @Override
     public Estado transformarOptimus(Algoformer algoformer){
         algoformer.setAtaque(15);
         algoformer.setDistanciaDeAtaque(4);
         algoformer.setVelocidadDeDesplazamiento(5);
-        return Vehiculo.getInstance();
+        return new VehiculoTerrestre();
     }
 
-    public Estado transformarRatchet(Algoformer algoformer){
-        algoformer.setAtaque(35);
-        algoformer.setDistanciaDeAtaque(2);
-        algoformer.setVelocidadDeDesplazamiento(8);
-        return Vehiculo.getInstance();
-    }
-
+    @Override
     public Estado transformarBumblebee(Algoformer algoformer){
         algoformer.setAtaque(20);
         algoformer.setDistanciaDeAtaque(3);
         algoformer.setVelocidadDeDesplazamiento(5);
-        return Vehiculo.getInstance();
+        return new VehiculoTerrestre();
     }
 
+    @Override
     public Estado transformarBonecrusher(Algoformer algoformer){
         algoformer.setAtaque(30);
         algoformer.setDistanciaDeAtaque(3);
         algoformer.setVelocidadDeDesplazamiento(8);
-        return Vehiculo.getInstance();
+        return new VehiculoTerrestre();
     }
 
+    @Override
     public Estado transformarFrenzy(Algoformer algoformer){
-       algoformer.setAtaque(25);
+        algoformer.setAtaque(25);
         algoformer.setDistanciaDeAtaque(2);
         algoformer.setVelocidadDeDesplazamiento(6);
-        return Vehiculo.getInstance();
+        return new VehiculoTerrestre();
     }
 
-         public Estado transformarMegatron(Algoformer algoformer){
+    @Override
+    public Estado transformarMegatron(Algoformer algoformer){
         algoformer.setAtaque(55);
         algoformer.setDistanciaDeAtaque(2);
         algoformer.setVelocidadDeDesplazamiento(8);
-        return Vehiculo.getInstance();
+        return new VehiculoAereo();
+    }
+         
+    @Override
+    public Estado transformarRatchet(Algoformer algoformer){
+        algoformer.setAtaque(35);
+        algoformer.setDistanciaDeAtaque(2);
+        algoformer.setVelocidadDeDesplazamiento(8);
+        return new VehiculoAereo();
+    }     
+
+    @Override
+    public void atravesarTerreno(Celda celda,Algoformer unAlgoformer) {
+        celda.afectarHumanoide(unAlgoformer);
     }
 }

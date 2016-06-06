@@ -10,6 +10,7 @@ import tp2.algoformers.OptimusPrime;
 import tp2.algoformers.Ratchet;
 import tp2.algoformers.Tablero;
 import tp2.algoformers.Vehiculo;
+import tp2.algoformers.VehiculoTerrestre;
 
 public class AlgoformerTest {
     
@@ -17,17 +18,26 @@ public class AlgoformerTest {
     @Test
     public void test01cuandoCreoUnAlgoformerEsHumanoide(){
         Algoformer algoformer = new Megatron();
-        Humanoide humanoide = Humanoide.getInstance();
-        Assert.assertTrue(algoformer.estado().equals(Humanoide.getInstance()));
+        Class estado = algoformer.estado().getClass();
+        Humanoide humanoide = new Humanoide();
+        Class estadoActual = humanoide.getClass();
+        Assert.assertTrue(estado == estadoActual);
     }
     
+    //Este test es medio asqueroso, hay que overridear el equals para hacerlo bien
     @Test
     public void test02puedoTransformarUnAlgoformerEnAmbasDirecciones(){
         Algoformer algoformer = new OptimusPrime();
         algoformer.transformar();
-        Assert.assertTrue(algoformer.estado().equals(Vehiculo.getInstance()));
+        Class estado = algoformer.estado().getClass();
+        Vehiculo vehiculo = new VehiculoTerrestre();
+        Class estadoActual = vehiculo.getClass();
+        Assert.assertTrue(estado == estadoActual);
         algoformer.transformar();
-        Assert.assertTrue(algoformer.estado().equals(Humanoide.getInstance()));
+        estado = algoformer.estado().getClass();
+        Humanoide humanoide = new Humanoide();
+        estadoActual = humanoide.getClass();
+        Assert.assertTrue(estado == estadoActual);
     }
     
     @Test

@@ -12,10 +12,11 @@ public abstract class Algoformer implements Contenido{
     
     
     public Algoformer(){
-        estado = Humanoide.getInstance();
+        estado = new Humanoide();
         posicion = new Posicion(1,1);
     }
     
+    @Override
     public boolean estaOcupado(){
         return true;
     }

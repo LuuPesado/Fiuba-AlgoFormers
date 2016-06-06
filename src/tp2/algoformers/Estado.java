@@ -14,4 +14,6 @@ public interface Estado {
     
     public Estado transformarRatchet(Algoformer algoformer);
     
+    public void atravesarTerreno(Celda celda,Algoformer unAlgoformer);
+    
 }
