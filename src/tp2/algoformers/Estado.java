@@ -10,9 +10,9 @@ public interface Estado {
     
     public Estado transformarFrenzy(Algoformer algoformer);
     
-    public Estado transformarMegatron(Algoformer algoformer);
+    public Estado transformarMegatron(Megatron algoformer);
     
-    public Estado transformarRatchet(Algoformer algoformer);
+    public Estado transformarRatchet(Ratchet algoformer);
     
     public void atravesarTerreno(Celda celda,Algoformer unAlgoformer);
     

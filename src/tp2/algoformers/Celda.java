@@ -1,5 +1,8 @@
 package tp2.algoformers;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Celda {
     
     public Contenido contenido;
@@ -8,8 +11,16 @@ public class Celda {
     
     public Celda(){
         contenido = new Vacio();
-        
     }
+    
+    public void asignarTerrenoTerrestre(TerrenoTerrestre unTerreno){
+    	this.terrenoTerrestre = unTerreno;
+    }
+    
+    public void asignarTerrenoAereo(TerrenoAereo unTerreno){
+    	this.terrenoAereo = unTerreno;
+    }
+    
     
     public boolean estaOcupada(){
         return contenido.estaOcupado();

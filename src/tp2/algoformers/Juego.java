@@ -47,6 +47,34 @@ public class Juego {
     }
     
     public void turno (Jugador unJugador, int numeroDeAlgoformer, int accion, int fila, int columna, Algoformer objetivo){
-        unJugador.miTurno(numeroDeAlgoformer, accion, fila, columna, objetivo);
+        unJugador.miTurno(numeroDeAlgoformer, accion, fila, columna, objetivo);  
     }
+    
+    public boolean hayGanador(){
+    	boolean ganador = false;
+    	if (jugadorAutobots.estanTodosMuertos()){
+    		ganador = true;
+    	}
+    	if (jugadorDecepticons.estanTodosMuertos()){
+    		ganador = true;
+    	}
+    	return ganador;
+    }
+    
+    /* public void jugar() {
+    	int numeroDeTurno = 1;
+    	boolean hayGanador = false;
+    	Turno turno = new Turno(this.jugadorAutobots);
+    	while (!hayGanador){
+    		if (numeroDeTurno%2 == 1){
+    			turno = new Turno(this.jugadorAutobots);
+    		} else {
+    			turno = new Turno(this.jugadorDecepticons);
+    		}
+    		turno.realizarAccion();
+    		turno.bajarTemporales();
+    		hayGanador = turno.revisarGanador();
+    		numeroDeTurno ++;
+    	}
+    }*/
 }

@@ -7,6 +7,7 @@ import tp2.algoformers.Humanoide;
 import tp2.algoformers.Megatron;
 import tp2.algoformers.NoPuedoAtacarUnCompanieroException;
 import tp2.algoformers.OptimusPrime;
+import tp2.algoformers.Posicion;
 import tp2.algoformers.Ratchet;
 import tp2.algoformers.Tablero;
 import tp2.algoformers.Vehiculo;
@@ -97,5 +98,15 @@ public class AlgoformerTest {
         Algoformer unAlgoformer = new Ratchet();
         tablero.ubicarAlgoformerEnUnaPosicion(32,13, unAlgoformer);
         unAlgoformer.atacar(unAlgoformer);
+    }
+    
+    @Test
+    public void test09moverEnDiagonal(){
+    	Algoformer optimus = new OptimusPrime();
+    	Tablero tablero = Tablero.getTablero();
+    	tablero.ubicarAlgoformerEnUnaPosicion(1,1,optimus);
+    	optimus.moverAlgoformer(3, 3);
+    	Posicion posicionDeDestino = new Posicion(3,3);
+        Assert.assertTrue(optimus.posicion().equals(posicionDeDestino));	
     }
 }

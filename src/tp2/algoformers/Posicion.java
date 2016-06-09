@@ -28,12 +28,13 @@ public class Posicion {
         this.columna = columna;
     }
     
-    public void controlarRango(Posicion posicionNueva, int rango){
+    public int controlarRango(Posicion posicionNueva, int rango){
         int movimientoEnFila =  Math.abs( posicionNueva.getFila() - fila );
         int movimientoEnColumna = Math.abs( posicionNueva.getColumna() - columna );
         if ( Math.max(movimientoEnFila, movimientoEnColumna) > rango ){
             throw new FueraDeRangoException();
         }
+        return Math.max(movimientoEnFila, movimientoEnColumna);
     }
     
     public boolean equals(Posicion posicion){

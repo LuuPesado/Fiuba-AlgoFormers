@@ -1,6 +1,6 @@
 package tp2.algoformers;
 
-public class Megatron extends Decepticon{
+public class Megatron extends Decepticon {
     
    public Megatron(){
        this.nombre = "MEGATRON";

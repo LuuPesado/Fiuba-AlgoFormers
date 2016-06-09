@@ -37,7 +37,7 @@ public abstract class Vehiculo implements Estado {
     }
 
     @Override
-         public Estado transformarMegatron(Algoformer algoformer){
+        public Estado transformarMegatron(Megatron algoformer){
         algoformer.setAtaque(10);
         algoformer.setDistanciaDeAtaque(3);
         algoformer.setVelocidadDeDesplazamiento(1);
@@ -45,7 +45,7 @@ public abstract class Vehiculo implements Estado {
     }
     
     @Override
-    public Estado transformarRatchet(Algoformer algoformer){
+    public Estado transformarRatchet(Ratchet algoformer){
         algoformer.setAtaque(5);
         algoformer.setDistanciaDeAtaque(5);
         algoformer.setVelocidadDeDesplazamiento(1);

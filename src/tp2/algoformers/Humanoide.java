@@ -38,16 +38,24 @@ public class Humanoide implements Estado {
     }
 
     @Override
-    public Estado transformarMegatron(Algoformer algoformer){
-        algoformer.setAtaque(55);
+    public Estado transformarMegatron(Megatron algoformer){
+        if (algoformer.afectadoPorTormenta){
+        	algoformer.setAtaque(33);
+        } else {
+        	algoformer.setAtaque(55);
+        }
         algoformer.setDistanciaDeAtaque(2);
         algoformer.setVelocidadDeDesplazamiento(8);
         return new VehiculoAereo();
     }
          
     @Override
-    public Estado transformarRatchet(Algoformer algoformer){
-        algoformer.setAtaque(35);
+    public Estado transformarRatchet(Ratchet algoformer){
+    	if (algoformer.afectadoPorTormenta){
+        	algoformer.setAtaque(21);
+        } else {
+        	algoformer.setAtaque(35);
+        }
         algoformer.setDistanciaDeAtaque(2);
         algoformer.setVelocidadDeDesplazamiento(8);
         return new VehiculoAereo();

@@ -45,11 +45,11 @@ public class TableroTest {
     public void test04transformoUnAlgoformerYLoMuevo(){
         Tablero tablero = Tablero.getTablero();
         Algoformer unAlgoformer = new Megatron();
-        tablero.ubicarAlgoformerEnUnaPosicion(10, 12, unAlgoformer);
+        tablero.ubicarAlgoformerEnUnaPosicion(60, 60, unAlgoformer);
         unAlgoformer.transformar();
-        unAlgoformer.moverAlgoformer(5, 4);
-        Assert.assertTrue(unAlgoformer.posicion().getFila() == 5);
-        Assert.assertTrue(unAlgoformer.posicion().getColumna() == 4);
+        unAlgoformer.moverAlgoformer(68,68);
+        Assert.assertTrue(unAlgoformer.posicion().getFila() == 68);
+        Assert.assertTrue(unAlgoformer.posicion().getColumna() == 68);
     }
     
     @Test(expected=FueraDeRangoException.class)

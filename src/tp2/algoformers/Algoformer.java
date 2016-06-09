@@ -9,7 +9,8 @@ public abstract class Algoformer implements Contenido{
     protected int distanciaDeAtaque;
     protected String nombre;
     protected Posicion posicion;
-    
+    public boolean afectadoPorTormenta = false;
+
     
     public Algoformer(){
         estado = new Humanoide();
@@ -19,6 +20,10 @@ public abstract class Algoformer implements Contenido{
     @Override
     public boolean estaOcupado(){
         return true;
+    }
+    
+    public int getAtaque(){
+    	return this.ataque;
     }
     
     public Estado estado(){
@@ -76,11 +81,35 @@ public abstract class Algoformer implements Contenido{
         return this.puntosDeVida;
     }
     
-  
-    public void moverAlgoformer(int fila, int columna){
-        Posicion posicionNueva = new Posicion(fila, columna);
-        this.posicion.controlarRango(posicionNueva, this.velocidad());
-        Tablero.getTablero().sacarAlgoformer(posicion);
-        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(fila, columna, this);
+    private Posicion calcularSiguientePosicion(Posicion posicionNueva){
+    	int siguienteFila = this.posicion.getFila();
+    	int siguienteColumna = this.posicion.getColumna();
+    	if ((( this.posicion.getFila() - posicionNueva.getFila() ) < 0 ) && ( this.posicion.getFila() != posicionNueva.getFila() )){
+    		siguienteFila++;
+    	} else if ( this.posicion.getFila() != posicionNueva.getFila() ){
+    		siguienteFila--;
+    	}
+    	if ((( this.posicion.getColumna() - posicionNueva.getColumna() ) < 0 ) && ( this.posicion.getColumna() != posicionNueva.getColumna() )){
+    		siguienteColumna++;
+    	} else if ( this.posicion.getColumna() != posicionNueva.getColumna() ){
+    		siguienteColumna--;
+    	}
+    	Posicion siguientePosicion = new Posicion(siguienteFila,siguienteColumna);
+    	return siguientePosicion;
     }
+    
+    
+    public void moverAlgoformer(int fila, int columna){
+    	Posicion posicionNueva = new Posicion(fila, columna);
+        int pasos = this.posicion.controlarRango(posicionNueva, this.velocidad());
+        while ( pasos > 0 ){
+        	Posicion siguientePosicion = this.calcularSiguientePosicion(posicionNueva);
+        	Celda celda = Tablero.getTablero().fila(fila).columna(columna);
+        	estado.atravesarTerreno(celda, this);
+        	Tablero.getTablero().sacarAlgoformer(this.posicion);
+        	Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(siguientePosicion.getFila(), siguientePosicion.getColumna(), this);
+        	pasos = pasos - 1;
+        }
+    }
+    
 }

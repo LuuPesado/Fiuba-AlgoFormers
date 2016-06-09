@@ -2,6 +2,8 @@ package tp2.algoformers;
 
 public class Ratchet extends Autobot {
         
+   public boolean afectadoPorTormenta = false;
+		
    public Ratchet(){
        this.nombre = "Ratchet";
        this.puntosDeVida = 150;
