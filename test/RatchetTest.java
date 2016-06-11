@@ -43,7 +43,7 @@ public class RatchetTest {
     public void test02CuandoRatchetAtacaEnModoHumanoideQuita5puntos(){
         tablero.ubicarAlgoformerEnUnaPosicion(5, 3, ratchet);
         tablero.ubicarAlgoformerEnUnaPosicion(10, 3, enemigo1);
-        ratchet.atacadoPor(enemigo1);
+        enemigo1.atacadoPor(ratchet);
         Assert.assertTrue(enemigo1.puntosDeVida()== 545);
     }
     
@@ -52,7 +52,7 @@ public class RatchetTest {
         tablero.ubicarAlgoformerEnUnaPosicion(50, 20, ratchet);
         tablero.ubicarAlgoformerEnUnaPosicion(52,21, enemigo1);
         ratchet.transformar();
-        ratchet.atacadoPor(enemigo1);
+        enemigo1.atacadoPor(ratchet);
         Assert.assertTrue(enemigo1.puntosDeVida()==515);
     }
     
@@ -60,7 +60,7 @@ public class RatchetTest {
     public void test04EnModoHumanideRatchetPuedeAtacarEnSuMaximaDistanciaDeAtaque(){
         tablero.ubicarAlgoformerEnUnaPosicion(51, 20, ratchet);
         tablero.ubicarAlgoformerEnUnaPosicion(56,20, enemigo1);
-        ratchet.atacadoPor(enemigo1);
+        enemigo1.atacadoPor(ratchet);
         Assert.assertTrue(enemigo1.puntosDeVida()== 545);
     }
     
@@ -68,14 +68,14 @@ public class RatchetTest {
     public void test05EnModoHumanoideRatchetNoPuedeAtacarMasAllaDeSuMaximaDistanciaDeAtaque(){
         tablero.ubicarAlgoformerEnUnaPosicion(41, 20, ratchet);
         tablero.ubicarAlgoformerEnUnaPosicion(47,20, enemigo1);
-        ratchet.atacadoPor(enemigo1);
+        enemigo1.atacadoPor(ratchet);
     }
     @Test
     public void test06EnModoAlternativoRatchetPuedeAtacarEnSuMaximaDistanciaDeAtaque(){
         tablero.ubicarAlgoformerEnUnaPosicion(52, 20, ratchet);
         tablero.ubicarAlgoformerEnUnaPosicion(54,20, enemigo1);
         ratchet.transformar();
-        ratchet.atacadoPor(enemigo1);
+        enemigo1.atacadoPor(ratchet);
         Assert.assertTrue(enemigo1.puntosDeVida()== 515);
     }
     
@@ -84,14 +84,14 @@ public class RatchetTest {
         tablero.ubicarAlgoformerEnUnaPosicion(32, 20, ratchet);
         tablero.ubicarAlgoformerEnUnaPosicion(37,20, enemigo1);
         ratchet.transformar();
-        ratchet.atacadoPor(enemigo1);
+        enemigo1.atacadoPor(ratchet);
     }
 
     @Test
     public void test08RatchetConservaSuVidaLuegoDeSerTransformado(){
         tablero.ubicarAlgoformerEnUnaPosicion(12, 20, ratchet);
         tablero.ubicarAlgoformerEnUnaPosicion(11,20, enemigo1);
-        enemigo1.atacadoPor(ratchet);
+        ratchet.atacadoPor(enemigo1);
         ratchet.transformar();
         Assert.assertTrue(ratchet.puntosDeVida() == 140);
     }

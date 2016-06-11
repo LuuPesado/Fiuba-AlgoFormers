@@ -4,6 +4,7 @@ import org.junit.BeforeClass;
 import tp2.algoformers.FueraDeRangoException;
 import tp2.algoformers.Juego;
 import tp2.algoformers.Jugador;
+import tp2.algoformers.Posicion;
 
 public class JuegoTest {
     
@@ -18,13 +19,11 @@ public class JuegoTest {
        juego = new Juego(jugador1,jugador2);
        juego.crearTablero(); 
     }
-    
-    
    
     @Test
     public void test01MoverAlgoformerEnTurno(){
        juego.turno(jugador1, 0, 1, 3, 1, juego.devolverAutobot(0));
-        
+    	
        Assert.assertTrue(juego.devolverAutobot(0).posicion().getFila() == 3);
        Assert.assertTrue(juego.devolverAutobot(0).posicion().getColumna() == 1);
     }

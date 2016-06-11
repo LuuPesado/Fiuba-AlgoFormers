@@ -10,7 +10,7 @@ public abstract class Algoformer implements Contenido{
     protected String nombre;
     protected Posicion posicion;
     public boolean afectadoPorTormenta = false;
-
+    public int turnosAtrapadoEnNebulosa = 0;
 
     public Algoformer(){
         estado = new Humanoide();
@@ -106,14 +106,23 @@ public abstract class Algoformer implements Contenido{
     
     
     public void moverAlgoformer(int fila, int columna){
+    	if (turnosAtrapadoEnNebulosa != 0) {
+    		this.turnosAtrapadoEnNebulosa --;
+    		return;
+    	}
     	Posicion posicionNueva = new Posicion(fila, columna);
         int pasos = this.posicion.controlarRango(posicionNueva, this.velocidad());
         while ( pasos > 0 ){
         	Posicion siguientePosicion = this.calcularSiguientePosicion(posicionNueva);
         	Celda celda = Tablero.getTablero().fila(fila).columna(columna);
-        	estado.atravesarTerreno(celda, this);
         	Tablero.getTablero().sacarAlgoformer(this.posicion);
         	Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(siguientePosicion.getFila(), siguientePosicion.getColumna(), this);
+        	try {
+        		estado.atravesarTerreno(celda, this);
+        	} catch (AtrapadoEnNebulosaException e) {
+        		this.turnosAtrapadoEnNebulosa = 3;
+        		break;
+        	}
         	pasos = pasos - 1;
         }
     }

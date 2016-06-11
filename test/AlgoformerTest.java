@@ -48,8 +48,8 @@ public class AlgoformerTest {
         tablero.ubicarAlgoformerEnUnaPosicion(9,10, autobot);
         Algoformer decepticon = new Bonecrusher();
         tablero.ubicarAlgoformerEnUnaPosicion(12, 12, decepticon);
-        autobot.atacadoPor(decepticon);
-        org.junit.Assert.assertTrue(decepticon.puntosDeVida() == 195);
+        decepticon.atacadoPor(autobot);
+        Assert.assertTrue(decepticon.puntosDeVida() == 195);
     }
     
     @Test
@@ -59,9 +59,10 @@ public class AlgoformerTest {
         tablero.ubicarAlgoformerEnUnaPosicion(10,10, autobot);
         Algoformer decepticon = new Bonecrusher();
         tablero.ubicarAlgoformerEnUnaPosicion(11, 10, decepticon);
-        decepticon.atacadoPor(autobot);
-        org.junit.Assert.assertTrue(autobot.puntosDeVida() == 120);
+        autobot.atacadoPor(decepticon);
+        Assert.assertTrue(autobot.puntosDeVida() == 120);
     }
+    
     @Test(expected=FueraDeRangoException.class)
     public void test05AutobotNoPuedeAtacarMasLejosQueSuDistanciaDeAtaque(){
         Tablero tablero = Tablero.getTablero();
@@ -69,7 +70,7 @@ public class AlgoformerTest {
         tablero.ubicarAlgoformerEnUnaPosicion(15,4, autobot);
         Algoformer decepticon = new Bonecrusher();
         tablero.ubicarAlgoformerEnUnaPosicion(20, 13, decepticon);
-        autobot.atacadoPor(decepticon);
+        decepticon.atacadoPor(autobot);
     }
     
     @Test(expected=FueraDeRangoException.class)
@@ -79,7 +80,7 @@ public class AlgoformerTest {
         tablero.ubicarAlgoformerEnUnaPosicion(14,4, autobot);
         Algoformer decepticon = new Bonecrusher();
         tablero.ubicarAlgoformerEnUnaPosicion(20, 40, decepticon);
-        decepticon.atacadoPor(autobot);
+        autobot.atacadoPor(decepticon);
     }
     
     @Test(expected=NoPuedoAtacarUnCompanieroException.class)

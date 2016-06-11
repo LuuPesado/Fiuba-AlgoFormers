@@ -29,8 +29,8 @@ public class Posicion {
     }
     
     public int controlarRango(Posicion posicionNueva, int rango){
-        int movimientoEnFila =  Math.abs( posicionNueva.getFila() - fila );
-        int movimientoEnColumna = Math.abs( posicionNueva.getColumna() - columna );
+        int movimientoEnFila =  Math.abs( posicionNueva.getFila() - this.fila );
+        int movimientoEnColumna = Math.abs( posicionNueva.getColumna() - this.columna );
         if ( Math.max(movimientoEnFila, movimientoEnColumna) > rango ){
             throw new FueraDeRangoException();
         }

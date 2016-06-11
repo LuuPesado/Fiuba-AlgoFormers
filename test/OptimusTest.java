@@ -43,7 +43,7 @@ public class OptimusTest {
     public void test02CuandoOptimusAtacaEnModoHumanoideQuita50puntos(){
         tablero.ubicarAlgoformerEnUnaPosicion(5, 5, optimusPrime);
         tablero.ubicarAlgoformerEnUnaPosicion(7, 7, enemigo1);
-        optimusPrime.atacadoPor(enemigo1);
+        enemigo1.atacadoPor(optimusPrime);
         Assert.assertTrue(enemigo1.puntosDeVida()== 500);
     }
     
@@ -52,7 +52,7 @@ public class OptimusTest {
         tablero.ubicarAlgoformerEnUnaPosicion(50, 50, optimusPrime);
         tablero.ubicarAlgoformerEnUnaPosicion(51,51, enemigo1);
         optimusPrime.transformar();
-        optimusPrime.atacadoPor(enemigo1);
+        enemigo1.atacadoPor(optimusPrime);
         Assert.assertTrue(enemigo1.puntosDeVida()==535);
     }
     
@@ -60,7 +60,7 @@ public class OptimusTest {
     public void test04EnModoHumanideOptimusPuedeAtacarEnSuMaximaDistanciaDeAtaque(){
         tablero.ubicarAlgoformerEnUnaPosicion(51, 50, optimusPrime);
         tablero.ubicarAlgoformerEnUnaPosicion(53,50, enemigo1);
-        optimusPrime.atacadoPor(enemigo1);
+        enemigo1.atacadoPor(optimusPrime);
         Assert.assertTrue(enemigo1.puntosDeVida()== 500);
     }
     
@@ -68,15 +68,16 @@ public class OptimusTest {
     public void test05EnModoHumanoideOptimusNoPuedeAtacarMasAllaDeSuMaximaDistanciaDeAtaque(){
         tablero.ubicarAlgoformerEnUnaPosicion(41, 50, optimusPrime);
         tablero.ubicarAlgoformerEnUnaPosicion(44,50, enemigo1);
-        optimusPrime.atacadoPor(enemigo1);
+        enemigo1.atacadoPor(optimusPrime);
         Assert.assertTrue(enemigo1.puntosDeVida()== 500);
     }
+    
     @Test
     public void test06EnModoAlternativoOptimusPuedeAtacarEnSuMaximaDistanciaDeAtaque(){
         tablero.ubicarAlgoformerEnUnaPosicion(52, 50, optimusPrime);
         tablero.ubicarAlgoformerEnUnaPosicion(56,50, enemigo1);
         optimusPrime.transformar();
-        optimusPrime.atacadoPor(enemigo1);
+        enemigo1.atacadoPor(optimusPrime);
         Assert.assertTrue(enemigo1.puntosDeVida()== 535);
     }
     
@@ -85,7 +86,7 @@ public class OptimusTest {
         tablero.ubicarAlgoformerEnUnaPosicion(32, 50, optimusPrime);
         tablero.ubicarAlgoformerEnUnaPosicion(37,50, enemigo1);
         optimusPrime.transformar();
-        optimusPrime.atacadoPor(enemigo1);
+        enemigo1.atacadoPor(optimusPrime);
         Assert.assertTrue(enemigo1.puntosDeVida()== 535);
     }
 
@@ -93,7 +94,7 @@ public class OptimusTest {
     public void test08OptimusConservaSuVidaLuegoDeSerTransformado(){
         tablero.ubicarAlgoformerEnUnaPosicion(12, 50, optimusPrime);
         tablero.ubicarAlgoformerEnUnaPosicion(11,50, enemigo1);
-        enemigo1.atacadoPor(optimusPrime);
+        optimusPrime.atacadoPor(enemigo1);
         optimusPrime.transformar();
         Assert.assertTrue(optimusPrime.puntosDeVida() == 490);
     }

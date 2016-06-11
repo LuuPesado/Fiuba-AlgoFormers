@@ -6,6 +6,7 @@ import org.junit.Test;
 import tp2.algoformers.Algoformer;
 import tp2.algoformers.Espinas;
 import tp2.algoformers.Megatron;
+import tp2.algoformers.NebulosaDeAndromeda;
 import tp2.algoformers.Nube;
 import tp2.algoformers.OptimusPrime;
 import tp2.algoformers.Pantano;
@@ -97,7 +98,33 @@ public class TerrenoTest {
 	}
 	
 	@Test
-	public void test08LaTormentaPsionicaBajaElAtaqueDeUnAlgoformer(){
+	public void test08UnidadAereaQuedaAtrapada3TurnosAlPasarPorNebulosaDeAndromeda(){
+		Algoformer megatron = new Megatron();
+		Posicion inicio = new Posicion(62,62);
+		Posicion fin = new Posicion (65,65);
+		TerrenoAereo nebulosa = new NebulosaDeAndromeda();
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(61, 61 , megatron);
+		Tablero.getTablero().generarZonaAereo(inicio,fin,nebulosa);	
+		megatron.transformar();
+		megatron.moverAlgoformer(65, 65);
+		Assert.assertTrue(megatron.getPosicion().getFila() == 62); //como en 62 hay nebulosa se traba y no avanza mas
+        Assert.assertTrue(megatron.getPosicion().getColumna() == 62);
+		megatron.moverAlgoformer(61,61); //quiero volver, pero esta atrapado
+		Assert.assertTrue(megatron.getPosicion().getFila() == 62);
+        Assert.assertTrue(megatron.getPosicion().getColumna() == 62); //no pudo volver porque esta atrapado
+		megatron.moverAlgoformer(61,61); //atrapado
+		Assert.assertTrue(megatron.getPosicion().getFila() == 62);
+        Assert.assertTrue(megatron.getPosicion().getColumna() == 62); //no pudo volver porque esta atrapado
+		megatron.moverAlgoformer(61,61); //atrapado
+		Assert.assertTrue(megatron.getPosicion().getFila() == 62);
+        Assert.assertTrue(megatron.getPosicion().getColumna() == 62); //no pudo volver porque esta atrapado
+		megatron.moverAlgoformer(61,61); //ya pasaron los 3 turnos
+		Assert.assertTrue(megatron.getPosicion().getFila() == 61);
+        Assert.assertTrue(megatron.getPosicion().getColumna() == 61); //el algoformer se pudo mover
+	}
+	
+	@Test
+	public void test09LaTormentaPsionicaBajaElAtaqueDeUnAlgoformer(){
 		Algoformer megatron = new Megatron();
 		Posicion inicio = new Posicion(70,70);
 		Posicion fin = new Posicion (71,71);
@@ -107,15 +134,15 @@ public class TerrenoTest {
 		Algoformer optimus = new OptimusPrime();
 		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(71, 71, optimus);
 		megatron.transformar();
-		megatron.atacadoPor(optimus);
+		optimus.atacadoPor(megatron);
 		Assert.assertTrue(optimus.puntosDeVida() == 445);
 		megatron.moverAlgoformer(70, 70);
-		megatron.atacadoPor(optimus);
+		optimus.atacadoPor(megatron);
 		Assert.assertTrue(optimus.puntosDeVida() == 412);
 	}
 	
 	@Test
-	public void test09LaTormentaPsionicaNoBajaElAtaqueAlPasarPorSegundaVez(){
+	public void test10LaTormentaPsionicaNoBajaElAtaqueAlPasarPorSegundaVez(){
 		Algoformer megatron = new Megatron();
 		Posicion inicio = new Posicion(80,80);
 		Posicion fin = new Posicion (90,90);
