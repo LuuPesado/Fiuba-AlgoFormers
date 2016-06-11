@@ -4,10 +4,10 @@ public class Columna {
     
     public Celda celdas[];
     
-    public Columna(int largoDeLaColumna){
+    public Columna(int fila, int largoDeLaColumna){
         celdas = new Celda[largoDeLaColumna]; 
         for (int i = 0; i<largoDeLaColumna;i++){
-            celdas[i] = new Celda();
+            celdas[i] = new Celda(fila+1, i+1);
         }
     }
     

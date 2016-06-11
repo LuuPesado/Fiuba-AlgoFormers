@@ -28,8 +28,8 @@ public class TerrenoTest {
 		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(1, 1, optimus);
 		Tablero.getTablero().generarZonaTerrestre(inicio,fin,rocoso);
 		optimus.moverAlgoformer(3, 3);
-		Assert.assertTrue(optimus.posicion().getFila() == 3);
-        Assert.assertTrue(optimus.posicion().getColumna() == 3);
+		Assert.assertTrue(optimus.getPosicion().getFila() == 3);
+        Assert.assertTrue(optimus.getPosicion().getColumna() == 3);
 	}
 	
 	@Test (expected = UnHumanoideNoPuedeCruzarUnPantano.class)
@@ -53,8 +53,8 @@ public class TerrenoTest {
 		Tablero.getTablero().generarZonaTerrestre(inicio,fin,pantano);		
 		megatron.transformar();
 		megatron.moverAlgoformer(21, 13);
-		Assert.assertTrue(megatron.posicion().getFila() == 21);
-        Assert.assertTrue(megatron.posicion().getColumna() == 13);
+		Assert.assertTrue(megatron.getPosicion().getFila() == 21);
+        Assert.assertTrue(megatron.getPosicion().getColumna() == 13);
 	}
 	
 	@Test 
@@ -92,8 +92,8 @@ public class TerrenoTest {
 		Tablero.getTablero().generarZonaAereo(inicio,fin,nube);		
 		megatron.transformar();
 		megatron.moverAlgoformer(58, 58);
-		Assert.assertTrue(megatron.posicion().getFila() == 58);
-        Assert.assertTrue(megatron.posicion().getColumna() == 58);
+		Assert.assertTrue(megatron.getPosicion().getFila() == 58);
+        Assert.assertTrue(megatron.getPosicion().getColumna() == 58);
 	}
 	
 	@Test
@@ -107,10 +107,10 @@ public class TerrenoTest {
 		Algoformer optimus = new OptimusPrime();
 		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(71, 71, optimus);
 		megatron.transformar();
-		megatron.atacar(optimus);
+		megatron.atacadoPor(optimus);
 		Assert.assertTrue(optimus.puntosDeVida() == 445);
 		megatron.moverAlgoformer(70, 70);
-		megatron.atacar(optimus);
+		megatron.atacadoPor(optimus);
 		Assert.assertTrue(optimus.puntosDeVida() == 412);
 	}
 	

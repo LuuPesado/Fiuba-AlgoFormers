@@ -5,14 +5,19 @@ import java.util.Random;
 
 public class Celda {
     
-    public Contenido contenido;
-    public TerrenoAereo terrenoAereo;
-    public TerrenoTerrestre terrenoTerrestre;
+    private Contenido contenido;
+    private TerrenoAereo terrenoAereo;
+    private TerrenoTerrestre terrenoTerrestre;
+    private Posicion posicion;
     
-    public Celda(){
-        contenido = new Vacio();
+    public Celda(int fila, int columna){
+        contenido = new Vacio(fila,columna);
+        posicion = new Posicion(fila, columna);
     }
     
+    public Contenido getContenido(){
+        return contenido;
+    }
     public void asignarTerrenoTerrestre(TerrenoTerrestre unTerreno){
     	this.terrenoTerrestre = unTerreno;
     }
@@ -35,7 +40,7 @@ public class Celda {
     }
 
     public void quitarAlgoformer() {
-        this.contenido = new Vacio();
+        this.contenido = new Vacio(posicion.getFila(), posicion.getColumna());
     }
 
     

@@ -4,8 +4,8 @@ package tp2.algoformers;
 
 public class Posicion {
     
-    public int fila;
-    public int columna;
+    private int fila;
+    private int columna;
     
     public Posicion(int fila, int columna){
         this.fila = fila;

@@ -6,7 +6,7 @@ public class ColumnaTest {
     
     @Test 
     public void test01laColumnaDeberiaTenerCeldasVacias(){
-        Columna columna = new Columna(8);
+        Columna columna = new Columna(1,8);
         boolean ocupada = columna.celda(3).estaOcupada();
         Assert.assertEquals("La celda estaba ocupada",false,ocupada);
     }

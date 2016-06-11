@@ -11,7 +11,7 @@ public abstract class Algoformer implements Contenido{
     protected Posicion posicion;
     public boolean afectadoPorTormenta = false;
 
-    
+
     public Algoformer(){
         estado = new Humanoide();
         posicion = new Posicion(1,1);
@@ -49,10 +49,13 @@ public abstract class Algoformer implements Contenido{
         this.posicion.columna(columna);
     }
     
-    public Posicion posicion(){
+    public Posicion getPosicion(){
         return posicion;
     }
 
+    public int getDistanciaDeAtaque(){
+        return this.distanciaDeAtaque;
+    }
     public int velocidad() {
         return this.velocidadDeDesplazamiento;
     }
@@ -67,12 +70,15 @@ public abstract class Algoformer implements Contenido{
         this.puntosDeVida = this.puntosDeVida - danio;
     }
     
-    public void atacar(Algoformer unAlgoformer){
-        this.posicion.controlarRango(unAlgoformer.posicion(), distanciaDeAtaque);
-        if (this.puedoAtacar(unAlgoformer)){
-            unAlgoformer.recibirDanio(ataque);
+    public void atacadoPor(Algoformer unAlgoformer){
+        
+        if (unAlgoformer.puedoAtacar(this)){
+            this.posicion.controlarRango(this.getPosicion(), unAlgoformer.getDistanciaDeAtaque());
+            this.recibirDanio(unAlgoformer.getAtaque());
         }
-        else {
+        else if (unAlgoformer == this){
+            unAlgoformer.transformar();
+        }else{
             throw new NoPuedoAtacarUnCompanieroException();
         }
     }

@@ -8,8 +8,10 @@ public class Juego {
     public ArrayList<Algoformer> autobots;
     public ArrayList<Algoformer> decepticons;
     public ChispaSuprema chispaSuprema;
+    public int turno;
     
     public Juego(Jugador jugadorAutobots, Jugador jugadorDecepticons){
+        this.turno = 1;
         this.jugadorAutobots = jugadorAutobots;
         this.jugadorDecepticons = jugadorDecepticons;
         this.autobots = new ArrayList();
@@ -46,13 +48,13 @@ public class Juego {
         return decepticons.get(numero);
     }
     
-    public void turno (Jugador unJugador, int numeroDeAlgoformer, int accion, int fila, int columna, Algoformer objetivo){
-        unJugador.miTurno(numeroDeAlgoformer, accion, fila, columna, objetivo);  
-    }
+    /*public void turno (Jugador unJugador, Algoformer algoformer, int accion, ArrayList<Algoformer> enemigos){
+        unJugador.miTurno(algoformer, accion, enemigos);  
+    }*/
     
     public boolean hayGanador(){
     	boolean ganador = false;
-    	if (jugadorAutobots.estanTodosMuertos()){
+        if (jugadorAutobots.estanTodosMuertos()){
     		ganador = true;
     	}
     	if (jugadorDecepticons.estanTodosMuertos()){
@@ -61,20 +63,18 @@ public class Juego {
     	return ganador;
     }
     
-    /* public void jugar() {
-    	int numeroDeTurno = 1;
+    public void jugar(int numeroDeAlgoformer, Posicion posicion) {
+    	//int numeroDeTurno = 1;
     	boolean hayGanador = false;
-    	Turno turno = new Turno(this.jugadorAutobots);
+    	//Turno turno = new Turno(this.jugadorAutobots);
     	while (!hayGanador){
-    		if (numeroDeTurno%2 == 1){
-    			turno = new Turno(this.jugadorAutobots);
-    		} else {
-    			turno = new Turno(this.jugadorDecepticons);
-    		}
-    		turno.realizarAccion();
-    		turno.bajarTemporales();
-    		hayGanador = turno.revisarGanador();
-    		numeroDeTurno ++;
+            if ( turno == 1){
+                this.jugadorAutobots.jugar(numeroDeAlgoformer, posicion);
+                turno = 2;
+            } else {
+                this.jugadorDecepticons.jugar(numeroDeAlgoformer, posicion);
+                turno = 1;
+            }
     	}
-    }*/
+    }
 }

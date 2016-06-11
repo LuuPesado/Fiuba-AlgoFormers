@@ -13,4 +13,6 @@ public class Frenzy extends Decepticon {
    public void transformar(){
        estado = estado.transformarFrenzy(this);
    }
+   
+
 }

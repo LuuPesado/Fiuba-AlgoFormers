@@ -12,7 +12,7 @@ public class Tablero {
     private Tablero(){
         filas = new Fila[CANTIDAD_FILAS];
         for (int i = 0; i<CANTIDAD_FILAS;i++){
-            filas[i] = new Fila(CANTIDAD_COLUMNAS);
+            filas[i] = new Fila(i, CANTIDAD_COLUMNAS);
          }
         TerrenoTerrestre rocoso = new Rocosa();
         TerrenoAereo nube = new Nube();
@@ -23,7 +23,7 @@ public class Tablero {
     		}
     	}
     }
-    
+
     public static Tablero getTablero(){
        if (Tablero.instance == null){
            Tablero.instance = new Tablero();
@@ -62,7 +62,7 @@ public class Tablero {
     	if ( !this.fila(fila).columna(columna).estaOcupada() ){
     		throw new NoHayUnAlgoformerEnEsaPosicion();
     	}
-    	return this.fila(fila).columna(columna).contenido;
+    	return this.fila(fila).columna(columna).getContenido();
     }
     
     public void generarZonaTerrestre(Posicion inicio, Posicion fin, TerrenoTerrestre terreno){

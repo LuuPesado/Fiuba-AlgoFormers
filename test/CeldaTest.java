@@ -10,13 +10,13 @@ public class CeldaTest {
     
     @Test
     public void test01alCrearLaCeldaEstaLibre(){
-        Celda celda = new Celda();
+        Celda celda = new Celda(1,3);
         Assert.assertEquals("La celda no estaba libre",false,celda.estaOcupada());
     }
     
     @Test 
     public void test02laCeldaDeberiaTenerUnAlgoformer(){
-        Celda celda = new Celda();
+        Celda celda = new Celda(1,3);
         Algoformer algoformer = new OptimusPrime();
         celda.agregarAlgoformer(algoformer);
         Assert.assertTrue(celda.estaOcupada());
@@ -26,9 +26,11 @@ public class CeldaTest {
     public void test03siLaCeldaYaTeniaUnAlgoformerYQuieroPonerOtroMeDaError(){
         Algoformer algoformer1 = new OptimusPrime();
         Algoformer algoformer2 = new Megatron();
-        Celda celda = new Celda();
+        Celda celda = new Celda(1,3);
         celda.agregarAlgoformer(algoformer1);
         celda.agregarAlgoformer(algoformer2);
     }
+    
+
 
 }

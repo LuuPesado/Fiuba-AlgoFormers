@@ -2,12 +2,13 @@ import tp2.algoformers.Algoformer;
 import tp2.algoformers.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
-import tp2.algoformers.ChispaSuprema;
+import tp2.algoformers.Contenido;
 import tp2.algoformers.FueraDeRangoException;
 import tp2.algoformers.Megatron;
 import tp2.algoformers.OptimusPrime;
 import tp2.algoformers.Posicion;
 import tp2.algoformers.Ratchet;
+import tp2.algoformers.Vacio;
 
 public class TableroTest {
     
@@ -27,8 +28,8 @@ public class TableroTest {
         Tablero tablero = Tablero.getTablero();
         Algoformer unAlgoformer = new OptimusPrime();
         tablero.ubicarAlgoformerEnUnaPosicion(5, 12, unAlgoformer);
-        Assert.assertTrue(unAlgoformer.posicion().getFila() == 5);
-        Assert.assertTrue(unAlgoformer.posicion().getColumna() == 12);
+        Assert.assertTrue(unAlgoformer.getPosicion().getFila() == 5);
+        Assert.assertTrue(unAlgoformer.getPosicion().getColumna() == 12);
     }
         
     @Test
@@ -37,8 +38,8 @@ public class TableroTest {
         Algoformer unAlgoformer = new Megatron();
         tablero.ubicarAlgoformerEnUnaPosicion(3, 3, unAlgoformer);
         unAlgoformer.moverAlgoformer(3, 4);
-        Assert.assertTrue(unAlgoformer.posicion().getFila() == 3);
-        Assert.assertTrue(unAlgoformer.posicion().getColumna() == 4);
+        Assert.assertTrue(unAlgoformer.getPosicion().getFila() == 3);
+        Assert.assertTrue(unAlgoformer.getPosicion().getColumna() == 4);
     }
       
     @Test
@@ -48,8 +49,8 @@ public class TableroTest {
         tablero.ubicarAlgoformerEnUnaPosicion(60, 60, unAlgoformer);
         unAlgoformer.transformar();
         unAlgoformer.moverAlgoformer(68,68);
-        Assert.assertTrue(unAlgoformer.posicion().getFila() == 68);
-        Assert.assertTrue(unAlgoformer.posicion().getColumna() == 68);
+        Assert.assertTrue(unAlgoformer.getPosicion().getFila() == 68);
+        Assert.assertTrue(unAlgoformer.getPosicion().getColumna() == 68);
     }
     
     @Test(expected=FueraDeRangoException.class)
@@ -69,5 +70,14 @@ public class TableroTest {
         tablero.sacarAlgoformer(posicionAlgoformer);
         Assert.assertFalse(tablero.fila(3).columna(5).estaOcupada());
     } 
+    
+    @Test
+    public void test04UnVacioSabeSuPosicion(){
+        Tablero tablero = Tablero.getTablero();
+        Contenido contenido;
+        contenido = tablero.fila(32).columna(5).getContenido();
+        Assert.assertTrue(contenido.getPosicion().getFila() == 32);
+        Assert.assertTrue(contenido.getPosicion().getColumna() == 5);
+    }
        
 }

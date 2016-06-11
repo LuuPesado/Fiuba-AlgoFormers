@@ -48,7 +48,7 @@ public class AlgoformerTest {
         tablero.ubicarAlgoformerEnUnaPosicion(9,10, autobot);
         Algoformer decepticon = new Bonecrusher();
         tablero.ubicarAlgoformerEnUnaPosicion(12, 12, decepticon);
-        autobot.atacar(decepticon);
+        autobot.atacadoPor(decepticon);
         org.junit.Assert.assertTrue(decepticon.puntosDeVida() == 195);
     }
     
@@ -59,7 +59,7 @@ public class AlgoformerTest {
         tablero.ubicarAlgoformerEnUnaPosicion(10,10, autobot);
         Algoformer decepticon = new Bonecrusher();
         tablero.ubicarAlgoformerEnUnaPosicion(11, 10, decepticon);
-        decepticon.atacar(autobot);
+        decepticon.atacadoPor(autobot);
         org.junit.Assert.assertTrue(autobot.puntosDeVida() == 120);
     }
     @Test(expected=FueraDeRangoException.class)
@@ -69,7 +69,7 @@ public class AlgoformerTest {
         tablero.ubicarAlgoformerEnUnaPosicion(15,4, autobot);
         Algoformer decepticon = new Bonecrusher();
         tablero.ubicarAlgoformerEnUnaPosicion(20, 13, decepticon);
-        autobot.atacar(decepticon);
+        autobot.atacadoPor(decepticon);
     }
     
     @Test(expected=FueraDeRangoException.class)
@@ -79,7 +79,7 @@ public class AlgoformerTest {
         tablero.ubicarAlgoformerEnUnaPosicion(14,4, autobot);
         Algoformer decepticon = new Bonecrusher();
         tablero.ubicarAlgoformerEnUnaPosicion(20, 40, decepticon);
-        decepticon.atacar(autobot);
+        decepticon.atacadoPor(autobot);
     }
     
     @Test(expected=NoPuedoAtacarUnCompanieroException.class)
@@ -89,15 +89,15 @@ public class AlgoformerTest {
         tablero.ubicarAlgoformerEnUnaPosicion(13,13, decepticon1);
         Algoformer decepticon2 = new Bonecrusher();
         tablero.ubicarAlgoformerEnUnaPosicion(13, 15, decepticon2);
-        decepticon1.atacar(decepticon2);
+        decepticon1.atacadoPor(decepticon2);
     }
     
-    @Test(expected=NoPuedoAtacarUnCompanieroException.class)
-    public void test08UnAlgoformerNoSePuedeAtacarASiMismo(){
+    @Test
+    public void test08CuandoUnAlgoformerSeAtacaASiMismoSeTransforma(){
         Tablero tablero = Tablero.getTablero();
         Algoformer unAlgoformer = new Ratchet();
-        tablero.ubicarAlgoformerEnUnaPosicion(32,13, unAlgoformer);
-        unAlgoformer.atacar(unAlgoformer);
+        unAlgoformer.atacadoPor(unAlgoformer);
+        Assert.assertTrue(unAlgoformer.velocidad()== 8);
     }
     
     @Test
@@ -107,6 +107,6 @@ public class AlgoformerTest {
     	tablero.ubicarAlgoformerEnUnaPosicion(1,1,optimus);
     	optimus.moverAlgoformer(3, 3);
     	Posicion posicionDeDestino = new Posicion(3,3);
-        Assert.assertTrue(optimus.posicion().equals(posicionDeDestino));	
+        Assert.assertTrue(optimus.getPosicion().equals(posicionDeDestino));	
     }
 }
