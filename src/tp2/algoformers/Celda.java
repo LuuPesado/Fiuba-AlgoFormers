@@ -33,9 +33,9 @@ public class Celda {
     
     public void agregarAlgoformer(Algoformer unAlgoformer){
         if (!(this.estaOcupada())){
-            contenido = unAlgoformer;
-        }else{
-              throw new LaCeldaYaTieneUnAlgoformer();     
+    		contenido = unAlgoformer;
+        } else {
+        	throw new LaCeldaYaTieneUnAlgoformer();
         }
     }
 

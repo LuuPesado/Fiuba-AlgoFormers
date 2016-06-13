@@ -71,9 +71,8 @@ public abstract class Algoformer implements Contenido{
     }
     
     public void atacadoPor(Algoformer unAlgoformer){
-        
         if (unAlgoformer.puedoAtacar(this)){
-            this.posicion.controlarRango(this.getPosicion(), unAlgoformer.getDistanciaDeAtaque());
+            this.posicion.controlarRango(unAlgoformer.getPosicion(), unAlgoformer.getDistanciaDeAtaque());
             this.recibirDanio(unAlgoformer.getAtaque());
         }
         else if (unAlgoformer == this){
@@ -101,13 +100,13 @@ public abstract class Algoformer implements Contenido{
     		siguienteColumna--;
     	}
     	Posicion siguientePosicion = new Posicion(siguienteFila,siguienteColumna);
-    	return siguientePosicion;
+        return siguientePosicion;
     }
     
     
     public void moverAlgoformer(int fila, int columna){
     	if (turnosAtrapadoEnNebulosa != 0) {
-    		this.turnosAtrapadoEnNebulosa --;
+    		turnosAtrapadoEnNebulosa --;
     		return;
     	}
     	Posicion posicionNueva = new Posicion(fila, columna);
@@ -120,7 +119,7 @@ public abstract class Algoformer implements Contenido{
         	try {
         		estado.atravesarTerreno(celda, this);
         	} catch (AtrapadoEnNebulosaException e) {
-        		this.turnosAtrapadoEnNebulosa = 3;
+        		turnosAtrapadoEnNebulosa = 3;
         		break;
         	}
         	pasos = pasos - 1;

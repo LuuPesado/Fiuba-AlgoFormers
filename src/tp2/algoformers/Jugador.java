@@ -20,18 +20,21 @@ public class Jugador {
         return algoformers.get(numeroDeAlgoformer);
     }  
     
+    private Posicion elegirPosicion(Posicion unaPosicion) {
+        //Después en vez de enviarla como parametro se va a elegir mediante la interfaz grafica
+        return unaPosicion;
+    }
+    
     public void jugar(int numeroDeAlgoformer, Posicion unaPosicion){
-        Algoformer algoformer;
-        algoformer = this.elegirAlgoformer(numeroDeAlgoformer);
+        Algoformer algoformer = this.elegirAlgoformer(numeroDeAlgoformer);
         Posicion posicion = this.elegirPosicion(unaPosicion);
         this.miTurno(algoformer, posicion);
-        
     }
     
     public void miTurno(Algoformer algoformer, Posicion posicion){
         //Mal implementado, obvio. Despues vemos
         //El numero de accion decide que va a hacer el Algoformer de numero 'numeroDeAlgoformer' dado
-        Tablero tablero = Tablero.getTablero();
+    	Tablero tablero = Tablero.getTablero();
         Posicion posicionAlgoformer = algoformer.getPosicion();
         (tablero.fila(posicion.getFila()).columna(posicion.getColumna()).getContenido()).atacadoPor(algoformer);
         //tablero.fila(posicion.getFila()).columna(posicion.getColumna()).getContenido().atacadoPor(algoformer);
@@ -48,10 +51,6 @@ public class Jugador {
         return muertos;
     }
 
-    private Posicion elegirPosicion(Posicion unaPosicion) {
-        //Después en vez de enviarla como parametro se va a elegir mediante la interfaz grafica
-        return unaPosicion;
-    }
 }
 
         

@@ -11,7 +11,7 @@ public class Juego {
     public int turno;
     
     public Juego(Jugador jugadorAutobots, Jugador jugadorDecepticons){
-        this.turno = 1;
+    	this.turno = 1;
         this.jugadorAutobots = jugadorAutobots;
         this.jugadorDecepticons = jugadorDecepticons;
         this.autobots = new ArrayList();
@@ -31,11 +31,11 @@ public class Juego {
         Tablero tablero = Tablero.getTablero();
         int filas = tablero.cantidadDeFilas();
         int columnas = tablero.cantidadDeColumnas();
-        tablero.ubicarAlgoformerEnUnaPosicion(1,1 ,autobots.get(0));
+        tablero.ubicarAlgoformerEnUnaPosicion(1,1, autobots.get(0));
         tablero.ubicarAlgoformerEnUnaPosicion(2,1, autobots.get(1));
         tablero.ubicarAlgoformerEnUnaPosicion(1,2, autobots.get(2));
         tablero.ubicarAlgoformerEnUnaPosicion(filas, columnas, decepticons.get(0));
-        tablero.ubicarAlgoformerEnUnaPosicion(filas-1,columnas,decepticons.get(1));
+        tablero.ubicarAlgoformerEnUnaPosicion(filas-1,columnas, decepticons.get(1));
         tablero.ubicarAlgoformerEnUnaPosicion(filas, columnas-1, decepticons.get(2));
         tablero.ubicarChispaSuprema(chispaSuprema);
     }
@@ -65,9 +65,9 @@ public class Juego {
     
     public void jugar(int numeroDeAlgoformer, Posicion posicion) {
     	//int numeroDeTurno = 1;
-    	boolean hayGanador = false;
+    	//boolean hayGanador = false;
     	//Turno turno = new Turno(this.jugadorAutobots);
-    	while (!hayGanador){
+    	//while (!hayGanador){
             if ( turno == 1){
                 this.jugadorAutobots.jugar(numeroDeAlgoformer, posicion);
                 turno = 2;
@@ -75,6 +75,6 @@ public class Juego {
                 this.jugadorDecepticons.jugar(numeroDeAlgoformer, posicion);
                 turno = 1;
             }
-    	}
+    	//}
     }
 }
