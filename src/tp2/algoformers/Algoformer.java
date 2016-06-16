@@ -1,5 +1,7 @@
 package tp2.algoformers;
 
+import java.util.ArrayList;
+
 public abstract class Algoformer implements Contenido{
     
     protected Estado estado;
@@ -9,12 +11,20 @@ public abstract class Algoformer implements Contenido{
     protected int distanciaDeAtaque;
     protected String nombre;
     protected Posicion posicion;
-    public boolean afectadoPorTormenta = false;
-    public int turnosAtrapadoEnNebulosa = 0;
-
+    protected Modificadores modificadores;
+    
     public Algoformer(){
         estado = new Humanoide();
         posicion = new Posicion(1,1);
+        modificadores = new Modificadores();
+    }
+    
+    public Modificadores getModificadores(){
+    	return modificadores;
+    }
+    
+    public boolean esUnBonus(){
+    	return false;
     }
     
     @Override
@@ -56,7 +66,7 @@ public abstract class Algoformer implements Contenido{
     public int getDistanciaDeAtaque(){
         return this.distanciaDeAtaque;
     }
-    public int velocidad() {
+    public int getVelocidad() {
         return this.velocidadDeDesplazamiento;
     }
 
@@ -67,13 +77,13 @@ public abstract class Algoformer implements Contenido{
     public abstract boolean puedoAtacar(Algoformer unAlgoformer);
     
     public void recibirDanio(int danio){
-        this.puntosDeVida = this.puntosDeVida - danio;
+        this.puntosDeVida = this.puntosDeVida - (modificadores.afectarDanioRecibido(danio));
     }
     
     public void atacadoPor(Algoformer unAlgoformer){
         if (unAlgoformer.puedoAtacar(this)){
             this.posicion.controlarRango(unAlgoformer.getPosicion(), unAlgoformer.getDistanciaDeAtaque());
-            this.recibirDanio(unAlgoformer.getAtaque());
+            this.recibirDanio(unAlgoformer.modificadores.afectarAtaquePorCanion(unAlgoformer.getAtaque()));
         }
         else if (unAlgoformer == this){
             unAlgoformer.transformar();
@@ -85,7 +95,9 @@ public abstract class Algoformer implements Contenido{
     public int puntosDeVida(){
         return this.puntosDeVida;
     }
+   
     
+    //Mover a Posicion
     private Posicion calcularSiguientePosicion(Posicion posicionNueva){
     	int siguienteFila = this.posicion.getFila();
     	int siguienteColumna = this.posicion.getColumna();
@@ -104,26 +116,43 @@ public abstract class Algoformer implements Contenido{
     }
     
     
+    public void agregarBuff(Contenido unBonus){
+    	this.modificadores.agregarBuff(unBonus);
+    }
+    
+    public void agregarDebuff(Debuff unDebuff){
+    	this.modificadores.agregarDebuff(unDebuff);
+    }
+    
     public void moverAlgoformer(int fila, int columna){
-    	if (turnosAtrapadoEnNebulosa != 0) {
-    		turnosAtrapadoEnNebulosa --;
-    		return;
-    	}
     	Posicion posicionNueva = new Posicion(fila, columna);
-        int pasos = this.posicion.controlarRango(posicionNueva, this.velocidad());
+        int pasos = this.posicion.controlarRango(posicionNueva, this.modificadores.afectarVelocidad(velocidadDeDesplazamiento));
         while ( pasos > 0 ){
         	Posicion siguientePosicion = this.calcularSiguientePosicion(posicionNueva);
         	Celda celda = Tablero.getTablero().fila(fila).columna(columna);
         	Tablero.getTablero().sacarAlgoformer(this.posicion);
         	Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(siguientePosicion.getFila(), siguientePosicion.getColumna(), this);
-        	try {
-        		estado.atravesarTerreno(celda, this);
-        	} catch (AtrapadoEnNebulosaException e) {
-        		turnosAtrapadoEnNebulosa = 3;
-        		break;
-        	}
-        	pasos = pasos - 1;
+        	estado.atravesarTerreno(celda, this);
+        	pasos = modificadores.afectarPasos(pasos);
+        	pasos--;
         }
     }
+
+	public void bajarTemporales() {
+		modificadores.bajarTemporales();
+	}
     
+	public boolean afectadoPorBuff(Buff unBuff){
+		return(modificadores.incluyeBuff(unBuff));
+	}
+	
+	public boolean afectadoPorDebuff(Debuff unDebuff){
+		return(modificadores.incluyeDebuff(unDebuff));
+	}
+	public void sumarPuntosDeVida(ArrayList<Algoformer> listaDeAlgoformers){
+	    for (int i=0; i<listaDeAlgoformers.size(); i++){
+	        this.puntosDeVida= puntosDeVida + listaDeAlgoformers.get(i).puntosDeVida();
+	    }
+	}
+	
 }

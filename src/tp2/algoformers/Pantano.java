@@ -11,8 +11,7 @@ public class Pantano extends TerrenoTerrestre {
 
     @Override
     public void afectarVehiculo(Algoformer unAlgoformer) {
-        
+        unAlgoformer.agregarDebuff(new AfectadoPorPantano());
     }
-
 
 }

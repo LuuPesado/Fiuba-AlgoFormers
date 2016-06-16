@@ -38,6 +38,7 @@ public class Tablero {
     public void ubicarAlgoformerEnUnaPosicion(int unaFila, int unaColumna, Algoformer unAlgoformer){
         (( this.fila(unaFila)).columna(unaColumna)).agregarAlgoformer(unAlgoformer);
         unAlgoformer.nuevaPosicion(unaFila, unaColumna);
+        this.fila(unaFila).columna(unaColumna).darBonus(unAlgoformer);
     }
   
 

@@ -11,6 +11,11 @@ public class Vacio implements Contenido{
     public boolean estaOcupado(){
         return false;
     }
+    
+    public boolean esUnBonus(){
+    	return false;
+    }
+    
 
     public void atacadoPor(Algoformer unAlgoformer) {
         unAlgoformer.moverAlgoformer(posicion.getFila(), posicion.getColumna());
@@ -19,5 +24,6 @@ public class Vacio implements Contenido{
     public Posicion getPosicion(){
         return posicion;
     }
+    
     
 }

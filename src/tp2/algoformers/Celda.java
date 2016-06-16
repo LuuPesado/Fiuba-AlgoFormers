@@ -43,6 +43,11 @@ public class Celda {
         this.contenido = new Vacio(posicion.getFila(), posicion.getColumna());
     }
 
+    public void darBonus(Algoformer unAlgoformer){
+    	if ( contenido.esUnBonus() ){
+    		unAlgoformer.agregarBuff(contenido);
+    	}
+    }
     
     public void afectarHumanoide(Algoformer unAlgoformer) {
         terrenoTerrestre.afectarHumanoide(unAlgoformer);

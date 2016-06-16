@@ -7,7 +7,7 @@ public class NebulosaDeAndromeda extends TerrenoAereo {
 
     @Override
     public void afectarVehiculo(Algoformer unAlgoformer) {
-    	throw new AtrapadoEnNebulosaException();
+    	unAlgoformer.agregarDebuff(new AfectadoPorNebulosa());
     }
 
 }

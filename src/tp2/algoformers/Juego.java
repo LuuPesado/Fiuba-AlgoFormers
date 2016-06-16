@@ -8,10 +8,10 @@ public class Juego {
     public ArrayList<Algoformer> autobots;
     public ArrayList<Algoformer> decepticons;
     public ChispaSuprema chispaSuprema;
-    public int turno;
+    public Turno turno;
     
     public Juego(Jugador jugadorAutobots, Jugador jugadorDecepticons){
-    	this.turno = 1;
+    	this.turno = new Turno(jugadorAutobots, jugadorDecepticons, chispaSuprema);
         this.jugadorAutobots = jugadorAutobots;
         this.jugadorDecepticons = jugadorDecepticons;
         this.autobots = new ArrayList();
@@ -64,17 +64,9 @@ public class Juego {
     }
     
     public void jugar(int numeroDeAlgoformer, Posicion posicion) {
-    	//int numeroDeTurno = 1;
-    	//boolean hayGanador = false;
-    	//Turno turno = new Turno(this.jugadorAutobots);
-    	//while (!hayGanador){
-            if ( turno == 1){
-                this.jugadorAutobots.jugar(numeroDeAlgoformer, posicion);
-                turno = 2;
-            } else {
-                this.jugadorDecepticons.jugar(numeroDeAlgoformer, posicion);
-                turno = 1;
-            }
-    	//}
+        //while (!hayGanador){
+    		turno.jugadorActual().jugar(numeroDeAlgoformer, posicion);
+    		turno.bajarTemporales();
+        //}
     }
 }

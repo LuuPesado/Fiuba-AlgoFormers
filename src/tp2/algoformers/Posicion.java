@@ -43,4 +43,8 @@ public class Posicion {
         esIgual = ((esIgual) && (posicion.getColumna()== this.columna));
         return esIgual;
     }
+    
+    
+    
+    
  }
