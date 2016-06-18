@@ -30,9 +30,9 @@ public class Celda {
     
     public void agregarAlgoformer(Algoformer unAlgoformer){
         if (!(this.estaOcupada())){
-    		contenido = unAlgoformer;
-    		this.darBuff(unAlgoformer);
-        } else {
+        	this.darBuff(unAlgoformer);
+        	contenido = unAlgoformer;
+    	} else {
         	throw new LaCeldaYaTieneUnAlgoformer();
         }
     }
