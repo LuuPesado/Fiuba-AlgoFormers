@@ -1,7 +1,5 @@
 package tp2.algoformers;
 
-import java.util.ArrayList;
-
 public class Menasor extends Decepticon {
     
 	   public Menasor(){

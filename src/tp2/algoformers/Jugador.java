@@ -9,7 +9,7 @@ public class Jugador {
     private Algoformer fusion;
    
     public Jugador(String unNombre, Algoformer unaFusion){
-        this.nombre = unNombre;
+        this.setNombre(unNombre);
         this.fusion = unaFusion;
     }
     
@@ -18,12 +18,12 @@ public class Jugador {
     }
 
     public Algoformer elegirAlgoformer(int numeroDeAlgoformer) {
-        //Después en vez de enviarla como parametro se va a elegir mediante la interfaz grafica
+        //Despues en vez de enviarla como parametro se va a elegir mediante la interfaz grafica
         return algoformers.get(numeroDeAlgoformer);
     }  
     
     private Posicion elegirPosicion(Posicion unaPosicion) {
-        //Después en vez de enviarla como parametro se va a elegir mediante la interfaz grafica
+        //Despues en vez de enviarla como parametro se va a elegir mediante la interfaz grafica
         return unaPosicion;
     }
     
@@ -102,6 +102,14 @@ public class Jugador {
 		algoformers.remove(2);
 		algoformers.add(this.fusion);
 		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(unAlgoformer.getPosicion().getFila(),unAlgoformer.getPosicion().getColumna(), fusion);
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 }

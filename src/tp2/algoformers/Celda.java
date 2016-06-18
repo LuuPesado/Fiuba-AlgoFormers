@@ -1,8 +1,5 @@
 package tp2.algoformers;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 public class Celda {
     
     private Contenido contenido;
@@ -34,6 +31,7 @@ public class Celda {
     public void agregarAlgoformer(Algoformer unAlgoformer){
         if (!(this.estaOcupada())){
     		contenido = unAlgoformer;
+    		this.darBuff(unAlgoformer);
         } else {
         	throw new LaCeldaYaTieneUnAlgoformer();
         }
@@ -43,8 +41,8 @@ public class Celda {
         this.contenido = new Vacio(posicion.getFila(), posicion.getColumna());
     }
 
-    public void darBonus(Algoformer unAlgoformer){
-    	if ( contenido.esUnBonus() ){
+    public void darBuff(Algoformer unAlgoformer){
+    	if ( contenido.esUnBuff() ){
     		unAlgoformer.agregarBuff(contenido);
     	}
     }
@@ -60,5 +58,12 @@ public class Celda {
     void afectarVehiculoTerrestre(Algoformer unAlgoformer) {
          terrenoTerrestre.afectarVehiculo(unAlgoformer);
     }
+
+	public void agregarBuff(Buff unBuff) {
+		if (!this.estaOcupada()){
+			this.contenido = unBuff;
+		}
+		
+	}
     
 }

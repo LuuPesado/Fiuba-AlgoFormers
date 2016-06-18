@@ -23,7 +23,7 @@ public abstract class Algoformer implements Contenido{
     	return modificadores;
     }
     
-    public boolean esUnBonus(){
+    public boolean esUnBuff(){
     	return false;
     }
     
@@ -83,7 +83,7 @@ public abstract class Algoformer implements Contenido{
     public void atacadoPor(Algoformer unAlgoformer){
         if (unAlgoformer.puedoAtacar(this)){
             this.posicion.controlarRango(unAlgoformer.getPosicion(), unAlgoformer.getDistanciaDeAtaque());
-            this.recibirDanio(unAlgoformer.modificadores.afectarAtaquePorCanion(unAlgoformer.getAtaque()));
+            this.recibirDanio(unAlgoformer.getModificadores().afectarAtaquePorCanion(unAlgoformer.getAtaque()));
         }
         else if (unAlgoformer == this){
             unAlgoformer.transformar();
@@ -116,8 +116,8 @@ public abstract class Algoformer implements Contenido{
     }
     
     
-    public void agregarBuff(Contenido unBonus){
-    	this.modificadores.agregarBuff(unBonus);
+    public void agregarBuff(Contenido unBuff){
+    	this.modificadores.agregarBuff(unBuff);
     }
     
     public void agregarDebuff(Debuff unDebuff){
@@ -143,12 +143,13 @@ public abstract class Algoformer implements Contenido{
 	}
     
 	public boolean afectadoPorBuff(Buff unBuff){
-		return(modificadores.incluyeBuff(unBuff));
+		return (this.modificadores.incluyeBuff(unBuff));
 	}
 	
 	public boolean afectadoPorDebuff(Debuff unDebuff){
-		return(modificadores.incluyeDebuff(unDebuff));
+		return (this.modificadores.incluyeDebuff(unDebuff));
 	}
+	
 	public void sumarPuntosDeVida(ArrayList<Algoformer> listaDeAlgoformers){
 	    for (int i=0; i<listaDeAlgoformers.size(); i++){
 	        this.puntosDeVida= puntosDeVida + listaDeAlgoformers.get(i).puntosDeVida();

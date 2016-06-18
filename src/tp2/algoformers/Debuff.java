@@ -2,10 +2,18 @@ package tp2.algoformers;
 
 public abstract class Debuff {
 	
-	public int duracion;
+	protected int duracion;
+	protected String nombre;
 	
-	public void bajarDuracion(){
-		duracion--;
+	public abstract void bajarDuracion();
+	
+	public String getNombre(){
+		return nombre;
+	}
+	
+	@Override
+	public boolean equals(Object unDebuff){
+		return ((Debuff) unDebuff).getNombre() == this.nombre;
 	}
 
 }

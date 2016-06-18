@@ -95,19 +95,9 @@ public class AlgoformerTest {
     
     @Test
     public void test08CuandoUnAlgoformerSeAtacaASiMismoSeTransforma(){
-        Tablero tablero = Tablero.getTablero();
         Algoformer unAlgoformer = new Ratchet();
         unAlgoformer.atacadoPor(unAlgoformer);
-        Assert.assertTrue(unAlgoformer.velocidad()== 8);
+        Assert.assertTrue(unAlgoformer.getVelocidad()== 8);
     }
     
-    @Test
-    public void test09moverEnDiagonal(){
-    	Algoformer optimus = new OptimusPrime();
-    	Tablero tablero = Tablero.getTablero();
-    	tablero.ubicarAlgoformerEnUnaPosicion(1,1,optimus);
-    	optimus.moverAlgoformer(3, 3);
-    	Posicion posicionDeDestino = new Posicion(3,3);
-        Assert.assertTrue(optimus.getPosicion().equals(posicionDeDestino));	
-    }
 }

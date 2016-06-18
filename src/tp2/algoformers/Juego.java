@@ -14,8 +14,8 @@ public class Juego {
     	this.turno = new Turno(jugadorAutobots, jugadorDecepticons, chispaSuprema);
         this.jugadorAutobots = jugadorAutobots;
         this.jugadorDecepticons = jugadorDecepticons;
-        this.autobots = new ArrayList();
-        this.decepticons = new ArrayList();
+        this.autobots = new ArrayList<Algoformer>();
+        this.decepticons = new ArrayList<Algoformer>();
         autobots.add(new OptimusPrime());
         autobots.add(new Bumblebee());
         autobots.add(new Ratchet());

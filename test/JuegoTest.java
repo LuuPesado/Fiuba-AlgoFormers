@@ -4,10 +4,9 @@ import org.junit.BeforeClass;
 import tp2.algoformers.FueraDeRangoException;
 import tp2.algoformers.Juego;
 import tp2.algoformers.Jugador;
+import tp2.algoformers.Menasor;
 import tp2.algoformers.Posicion;
-import tp2.algoformers.Rocosa;
-import tp2.algoformers.Tablero;
-import tp2.algoformers.TerrenoTerrestre;
+import tp2.algoformers.Superion;
 
 public class JuegoTest {
     
@@ -17,8 +16,10 @@ public class JuegoTest {
     
     @BeforeClass
     public static void setUpBeforeClass(){
-       jugador1 = new Jugador("Martin");
-       jugador2 = new Jugador("Lucia");
+       Superion superion = new Superion();
+       Menasor menasor = new Menasor();
+       jugador1 = new Jugador("Martin",superion);
+       jugador2 = new Jugador("Lucia",menasor);
        juego = new Juego(jugador1,jugador2);
        juego.crearTablero(); 
     }

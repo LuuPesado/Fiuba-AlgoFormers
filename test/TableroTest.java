@@ -8,7 +8,7 @@ import tp2.algoformers.Megatron;
 import tp2.algoformers.OptimusPrime;
 import tp2.algoformers.Posicion;
 import tp2.algoformers.Ratchet;
-import tp2.algoformers.Vacio;
+
 
 public class TableroTest {
     

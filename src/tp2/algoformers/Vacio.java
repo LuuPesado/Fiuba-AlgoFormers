@@ -12,7 +12,7 @@ public class Vacio implements Contenido{
         return false;
     }
     
-    public boolean esUnBonus(){
+    public boolean esUnBuff(){
     	return false;
     }
     

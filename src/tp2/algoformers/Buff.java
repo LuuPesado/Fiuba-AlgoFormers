@@ -3,14 +3,15 @@ package tp2.algoformers;
 public class Buff implements Contenido{
 
 	
-	public Posicion posicion;
-	public int duracion;
+	protected Posicion posicion;
+	protected int duracion;
+	protected String nombre;
 	    
 	public Buff(int fila, int columna) {
 		posicion = new Posicion(fila, columna);
 	}
 	
-	public boolean esUnBonus(){
+	public boolean esUnBuff(){
     	return true;
     }
 
@@ -32,4 +33,13 @@ public class Buff implements Contenido{
 	public void bajarDuracion(){
 		duracion--;
 	}
+	
+	public String getNombre(){
+		return this.nombre;
+	}
+	
+	public boolean equals(Object unBuff){
+		return ((Buff) unBuff).getNombre() == this.nombre;
+	}
+	
 }

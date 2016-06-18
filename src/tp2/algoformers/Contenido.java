@@ -8,6 +8,6 @@ public interface Contenido {
     
     public Posicion getPosicion();
 
-	public boolean esUnBonus();
+	public boolean esUnBuff();
 	
 }

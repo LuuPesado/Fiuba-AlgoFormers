@@ -9,8 +9,8 @@ public class Modificadores {
 
 	
 	public Modificadores(){
-		buffs = new ArrayList();
-		debuffs = new ArrayList();
+		buffs = new ArrayList<Contenido>();
+		debuffs = new ArrayList<Debuff>();
 	}
 	
 	public void agregarBuff(Contenido unBuff){
@@ -48,7 +48,7 @@ public class Modificadores {
 	
 	public int afectarAtaquePorCanion(int ataque) {
 		if ( this.buffs.contains(new DobleCanion(0,0)) ){
-			return ataque*2;
+			return new DobleCanion(0,0).afectarAtaque(ataque);
 		} else {
 			return ataque;
 		}
@@ -56,7 +56,7 @@ public class Modificadores {
 	
 	public int afectarDanioRecibido(int danio){
 		if (this.buffs.contains(new BurbujaInmaculada(0,0))){
-			return 0;
+			return new BurbujaInmaculada(0,0).afectarDanio();
 		} else {
 			return danio;
 		}
@@ -64,7 +64,7 @@ public class Modificadores {
 	
 	public int afectarVelocidad(int velocidad){
 		if (this.buffs.contains(new Flash(0,0))){
-			return velocidad*3;
+			return new Flash(0,0).afectarVelocidad(velocidad);
 		} else {
 			return velocidad;
 		}
@@ -107,6 +107,6 @@ public class Modificadores {
 	}
 	
 	public boolean incluyeBuff(Buff unBuff){
-		return (this.debuffs.contains(unBuff));
+		return (this.buffs.contains(unBuff));
 	}
 }

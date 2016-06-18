@@ -5,6 +5,7 @@ public class AfectadoPorPantano extends Debuff{
 	
 	public AfectadoPorPantano(){
 		duracion = 1;
+		nombre = "Pantano";
 	}
 	
 	
@@ -12,7 +13,9 @@ public class AfectadoPorPantano extends Debuff{
 		return pasos--;
 	}
 
-	
+	public void bajarDuracion(){
+		duracion--;
+	}
 	
 	
 }
