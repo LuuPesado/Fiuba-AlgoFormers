@@ -1,13 +1,13 @@
-import tp2.algoformers.Algoformer;
-import tp2.algoformers.Tablero;
+import tp2.algoformers.modelo.Algoformer;
+import tp2.algoformers.modelo.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
-import tp2.algoformers.Contenido;
-import tp2.algoformers.FueraDeRangoException;
-import tp2.algoformers.Megatron;
-import tp2.algoformers.OptimusPrime;
-import tp2.algoformers.Posicion;
-import tp2.algoformers.Ratchet;
+import tp2.algoformers.modelo.Contenido;
+import tp2.algoformers.modelo.FueraDeRangoException;
+import tp2.algoformers.modelo.Megatron;
+import tp2.algoformers.modelo.OptimusPrime;
+import tp2.algoformers.modelo.Posicion;
+import tp2.algoformers.modelo.Ratchet;
 
 
 public class TableroTest {

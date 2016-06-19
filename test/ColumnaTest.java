@@ -1,4 +1,4 @@
-import tp2.algoformers.Columna;
+import tp2.algoformers.modelo.Columna;
 import org.junit.Test;
 import org.junit.Assert;
 

@@ -1,17 +1,16 @@
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import junit.framework.Assert;
-import tp2.algoformers.Algoformer;
-import tp2.algoformers.Buff;
-import tp2.algoformers.BurbujaInmaculada;
-import tp2.algoformers.Contenido;
-import tp2.algoformers.DobleCanion;
-import tp2.algoformers.Flash;
-import tp2.algoformers.Megatron;
-import tp2.algoformers.OptimusPrime;
-import tp2.algoformers.Tablero;
+import tp2.algoformers.modelo.Algoformer;
+import tp2.algoformers.modelo.Buff;
+import tp2.algoformers.modelo.BurbujaInmaculada;
+import tp2.algoformers.modelo.Contenido;
+import tp2.algoformers.modelo.DobleCanion;
+import tp2.algoformers.modelo.Flash;
+import tp2.algoformers.modelo.Megatron;
+import tp2.algoformers.modelo.OptimusPrime;
+import tp2.algoformers.modelo.Tablero;
 
 public class BonusTest {
 	
@@ -47,7 +46,7 @@ public class BonusTest {
 	}
 	
 	@Test 
-	public void test01elDobleCanionDuplicaElDanioDeUnAlgoformer(){
+	public void test02elDobleCanionDuplicaElDanioDeUnAlgoformer(){
 		Tablero.getTablero().ubicarBuff(dobleCanion,46,48);
 		Algoformer optimus = new OptimusPrime();
 		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(46, 47, optimus);
@@ -60,7 +59,7 @@ public class BonusTest {
 	}
 	
 	@Test
-	public void test02laBurbujaEvitaTodoElDaño(){
+	public void test03laBurbujaEvitaTodoElDaño(){
 		Tablero.getTablero().ubicarBuff(burbujaInmaculada, 47, 46);
 		Algoformer optimus = new OptimusPrime();
 		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(47, 45, optimus);
@@ -70,7 +69,7 @@ public class BonusTest {
 	}
 	
 	@Test
-	public void test03FlashPermiteAOptimusMoverseElTripleDeRapido(){
+	public void test04FlashPermiteAOptimusMoverseElTripleDeRapido(){
 		Tablero.getTablero().ubicarBuff(flash, 48, 46);
 		Algoformer optimus = new OptimusPrime();
 		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(48, 45, optimus);
@@ -81,7 +80,7 @@ public class BonusTest {
 	}
 
 	@Test
-	public void test04FlashPermiteAOptimusMoverseMasRapidoEnModoVehiculo(){
+	public void test05FlashPermiteAOptimusMoverseMasRapidoEnModoVehiculo(){
 		Tablero.getTablero().ubicarBuff(flash, 49, 46);
 		Algoformer optimus = new OptimusPrime();
 		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(49, 45, optimus);

@@ -1,10 +1,10 @@
-import tp2.algoformers.Algoformer;
-import tp2.algoformers.Celda;
+import tp2.algoformers.modelo.Algoformer;
+import tp2.algoformers.modelo.Celda;
 import org.junit.Test;
 import org.junit.Assert;
-import tp2.algoformers.LaCeldaYaTieneUnAlgoformer;
-import tp2.algoformers.Megatron;
-import tp2.algoformers.OptimusPrime;
+import tp2.algoformers.modelo.LaCeldaYaTieneUnAlgoformer;
+import tp2.algoformers.modelo.Megatron;
+import tp2.algoformers.modelo.OptimusPrime;
 
 public class CeldaTest {
     

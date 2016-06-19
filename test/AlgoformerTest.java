@@ -1,17 +1,17 @@
 import org.junit.Assert;
 import org.junit.Test;
-import tp2.algoformers.Algoformer;
-import tp2.algoformers.Bonecrusher;
-import tp2.algoformers.FueraDeRangoException;
-import tp2.algoformers.Humanoide;
-import tp2.algoformers.Megatron;
-import tp2.algoformers.NoPuedoAtacarUnCompanieroException;
-import tp2.algoformers.OptimusPrime;
-import tp2.algoformers.Posicion;
-import tp2.algoformers.Ratchet;
-import tp2.algoformers.Tablero;
-import tp2.algoformers.Vehiculo;
-import tp2.algoformers.VehiculoTerrestre;
+import tp2.algoformers.modelo.Algoformer;
+import tp2.algoformers.modelo.Bonecrusher;
+import tp2.algoformers.modelo.FueraDeRangoException;
+import tp2.algoformers.modelo.Humanoide;
+import tp2.algoformers.modelo.Megatron;
+import tp2.algoformers.modelo.NoPuedoAtacarUnCompanieroException;
+import tp2.algoformers.modelo.OptimusPrime;
+import tp2.algoformers.modelo.Posicion;
+import tp2.algoformers.modelo.Ratchet;
+import tp2.algoformers.modelo.Tablero;
+import tp2.algoformers.modelo.Vehiculo;
+import tp2.algoformers.modelo.VehiculoTerrestre;
 
 public class AlgoformerTest {
     

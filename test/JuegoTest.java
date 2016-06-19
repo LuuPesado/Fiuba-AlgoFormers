@@ -1,12 +1,12 @@
 import org.junit.Test;
 import org.junit.Assert;
 import org.junit.BeforeClass;
-import tp2.algoformers.FueraDeRangoException;
-import tp2.algoformers.Juego;
-import tp2.algoformers.Jugador;
-import tp2.algoformers.Menasor;
-import tp2.algoformers.Posicion;
-import tp2.algoformers.Superion;
+import tp2.algoformers.modelo.FueraDeRangoException;
+import tp2.algoformers.modelo.Juego;
+import tp2.algoformers.modelo.Jugador;
+import tp2.algoformers.modelo.Menasor;
+import tp2.algoformers.modelo.Posicion;
+import tp2.algoformers.modelo.Superion;
 
 public class JuegoTest {
     

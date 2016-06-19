@@ -1,20 +1,20 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import tp2.algoformers.Algoformer;
-import tp2.algoformers.Espinas;
-import tp2.algoformers.Megatron;
-import tp2.algoformers.NebulosaDeAndromeda;
-import tp2.algoformers.Nube;
-import tp2.algoformers.OptimusPrime;
-import tp2.algoformers.Pantano;
-import tp2.algoformers.Posicion;
-import tp2.algoformers.Rocosa;
-import tp2.algoformers.Tablero;
-import tp2.algoformers.TerrenoAereo;
-import tp2.algoformers.TerrenoTerrestre;
-import tp2.algoformers.TormentaPsionica;
-import tp2.algoformers.UnHumanoideNoPuedeCruzarUnPantano;
+import tp2.algoformers.modelo.Algoformer;
+import tp2.algoformers.modelo.Espinas;
+import tp2.algoformers.modelo.Megatron;
+import tp2.algoformers.modelo.NebulosaDeAndromeda;
+import tp2.algoformers.modelo.Nube;
+import tp2.algoformers.modelo.OptimusPrime;
+import tp2.algoformers.modelo.Pantano;
+import tp2.algoformers.modelo.Posicion;
+import tp2.algoformers.modelo.Rocosa;
+import tp2.algoformers.modelo.Tablero;
+import tp2.algoformers.modelo.TerrenoAereo;
+import tp2.algoformers.modelo.TerrenoTerrestre;
+import tp2.algoformers.modelo.TormentaPsionica;
+import tp2.algoformers.modelo.UnHumanoideNoPuedeCruzarUnPantano;
 
 public class TerrenoTest {
 
@@ -53,7 +53,7 @@ public class TerrenoTest {
 		megatron.transformar();
 		megatron.moverAlgoformer(21, 15);
 		Assert.assertTrue(megatron.getPosicion().getFila() == 21);
-        Assert.assertTrue(megatron.getPosicion().getColumna() == 13);
+        Assert.assertTrue(megatron.getPosicion().getColumna() == 15);
 	}
 	
 	@Test 

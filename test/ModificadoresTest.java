@@ -4,15 +4,15 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import junit.framework.Assert;
-import tp2.algoformers.AfectadoPorNebulosa;
-import tp2.algoformers.AfectadoPorPantano;
-import tp2.algoformers.AfectadoPorTormenta;
-import tp2.algoformers.Buff;
-import tp2.algoformers.BurbujaInmaculada;
-import tp2.algoformers.Debuff;
-import tp2.algoformers.DobleCanion;
-import tp2.algoformers.Flash;
-import tp2.algoformers.Modificadores;
+import tp2.algoformers.modelo.AfectadoPorNebulosa;
+import tp2.algoformers.modelo.AfectadoPorPantano;
+import tp2.algoformers.modelo.AfectadoPorTormenta;
+import tp2.algoformers.modelo.Buff;
+import tp2.algoformers.modelo.BurbujaInmaculada;
+import tp2.algoformers.modelo.Debuff;
+import tp2.algoformers.modelo.DobleCanion;
+import tp2.algoformers.modelo.Flash;
+import tp2.algoformers.modelo.Modificadores;
 
 public class ModificadoresTest {
 	
