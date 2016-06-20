@@ -18,6 +18,12 @@ public abstract class Algoformer implements Contenido{
         posicion = new Posicion(1,1);
         modificadores = new Modificadores();
     }
+    public void setNombre(String unNombre){
+    	nombre = unNombre;
+    }
+    public String getNombre(){
+    	return nombre;
+    }
     
     public Modificadores getModificadores(){
     	return modificadores;
