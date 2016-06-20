@@ -22,9 +22,7 @@ public class JuegoTest {
        jugador2 = new Jugador("Lucia",menasor);
        juego = new Juego(jugador1,jugador2);
        juego.crearTablero(); 
-    }
-   
-    //todos funcionan bien si se los corre solos por separado    
+    }    
     
     @Test
     public void test01MoverAlgoformerEnTurno(){
@@ -33,6 +31,11 @@ public class JuegoTest {
        juego.jugar(0, posicion);
        Assert.assertTrue(juego.devolverAutobot(0).getPosicion().getFila() == 2);
        Assert.assertTrue(juego.devolverAutobot(0).getPosicion().getColumna() == 2);
+       //muevo el decepticon 2 ubicado en (100,99) a la posicion (99,99)
+       posicion = new Posicion(99,99);
+       juego.jugar(2, posicion);
+       Assert.assertTrue(juego.devolverDecepticon(2).getPosicion().getFila() == 99);
+       Assert.assertTrue(juego.devolverDecepticon(2).getPosicion().getColumna() == 99);
     }
    
     @Test
@@ -41,13 +44,18 @@ public class JuegoTest {
     	Posicion posicion = new Posicion(2,1);
     	juego.jugar(1, posicion);
     	//turno de los decepticons, muevo el decepticon 0
-    	Posicion posicion2 = new Posicion(99, 99);
-    	juego.jugar(0, posicion2);
+    	posicion = new Posicion(99, 99);
+    	juego.jugar(0, posicion);
     	//mover autobot 1 a posicion (7,1) (no posible en modo humanoide)
-    	Posicion posicion1 = new Posicion(7,1);
-    	juego.jugar(1, posicion1);
+    	posicion = new Posicion(7,1);
+    	juego.jugar(1, posicion);
         Assert.assertTrue(juego.devolverAutobot(1).getPosicion().getFila() == 7);
         Assert.assertTrue(juego.devolverAutobot(1).getPosicion().getColumna() == 1);
+        //turno de los decepticons, muevo el decepticon 0
+    	posicion = new Posicion(98, 98);
+    	juego.jugar(0, posicion);
+    	Assert.assertTrue(juego.devolverDecepticon(0).getPosicion().getFila() == 98);
+        Assert.assertTrue(juego.devolverDecepticon(0).getPosicion().getColumna() == 98);
     }
     
     @Test(expected=FueraDeRangoException.class)
@@ -55,9 +63,9 @@ public class JuegoTest {
     	//muevo el autobot 2 ubicado en (1,2) a la posicion (1,3)
         Posicion posicion = new Posicion(1,3);
         juego.jugar(2, posicion);
-        //el decepticon 0 ataca al autobot 2 en la posicion (1,3) que es fuera de rango
-    	Posicion posicion1 = new Posicion(1,3);
-    	juego.jugar(0, posicion1);
+        //el decepticon 1 ataca al autobot 2 en la posicion (1,3) que es fuera de rango
+    	posicion = new Posicion(1,3);
+    	juego.jugar(1, posicion);
     }
     
 }

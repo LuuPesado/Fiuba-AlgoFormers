@@ -23,7 +23,6 @@ public class Celda {
     	this.terrenoAereo = unTerreno;
     }
     
-    
     public boolean estaOcupada(){
         return contenido.estaOcupado();
     }

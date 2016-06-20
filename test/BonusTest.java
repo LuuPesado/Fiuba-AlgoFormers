@@ -1,7 +1,6 @@
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import junit.framework.Assert;
 import tp2.algoformers.modelo.Algoformer;
 import tp2.algoformers.modelo.Buff;
 import tp2.algoformers.modelo.BurbujaInmaculada;
@@ -55,7 +54,7 @@ public class BonusTest {
 		optimus.moverAlgoformer(46,48);
 		optimus.afectadoPorBuff(new DobleCanion(0,0));
 		megatron.atacadoPor(optimus);
-		Assert.assertTrue(megatron.puntosDeVida() == 400 );
+		Assert.assertTrue(megatron.puntosDeVida() == 400);
 	}
 	
 	@Test

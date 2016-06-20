@@ -8,4 +8,6 @@ public abstract class TerrenoTerrestre {
 
     public abstract void afectarHumanoide(Algoformer unAlgoformer);
     
+    public abstract String getDireccionDeImagen();
+    
 }

@@ -1,10 +1,8 @@
 package tp2.algoformers.vista;
 
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
@@ -15,7 +13,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import tp2.algoformers.modelo.Algoformer;
-import tp2.algoformers.modelo.OptimusPrime;
 
 public class ContenedorAlgoformer extends BorderPane {
 
@@ -49,7 +46,7 @@ public class ContenedorAlgoformer extends BorderPane {
         distanciaDeAtaque.setTextFill(Color.BLUE);
         
         Label velocidadDeDesplazamiento = new Label();
-        velocidadDeDesplazamiento.setText("Velocidad =" + unAlgoformer.getVelocidad());
+        velocidadDeDesplazamiento.setText("Velocidad = " + unAlgoformer.getVelocidad());
         velocidadDeDesplazamiento.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 14));
         velocidadDeDesplazamiento.setTextFill(Color.BLUE);
 		

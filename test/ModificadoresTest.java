@@ -1,9 +1,6 @@
-import static org.junit.Assert.*;
-
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import junit.framework.Assert;
 import tp2.algoformers.modelo.AfectadoPorNebulosa;
 import tp2.algoformers.modelo.AfectadoPorPantano;
 import tp2.algoformers.modelo.AfectadoPorTormenta;

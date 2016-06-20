@@ -2,12 +2,10 @@ package tp2.algoformers.modelo;
 
 public class Tablero {
     
-    
     public Fila filas[];
     private static final int CANTIDAD_COLUMNAS = 100;
     private static final int CANTIDAD_FILAS = 100;
     private static Tablero instance = null;
-    
     
     private Tablero(){
         filas = new Fila[CANTIDAD_FILAS];
@@ -23,7 +21,7 @@ public class Tablero {
     		}
     	}
     }
-
+    
     public static Tablero getTablero(){
        if (Tablero.instance == null){
            Tablero.instance = new Tablero();
@@ -39,7 +37,6 @@ public class Tablero {
         (( this.fila(unaFila)).columna(unaColumna)).agregarAlgoformer(unAlgoformer);
         unAlgoformer.nuevaPosicion(unaFila, unaColumna);
     }
-  
 
     public void sacarAlgoformer(Posicion posicionActual) {
         (( this.fila(posicionActual.getFila())).columna(posicionActual.getColumna())).quitarAlgoformer();

@@ -11,8 +11,11 @@ import tp2.algoformers.modelo.Bonecrusher;
 import tp2.algoformers.modelo.Bumblebee;
 import tp2.algoformers.modelo.Frenzy;
 import tp2.algoformers.modelo.Megatron;
+import tp2.algoformers.modelo.Nube;
 import tp2.algoformers.modelo.OptimusPrime;
 import tp2.algoformers.modelo.Ratchet;
+import tp2.algoformers.modelo.Rocosa;
+import tp2.algoformers.modelo.Tablero;
 import tp2.algoformers.vista.BarraDeMenu;
 
 import javafx.geometry.Insets;
@@ -26,12 +29,14 @@ public class NuestroContenedorPrincipal extends BorderPane {
 	 public NuestroContenedorPrincipal(Stage stage){
 		 this.setMenu(stage);
 		 this.setJugador1();
+		 this.setTablero();
 	 }
 	
 	 private void setMenu(Stage stage) {
 	    this.menuBar = new BarraDeMenu(stage);
 	    this.setTop(menuBar);
 	}
+	 
 	 private void setJugador1(){
 		 
 		 Label nombreJugador1 = new Label();
@@ -76,6 +81,18 @@ public class NuestroContenedorPrincipal extends BorderPane {
 	     contenedorVertical2.setPadding(new Insets(15));
 	     
 	     this.setRight(contenedorVertical2);
+	 }
+	 
+	 private void setTablero(){
+		 Tablero tablero = Tablero.getTablero();
+		 Rocosa rocosa = new Rocosa();
+		 Nube nube = new Nube();
+		 ContenedorTablero contenedorTablero = new ContenedorTablero(tablero, rocosa, nube);
+		 
+		 VBox contenedorVertical = new VBox(contenedorTablero);
+	     contenedorVertical.setSpacing(10);
+	     contenedorVertical.setPadding(new Insets(15));
+	     this.setCenter(contenedorVertical);
 	 }
 	
 }
