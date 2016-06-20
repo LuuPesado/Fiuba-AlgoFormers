@@ -8,6 +8,7 @@ public class Megatron extends Decepticon {
        this.ataque = 10;
        this.distanciaDeAtaque = 3;
        this.velocidadDeDesplazamiento = 1; 
+       this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/Megatron.jpg");
    }
     
    public void transformar(){

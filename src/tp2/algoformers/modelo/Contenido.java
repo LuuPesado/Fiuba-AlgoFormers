@@ -10,4 +10,8 @@ public interface Contenido {
 
 	public boolean esUnBuff();
 	
+	public void setDireccionDeImagen(String unaDireccion);
+	
+	public String getDireccionDeImagen();
+	
 }

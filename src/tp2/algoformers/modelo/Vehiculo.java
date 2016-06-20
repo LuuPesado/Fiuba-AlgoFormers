@@ -8,6 +8,7 @@ public abstract class Vehiculo implements Estado {
         algoformer.setAtaque(50);
         algoformer.setDistanciaDeAtaque(2);
         algoformer.setVelocidadDeDesplazamiento(2);
+        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/optimusPrime.jpg");
         return new Humanoide();
     }
 
@@ -17,6 +18,7 @@ public abstract class Vehiculo implements Estado {
         algoformer.setAtaque(40);
         algoformer.setDistanciaDeAtaque(1);
         algoformer.setVelocidadDeDesplazamiento(2);
+        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/bumblebee.jpg");
         return new Humanoide();
     }
 
@@ -25,6 +27,7 @@ public abstract class Vehiculo implements Estado {
         algoformer.setAtaque(30);
         algoformer.setDistanciaDeAtaque(3);
         algoformer.setVelocidadDeDesplazamiento(1);
+        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/bonecrusher.jpg");
         return new Humanoide();
     }
 
@@ -33,6 +36,7 @@ public abstract class Vehiculo implements Estado {
        algoformer.setAtaque(10);
         algoformer.setDistanciaDeAtaque(5);
         algoformer.setVelocidadDeDesplazamiento(2);
+        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/frenzy.jpg");
         return new Humanoide();
     }
 
@@ -41,6 +45,7 @@ public abstract class Vehiculo implements Estado {
         algoformer.setAtaque(10);
         algoformer.setDistanciaDeAtaque(3);
         algoformer.setVelocidadDeDesplazamiento(1);
+        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/Megatron.jpg");
         return new Humanoide();
     }
     
@@ -49,6 +54,7 @@ public abstract class Vehiculo implements Estado {
         algoformer.setAtaque(5);
         algoformer.setDistanciaDeAtaque(5);
         algoformer.setVelocidadDeDesplazamiento(1);
+        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/ratchet.jpg");
         return new Humanoide();
     }
     

@@ -12,6 +12,8 @@ public abstract class Algoformer implements Contenido{
     protected String nombre;
     protected Posicion posicion;
     protected Modificadores modificadores;
+    protected String direccionDeImagen;
+    
     
     public Algoformer(){
         estado = new Humanoide();
@@ -25,6 +27,17 @@ public abstract class Algoformer implements Contenido{
     	return nombre;
     }
     
+    public void setDireccionDeImagen(String unaDireccion){
+    	direccionDeImagen = unaDireccion;
+    }
+    
+    public String getDireccionDeImagen(){
+    	return direccionDeImagen;
+    }
+    
+    public int getPuntosDeVida(){
+    	return puntosDeVida;
+    }
     public Modificadores getModificadores(){
     	return modificadores;
     }

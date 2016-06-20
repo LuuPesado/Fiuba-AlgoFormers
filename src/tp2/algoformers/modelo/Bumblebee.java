@@ -7,7 +7,8 @@ public class Bumblebee extends Autobot {
        this.puntosDeVida = 350;
        this.ataque = 40;
        this.distanciaDeAtaque = 1;
-       this.velocidadDeDesplazamiento = 2; 
+       this.velocidadDeDesplazamiento = 2;
+       this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/bumblebee.jpg");
    }
     
    public void transformar(){

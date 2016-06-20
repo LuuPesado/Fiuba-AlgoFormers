@@ -8,6 +8,7 @@ public class Bonecrusher extends Decepticon {
        this.ataque = 30;
        this.distanciaDeAtaque = 3;
        this.velocidadDeDesplazamiento = 1; 
+       this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/bonecrusher.jpg");
    }
     
    public void transformar(){

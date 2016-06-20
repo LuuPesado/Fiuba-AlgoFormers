@@ -24,6 +24,18 @@ public class Vacio implements Contenido{
     public Posicion getPosicion(){
         return posicion;
     }
+
+	@Override
+	public void setDireccionDeImagen(String unaDireccion) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getDireccionDeImagen() {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
     
 }
