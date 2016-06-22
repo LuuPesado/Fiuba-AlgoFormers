@@ -3,8 +3,8 @@ package tp2.algoformers.modelo;
 public class Tablero {
     
     public Fila filas[];
-    private static final int CANTIDAD_COLUMNAS = 100;
-    private static final int CANTIDAD_FILAS = 100;
+    private static final int CANTIDAD_COLUMNAS = 19;
+    private static final int CANTIDAD_FILAS = 19;
     private static Tablero instance = null;
     
     private Tablero(){
@@ -12,12 +12,14 @@ public class Tablero {
         for (int i = 0; i<CANTIDAD_FILAS;i++){
             filas[i] = new Fila(i, CANTIDAD_COLUMNAS);
          }
-        TerrenoTerrestre rocoso = new Rocosa();
+        TerrenoTerrestre rocoso = new Pantano();
         TerrenoAereo nube = new Nube();
     	for (int i = 1; i <= CANTIDAD_FILAS; i++){
     		for (int j = 1; j <= CANTIDAD_COLUMNAS; j++){
     			this.fila(i).columna(j).asignarTerrenoTerrestre(rocoso);
     			this.fila(i).columna(j).asignarTerrenoAereo(nube);
+    	
+    		
     		}
     	}
     }

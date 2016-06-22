@@ -2,11 +2,13 @@ package tp2.algoformers.modelo;
 
 public class Vacio implements Contenido{
 	
-    public Posicion posicion;
-    
+    private Posicion posicion;
+    private String direccionDeImagen;
     public Vacio(int fila, int columna) {
         posicion = new Posicion(fila, columna);
+        this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/NubeTablero.png");
     }
+    
     
     public boolean estaOcupado(){
         return false;
@@ -27,14 +29,13 @@ public class Vacio implements Contenido{
 
 	@Override
 	public void setDireccionDeImagen(String unaDireccion) {
-		// TODO Auto-generated method stub
+		direccionDeImagen = unaDireccion;
 		
 	}
 
 	@Override
 	public String getDireccionDeImagen() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.direccionDeImagen;
 	}
     
     

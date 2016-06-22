@@ -22,7 +22,13 @@ public class Celda {
     public void asignarTerrenoAereo(TerrenoAereo unTerreno){
     	this.terrenoAereo = unTerreno;
     }
+    public TerrenoAereo getTerrenoAereo(){
+    	return this.terrenoAereo;
+    }
     
+    public TerrenoTerrestre getTerrenoTerrestre(){
+    	return this.terrenoTerrestre;
+    }
     public boolean estaOcupada(){
         return contenido.estaOcupado();
     }

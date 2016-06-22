@@ -1,6 +1,8 @@
 package tp2.algoformers.modelo;
 
-public class Menasor extends Decepticon {
+import java.util.ArrayList;
+
+public class Menasor extends Decepticon{
     
 	   public Menasor(){
 	       this.nombre = "MENASOR";
@@ -13,5 +15,7 @@ public class Menasor extends Decepticon {
 	   public void transformar(){
 	       throw new FusionNoPuedeTransformarseException(); 
 	   }
+	   
+
 	   
 	}

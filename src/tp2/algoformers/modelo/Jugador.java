@@ -8,13 +8,14 @@ public class Jugador {
     private ArrayList<Algoformer> algoformers;
     private Algoformer fusion;
    
-    public Jugador(String unNombre, Algoformer unaFusion){
+    public Jugador(String unNombre){
         this.setNombre(unNombre);
-        this.fusion = unaFusion;
     }
     
     public void agregarAlgoformers(ArrayList<Algoformer> unaListaDeAlgoformers){
-        algoformers = unaListaDeAlgoformers;
+        this.fusion = unaListaDeAlgoformers.get(unaListaDeAlgoformers.size()-1);
+        unaListaDeAlgoformers.remove(unaListaDeAlgoformers.size()-1);
+        this.algoformers = unaListaDeAlgoformers;
     }
 
     public Algoformer elegirAlgoformer(int numeroDeAlgoformer) {
@@ -36,7 +37,7 @@ public class Jugador {
     public void miTurno(Algoformer algoformer, Posicion posicion){
         Tablero tablero = Tablero.getTablero();
         (tablero.fila(posicion.getFila()).columna(posicion.getColumna()).getContenido()).atacadoPor(algoformer);
-        
+        this.borrarAlgoformersMuertos();
     }
 
     public boolean estanTodosVivos(){
@@ -81,6 +82,17 @@ public class Jugador {
         return enRango;
     }
 
+    public void borrarAlgoformersMuertos(){
+    	int i=0;
+        while (i<algoformers.size()){
+        	if (algoformers.get(i).puntosDeVida()<=0){
+        		algoformers.remove(i);
+        	} else {
+        		i++;
+        	}
+        }
+    }
+    
 	public void bajarTemporales() {
 		for (int i = 0; i<algoformers.size(); i++){
 			algoformers.get(i).bajarTemporales();
@@ -91,17 +103,18 @@ public class Jugador {
 	public boolean puedoFusionar(Algoformer unAlgoformer){
 		return (this.estanTodosVivos() && this.ningunAlgoformerAfectadoPorNebulosa() && this.todosAlgoformersEnRango(unAlgoformer));
 	}
+	
 	public void fusionar(Algoformer unAlgoformer){
 		
 		if (!this.puedoFusionar(unAlgoformer)){
 			throw new NoPuedeFusionarseException();
 		}
 		this.fusion.sumarPuntosDeVida(algoformers);
-		algoformers.remove(0);
-		algoformers.remove(1);
-		algoformers.remove(2);
+		int fila = unAlgoformer.getPosicion().getFila();
+		int columna = unAlgoformer.getPosicion().getColumna();
+		algoformers.remove(unAlgoformer);
 		algoformers.add(this.fusion);
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(unAlgoformer.getPosicion().getFila(),unAlgoformer.getPosicion().getColumna(), fusion);
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(fila, columna, fusion);
 	}
 
 	public String getNombre() {
@@ -112,6 +125,9 @@ public class Jugador {
 		this.nombre = nombre;
 	}
 
+	public ArrayList<Algoformer> getAlgoformers(){
+		return algoformers;
+	}
 }
 
         

@@ -16,10 +16,8 @@ public class JuegoTest {
     
     @BeforeClass
     public static void setUpBeforeClass(){
-       Superion superion = new Superion();
-       Menasor menasor = new Menasor();
-       jugador1 = new Jugador("Martin",superion);
-       jugador2 = new Jugador("Lucia",menasor);
+       jugador1 = new Jugador("Martin");
+       jugador2 = new Jugador("Lucia");
        juego = new Juego(jugador1,jugador2);
        juego.crearTablero(); 
     }    

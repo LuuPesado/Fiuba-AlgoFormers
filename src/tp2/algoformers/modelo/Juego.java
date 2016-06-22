@@ -19,9 +19,11 @@ public class Juego {
         autobots.add(new OptimusPrime());
         autobots.add(new Bumblebee());
         autobots.add(new Ratchet());
+        autobots.add(new Superion());
         decepticons.add(new Megatron());
         decepticons.add(new Bonecrusher());
         decepticons.add(new Frenzy());
+        decepticons.add(new Menasor());
         jugadorAutobots.agregarAlgoformers(autobots);
         jugadorDecepticons.agregarAlgoformers(decepticons);
         this.turno = new Turno(jugadorAutobots, jugadorDecepticons, chispaSuprema);
@@ -69,5 +71,13 @@ public class Juego {
     		turno.jugadorActual().jugar(numeroDeAlgoformer, posicion);
     		turno.bajarTemporales();
         //}
+    }
+    
+    public Jugador getJugadorAutobots(){
+    	return jugadorAutobots;
+    }
+    
+    public Jugador getJugadorDecepticons(){
+    	return jugadorDecepticons;
     }
 }

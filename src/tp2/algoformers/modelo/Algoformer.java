@@ -156,6 +156,12 @@ public abstract class Algoformer implements Contenido{
         	pasos--;
         }
     }
+    
+   public void sumarPuntosDeVida(ArrayList<Algoformer> listaDeAlgoformers){
+	    for (int i=0; i<listaDeAlgoformers.size(); i++){
+	        this.puntosDeVida= puntosDeVida + listaDeAlgoformers.get(i).puntosDeVida();
+	    }
+	}
 
 	public void bajarTemporales() {
 		modificadores.bajarTemporales();
@@ -169,10 +175,5 @@ public abstract class Algoformer implements Contenido{
 		return (this.modificadores.incluyeDebuff(unDebuff));
 	}
 	
-	public void sumarPuntosDeVida(ArrayList<Algoformer> listaDeAlgoformers){
-	    for (int i=0; i<listaDeAlgoformers.size(); i++){
-	        this.puntosDeVida= puntosDeVida + listaDeAlgoformers.get(i).puntosDeVida();
-	    }
-	}
 	
 }

@@ -3,7 +3,6 @@ package tp2.algoformers.vista;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.paint.Color;
 import tp2.algoformers.vista.NuestroContenedorPrincipal;
 
 

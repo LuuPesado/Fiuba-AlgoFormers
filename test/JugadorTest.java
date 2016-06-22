@@ -15,11 +15,9 @@ import tp2.algoformers.modelo.Frenzy;
 import tp2.algoformers.modelo.Bonecrusher;
 import tp2.algoformers.modelo.Jugador;
 import tp2.algoformers.modelo.Megatron;
-import tp2.algoformers.modelo.Menasor;
 import tp2.algoformers.modelo.OptimusPrime;
 import tp2.algoformers.modelo.Posicion;
 import tp2.algoformers.modelo.Ratchet;
-import tp2.algoformers.modelo.Superion;
 import tp2.algoformers.modelo.Tablero;
 
 /**
@@ -39,13 +37,13 @@ public class JugadorTest {
         autobots.add(new OptimusPrime());
         autobots.add(new Bumblebee());
         autobots.add(new Ratchet());
-        jugador2 = new Jugador("Martin",new Superion());
+        jugador2 = new Jugador("Martin");
         jugador2.agregarAlgoformers(autobots);
         decepticons = new ArrayList<Algoformer>();
         decepticons.add(new Megatron());
         decepticons.add(new Bonecrusher());
         decepticons.add(new Frenzy());
-        jugador1 = new Jugador("Santiago", new Menasor());
+        jugador1 = new Jugador("Santiago");
         jugador1.agregarAlgoformers(decepticons);
     }  
     @Test
