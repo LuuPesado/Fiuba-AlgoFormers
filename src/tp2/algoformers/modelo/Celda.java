@@ -36,12 +36,18 @@ public class Celda {
     public void agregarAlgoformer(Algoformer unAlgoformer){
         if (!(this.estaOcupada())){
         	this.darBuff(unAlgoformer);
+        	this.darChispa();
         	contenido = unAlgoformer;
     	} else {
         	throw new LaCeldaYaTieneUnAlgoformer();
         }
     }
 
+    private void darChispa(){
+    	if (contenido.hayChispa()){
+    		((ChispaSuprema) contenido).chispaAtrapada();
+    	}
+    }
     public void quitarAlgoformer() {
         this.contenido = new Vacio(posicion.getFila(), posicion.getColumna());
     }
@@ -69,6 +75,10 @@ public class Celda {
 			this.contenido = unBuff;
 		}
 		
+	}
+
+	public void agregarContenido(Contenido unContenido) {
+		this.contenido = unContenido;
 	}
     
 }

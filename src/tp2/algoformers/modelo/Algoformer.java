@@ -51,6 +51,10 @@ public abstract class Algoformer implements Contenido{
         return true;
     }
     
+    public boolean hayChispa(){
+    	return false;
+    }
+    
     public int getAtaque(){
     	return this.ataque;
     }
