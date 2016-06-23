@@ -29,6 +29,7 @@ public class Jugador {
     
     public void jugar(int numeroDeAlgoformer, Posicion unaPosicion){
         Algoformer algoformer = this.elegirAlgoformer(numeroDeAlgoformer);
+        algoformer.getModificadores().afectarTurnos();
         Posicion posicion = this.elegirPosicion(unaPosicion);
         this.miTurno(algoformer, posicion);
     }
