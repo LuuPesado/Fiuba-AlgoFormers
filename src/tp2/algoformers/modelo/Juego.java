@@ -49,9 +49,7 @@ public class Juego {
         return decepticons.get(numero);
     }
     
-    /*public void turno (Jugador unJugador, Algoformer algoformer, int accion, ArrayList<Algoformer> enemigos){
-        unJugador.miTurno(algoformer, accion, enemigos);  
-    }*/
+   
     
     public boolean hayGanador(){
     	boolean ganador = false;
@@ -61,13 +59,16 @@ public class Juego {
     	if (jugadorDecepticons.estanTodosMuertos()){
     		ganador = true;
     	}
+    	if (chispaSuprema.hayGanador()){
+    		ganador = true;
+    	}
     	return ganador;
     }
     
     public void jugar(int numeroDeAlgoformer, Posicion posicion) {
-        //while (!hayGanador){
+        while (!hayGanador()){
     		turno.jugadorActual().jugar(numeroDeAlgoformer, posicion);
     		turno.bajarTemporales();
-        //}
+        }
     }
 }

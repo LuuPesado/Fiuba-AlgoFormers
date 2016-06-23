@@ -42,9 +42,10 @@ public class Tablero {
         (( this.fila(posicionActual.getFila())).columna(posicionActual.getColumna())).quitarAlgoformer();
     }
 
-    void ubicarChispaSuprema(ChispaSuprema chispaSuprema) {
+    public void ubicarChispaSuprema(ChispaSuprema chispaSuprema) {
         Posicion posicion = new Posicion(CANTIDAD_FILAS/2,CANTIDAD_COLUMNAS/2);
         chispaSuprema.setPosicion(posicion);
+        this.fila(CANTIDAD_FILAS/2).columna(CANTIDAD_COLUMNAS/2).agregarContenido(chispaSuprema);
     }
     
     public int cantidadDeFilas(){

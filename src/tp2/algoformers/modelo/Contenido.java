@@ -13,5 +13,7 @@ public interface Contenido {
 	public void setDireccionDeImagen(String unaDireccion);
 	
 	public String getDireccionDeImagen();
+
+	public boolean hayChispa();
 	
 }

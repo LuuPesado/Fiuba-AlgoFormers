@@ -18,8 +18,6 @@ public class FabricaTerrenos {
 		Posicion fin = new Posicion(filas,columnas);
 		Tablero.getTablero().generarZonaAereo(inicio, fin, new Nube());
 		Tablero.getTablero().generarZonaTerrestre(inicio, fin, new Rocosa());
-		//ArrayList<TerrenoAereo> terrenosAereos = this.getTerrenosAereos();
-		//ArrayList<TerrenoTerrestre> terrenosTerrestres = this.getTerrenosTerrestres();
 		this.generarTerrenosAereo(inicio, fin, cantidadTormentas, new TormentaPsionica());
 		this.generarTerrenosAereo(inicio, fin, cantidadNebulosas, new NebulosaDeAndromeda());
 		this.generarTerrenosTerrestres(inicio, fin, cantidadPantanos, new Pantano());
@@ -52,20 +50,5 @@ public class FabricaTerrenos {
 		}
 	}
 	
-	/*private ArrayList<TerrenoAereo> getTerrenosAereos(){
-		ArrayList<TerrenoAereo> terrenos = new ArrayList<TerrenoAereo>();
-		terrenos.add(new Nube());
-		terrenos.add(new NebulosaDeAndromeda());
-		terrenos.add(new TormentaPsionica());
-		return terrenos;
-	}
-
-	private ArrayList<TerrenoTerrestre>	getTerrenosTerrestres(){
-		ArrayList<TerrenoTerrestre> terrenos = new ArrayList<TerrenoTerrestre>();
-		terrenos.add(new Rocosa());
-		terrenos.add(new Pantano());
-		terrenos.add(new Espinas());
-		return terrenos;
-	}*/
 }
 

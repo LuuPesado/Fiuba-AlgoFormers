@@ -25,6 +25,9 @@ public class Vacio implements Contenido{
         return posicion;
     }
 
+    public boolean hayChispa(){
+    	return false;
+    }
 	@Override
 	public void setDireccionDeImagen(String unaDireccion) {
 		// TODO Auto-generated method stub
