@@ -52,6 +52,7 @@ public class JugadorTest {
         Posicion posicionDeDestino = new Posicion(16,16);
         jugador1.jugar(0, posicionDeDestino);
         Assert.assertTrue(jugador1.elegirAlgoformer(0).getPosicion().equals(posicionDeDestino));
+        Tablero.getTablero().reiniciarTablero();
     }
     
     @Test
@@ -60,15 +61,17 @@ public class JugadorTest {
         Posicion posicionDeDestino = new Posicion(17,13);
         jugador1.jugar(0, posicionDeDestino);
         Assert.assertTrue(jugador1.elegirAlgoformer(0).getVelocidad()==8);//La velocidad que tiene cuando es vehiculo.
+        Tablero.getTablero().reiniciarTablero();
     }
     
     @Test
     public void test03CuandoUnJugadorMueveAUnoDeSusAlgoformersALaPosicionDeUnoDeSusRivalesLoAtaca(){
-        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(67, 13, decepticons.get(0));
-        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(68, 13, autobots.get(0));
-        Posicion posicionDeDestino = new Posicion(67,13);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(5, 6, decepticons.get(0));
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(6, 6, autobots.get(0));
+        Posicion posicionDeDestino = new Posicion(5,6);
         jugador2.jugar(0, posicionDeDestino);
         Assert.assertEquals(jugador1.elegirAlgoformer(0).puntosDeVida(), 500);
         //Megatron arranca con 550 puntos de vita y si Optimus lo atacadoPor le quita 50.
+        Tablero.getTablero().reiniciarTablero();
     }
 }

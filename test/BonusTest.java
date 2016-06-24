@@ -1,5 +1,5 @@
 import org.junit.Assert;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 import tp2.algoformers.modelo.Algoformer;
 import tp2.algoformers.modelo.Buff;
@@ -18,75 +18,79 @@ public class BonusTest {
 	public static Buff flash;
 	public static Algoformer megatron;
 	
-	@BeforeClass
-	public static void setUpBeforeClass(){
+	@Before
+	public void setUp(){
 		burbujaInmaculada = new BurbujaInmaculada(0,0);
 		dobleCanion = new DobleCanion(0,0);
 		flash = new Flash(0,0);
 		megatron = new Megatron();
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(46, 49, megatron);
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(10, 10, megatron);
 	}
 	
 	@Test 
 	public void test00laCeldaTieneElBonus(){
-		Tablero.getTablero().ubicarBuff(dobleCanion,46,46);
-		Contenido contenido = Tablero.getTablero().fila(46).columna(46).getContenido();
+		Tablero.getTablero().ubicarBuff(dobleCanion,8,8);
+		Contenido contenido = Tablero.getTablero().fila(8).columna(8).getContenido();
 		Assert.assertTrue(dobleCanion.equals(contenido));
+		Tablero.getTablero().reiniciarTablero();
 	}
 	
 	@Test
 	public void test01optimusObtieneElDobleCanion(){
-		Tablero.getTablero().ubicarBuff(dobleCanion,46,46);
+		Tablero.getTablero().ubicarBuff(dobleCanion,8,8);
 		Algoformer optimus = new OptimusPrime();
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(46, 45, optimus);
-		optimus.moverAlgoformer(46, 46);
-		Tablero.getTablero().fila(46).columna(46).darBuff(optimus);
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(7, 7, optimus);
+		optimus.moverAlgoformer(8, 8);
 		Assert.assertTrue(optimus.afectadoPorBuff(dobleCanion));
+		Tablero.getTablero().reiniciarTablero();
 	}
 	
 	@Test 
 	public void test02elDobleCanionDuplicaElDanioDeUnAlgoformer(){
-		Tablero.getTablero().ubicarBuff(dobleCanion,46,48);
+		Tablero.getTablero().ubicarBuff(dobleCanion,9,9);
 		Algoformer optimus = new OptimusPrime();
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(46, 47, optimus);
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(8, 8, optimus);
 		megatron.atacadoPor(optimus);
 		Assert.assertTrue(megatron.puntosDeVida() == 500);
-		optimus.moverAlgoformer(46,48);
-		optimus.afectadoPorBuff(new DobleCanion(0,0));
+		optimus.moverAlgoformer(9,9);
 		megatron.atacadoPor(optimus);
 		Assert.assertTrue(megatron.puntosDeVida() == 400);
+		Tablero.getTablero().reiniciarTablero();
 	}
 	
 	@Test
 	public void test03laBurbujaEvitaTodoElDaño(){
-		Tablero.getTablero().ubicarBuff(burbujaInmaculada, 47, 46);
+		Tablero.getTablero().ubicarBuff(burbujaInmaculada, 8, 8);
 		Algoformer optimus = new OptimusPrime();
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(47, 45, optimus);
-		optimus.moverAlgoformer(47, 46);
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(7, 7, optimus);
+		optimus.moverAlgoformer(8, 8);
 		optimus.atacadoPor(megatron);
 		Assert.assertTrue(optimus.puntosDeVida() == 500);
+		Tablero.getTablero().reiniciarTablero();
 	}
 	
 	@Test
 	public void test04FlashPermiteAOptimusMoverseElTripleDeRapido(){
-		Tablero.getTablero().ubicarBuff(flash, 48, 46);
+		Tablero.getTablero().ubicarBuff(flash, 8, 8);
 		Algoformer optimus = new OptimusPrime();
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(48, 45, optimus);
-		optimus.moverAlgoformer(48,46);
-		optimus.moverAlgoformer(48,52);
-		Assert.assertTrue(optimus.getPosicion().getFila() == 48);
-		Assert.assertTrue(optimus.getPosicion().getColumna() == 52);
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(7, 7, optimus);
+		optimus.moverAlgoformer(8,8);
+		optimus.moverAlgoformer(2,2);
+		Assert.assertTrue(optimus.getPosicion().getFila() == 2);
+		Assert.assertTrue(optimus.getPosicion().getColumna() == 2);
+		Tablero.getTablero().reiniciarTablero();
 	}
 
 	@Test
 	public void test05FlashPermiteAOptimusMoverseMasRapidoEnModoVehiculo(){
-		Tablero.getTablero().ubicarBuff(flash, 49, 46);
+		Tablero.getTablero().ubicarBuff(flash, 8, 8);
 		Algoformer optimus = new OptimusPrime();
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(49, 45, optimus);
-		optimus.moverAlgoformer(49,46);
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(7, 7, optimus);
+		optimus.moverAlgoformer(8,8);
 		optimus.transformar();
-		optimus.moverAlgoformer(49,61);
-		Assert.assertTrue(optimus.getPosicion().getFila() == 49);
-		Assert.assertTrue(optimus.getPosicion().getColumna() == 61);
+		optimus.moverAlgoformer(1, 1);
+		Assert.assertTrue(optimus.getPosicion().getFila() == 1);
+		Assert.assertTrue(optimus.getPosicion().getColumna() == 1);
+		Tablero.getTablero().reiniciarTablero();
 	}
 }

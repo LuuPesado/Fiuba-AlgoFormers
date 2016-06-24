@@ -24,11 +24,9 @@ public class RatchetTest {
     
     private static Algoformer ratchet;
     private static Algoformer enemigo1;
-    private static Tablero tablero;
 
     @Before
     public void setUp() {
-        tablero = Tablero.getTablero();
         ratchet = new Ratchet();
         enemigo1 = new Megatron();
     }
@@ -40,72 +38,81 @@ public class RatchetTest {
     
     @Test
     public void test02CuandoRatchetAtacaEnModoHumanoideQuita5puntos(){
-        tablero.ubicarAlgoformerEnUnaPosicion(5, 3, ratchet);
-        tablero.ubicarAlgoformerEnUnaPosicion(10, 3, enemigo1);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(5, 3, ratchet);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(10, 3, enemigo1);
         enemigo1.atacadoPor(ratchet);
         Assert.assertTrue(enemigo1.puntosDeVida()== 545);
+        Tablero.getTablero().reiniciarTablero();
     }
     
     @Test
     public void test03CuandoRatchetAtacaEnModoAlternaivoQuita15puntos(){
-        tablero.ubicarAlgoformerEnUnaPosicion(50, 20, ratchet);
-        tablero.ubicarAlgoformerEnUnaPosicion(52,21, enemigo1);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(10, 10, ratchet);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(11,11, enemigo1);
         ratchet.transformar();
         enemigo1.atacadoPor(ratchet);
         Assert.assertTrue(enemigo1.puntosDeVida()==515);
+        Tablero.getTablero().reiniciarTablero();
     }
     
     @Test
     public void test04EnModoHumanideRatchetPuedeAtacarEnSuMaximaDistanciaDeAtaque(){
-        tablero.ubicarAlgoformerEnUnaPosicion(51, 20, ratchet);
-        tablero.ubicarAlgoformerEnUnaPosicion(56,20, enemigo1);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(2, 2, ratchet);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(7,7, enemigo1);
         enemigo1.atacadoPor(ratchet);
         Assert.assertTrue(enemigo1.puntosDeVida()== 545);
+        Tablero.getTablero().reiniciarTablero();
     }
     
     @Test (expected=FueraDeRangoException.class)
     public void test05EnModoHumanoideRatchetNoPuedeAtacarMasAllaDeSuMaximaDistanciaDeAtaque(){
-        tablero.ubicarAlgoformerEnUnaPosicion(41, 20, ratchet);
-        tablero.ubicarAlgoformerEnUnaPosicion(47,20, enemigo1);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(2, 2, ratchet);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(10,10, enemigo1);
         enemigo1.atacadoPor(ratchet);
+        Tablero.getTablero().reiniciarTablero();
     }
     @Test
     public void test06EnModoAlternativoRatchetPuedeAtacarEnSuMaximaDistanciaDeAtaque(){
-        tablero.ubicarAlgoformerEnUnaPosicion(52, 20, ratchet);
-        tablero.ubicarAlgoformerEnUnaPosicion(54,20, enemigo1);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(2, 2, ratchet);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(4,4, enemigo1);
         ratchet.transformar();
         enemigo1.atacadoPor(ratchet);
         Assert.assertTrue(enemigo1.puntosDeVida()== 515);
+        Tablero.getTablero().reiniciarTablero();
     }
     
     @Test (expected=FueraDeRangoException.class)
     public void test07EnModoAlternativoRatchetNoPuedeAtacarMasAllaDeSuMaximaDistanciaDeAtaque(){
-        tablero.ubicarAlgoformerEnUnaPosicion(32, 20, ratchet);
-        tablero.ubicarAlgoformerEnUnaPosicion(37,20, enemigo1);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(15,16, ratchet);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(5,5, enemigo1);
         ratchet.transformar();
         enemigo1.atacadoPor(ratchet);
+        Tablero.getTablero().reiniciarTablero();
     }
 
     @Test
     public void test08RatchetConservaSuVidaLuegoDeSerTransformado(){
-        tablero.ubicarAlgoformerEnUnaPosicion(12, 20, ratchet);
-        tablero.ubicarAlgoformerEnUnaPosicion(11,20, enemigo1);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(12, 18, ratchet);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(11,18, enemigo1);
         ratchet.atacadoPor(enemigo1);
         ratchet.transformar();
         Assert.assertTrue(ratchet.puntosDeVida() == 140);
+        Tablero.getTablero().reiniciarTablero();
     }
     
     @Test
     public void test09RatchetSeDesplazaHasta1CasilleroEnModoHumanoide(){
-        tablero.ubicarAlgoformerEnUnaPosicion(15, 20, ratchet);
-        ratchet.moverAlgoformer(16, 21);
-        Posicion posicionDeDestino = new Posicion(16,21);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(16, 17, ratchet);
+        ratchet.moverAlgoformer(16, 17);
+        Posicion posicionDeDestino = new Posicion(16,17);
         Assert.assertTrue(ratchet.getPosicion().equals(posicionDeDestino));
+        Tablero.getTablero().reiniciarTablero();
     }
     
     @Test(expected=FueraDeRangoException.class)
     public void test10RatchetSeNoSeDesplazaMasDe2CasillerosEnModoHumanoide(){
-        tablero.ubicarAlgoformerEnUnaPosicion(16, 20, ratchet);
-        ratchet.moverAlgoformer(16, 22);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(4, 6, ratchet);
+        ratchet.moverAlgoformer(1, 1);
+        Tablero.getTablero().reiniciarTablero();
     }
 }

@@ -13,8 +13,10 @@ public class Jugador {
     }
     
     public void agregarAlgoformers(ArrayList<Algoformer> unaListaDeAlgoformers){
-        this.fusion = unaListaDeAlgoformers.get(unaListaDeAlgoformers.size()-1);
+        if (unaListaDeAlgoformers.size()>1){
+    	this.fusion = unaListaDeAlgoformers.get(unaListaDeAlgoformers.size()-1);
         unaListaDeAlgoformers.remove(unaListaDeAlgoformers.size()-1);
+        }
         this.algoformers = unaListaDeAlgoformers;
     }
 

@@ -12,7 +12,7 @@ public class Tablero {
         for (int i = 0; i<CANTIDAD_FILAS;i++){
             filas[i] = new Fila(i, CANTIDAD_COLUMNAS);
          }
-        TerrenoTerrestre rocoso = new Pantano();
+        TerrenoTerrestre rocoso = new Rocosa();
         TerrenoAereo nube = new Nube();
     	for (int i = 1; i <= CANTIDAD_FILAS; i++){
     		for (int j = 1; j <= CANTIDAD_COLUMNAS; j++){

@@ -14,7 +14,6 @@ import tp2.algoformers.modelo.OptimusPrime;
 import tp2.algoformers.modelo.Pantano;
 import tp2.algoformers.modelo.Posicion;
 import tp2.algoformers.modelo.Rocosa;
-import tp2.algoformers.modelo.Superion;
 import tp2.algoformers.modelo.Tablero;
 import tp2.algoformers.modelo.TerrenoAereo;
 import tp2.algoformers.modelo.TerrenoTerrestre;
@@ -34,119 +33,128 @@ public class TerrenoTest {
 		optimus.moverAlgoformer(4, 4);
 		Assert.assertTrue(optimus.getPosicion().getFila() == 4);
         Assert.assertTrue(optimus.getPosicion().getColumna() == 4);
+        Tablero.getTablero().reiniciarTablero();
 	}
 	
 	@Test (expected = UnHumanoideNoPuedeCruzarUnPantano.class)
 	public void test02UnAlgoformerEnModoHumanoideNoPuedeAtravesarUnPantano(){
 		Algoformer optimus = new OptimusPrime();
-		Posicion inicio = new Posicion(70,70);
-		Posicion fin = new Posicion(90,90);
+		Posicion inicio = new Posicion(3,3);
+		Posicion fin = new Posicion(4,4);
 		TerrenoTerrestre pantano = new Pantano();
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(69, 69, optimus);
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(2, 2, optimus);
 		Tablero.getTablero().generarZonaTerrestre(inicio,fin,pantano);
-		optimus.moverAlgoformer(70, 70);
+		optimus.moverAlgoformer(3, 3);
+		Tablero.getTablero().reiniciarTablero();
 	}
 	
 	@Test
 	public void test04PantanoNoAfectaAlgoformerEnModoAereo(){
 		Algoformer megatron = new Megatron();
-		Posicion inicio = new Posicion(14,13);
-		Posicion fin = new Posicion (20,13);
+		Posicion inicio = new Posicion(10,10);
+		Posicion fin = new Posicion (19,19);
 		TerrenoTerrestre pantano = new Pantano();
 		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(14, 14 , megatron);
 		Tablero.getTablero().generarZonaTerrestre(inicio,fin,pantano);		
 		megatron.transformar();
-		megatron.moverAlgoformer(21, 15);
-		Assert.assertTrue(megatron.getPosicion().getFila() == 21);
-        Assert.assertTrue(megatron.getPosicion().getColumna() == 15);
+		megatron.moverAlgoformer(17, 17);
+		Assert.assertTrue(megatron.getPosicion().getFila() == 17);
+        Assert.assertTrue(megatron.getPosicion().getColumna() == 17);
+        Tablero.getTablero().reiniciarTablero();
 	}
 	
 	@Test 
 	public void test05AlAtravesarUnaZonaConEspinasElAlgoformerSufreDanio(){
 		Algoformer optimus = new OptimusPrime();
-		Posicion inicio = new Posicion(40,40);
-		Posicion fin = new Posicion(45,45);
+		Posicion inicio = new Posicion(3,3);
+		Posicion fin = new Posicion(15,15);
 		TerrenoTerrestre espinas = new Espinas();
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(39, 39, optimus);
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(2, 2, optimus);
 		Tablero.getTablero().generarZonaTerrestre(inicio,fin,espinas);
-		optimus.moverAlgoformer(40, 40);
+		optimus.moverAlgoformer(3, 3);
 		Assert.assertTrue(optimus.puntosDeVida() == 475);
+		Tablero.getTablero().reiniciarTablero();
 	}
 	
 	@Test
 	public void test06EspinasNoAfectanAlgoformerEnModoAereo(){
 		Algoformer megatron = new Megatron();
-		Posicion inicio = new Posicion(45,45);
-		Posicion fin = new Posicion (50,50);
+		Posicion inicio = new Posicion(4,5);
+		Posicion fin = new Posicion (4,10);
 		TerrenoTerrestre espinas = new Espinas();
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(45,45 , megatron);
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(4,5 , megatron);
 		Tablero.getTablero().generarZonaTerrestre(inicio,fin,espinas);		
 		megatron.transformar();
-		megatron.moverAlgoformer(46, 46);
+		megatron.moverAlgoformer(4, 10);
 		Assert.assertTrue(megatron.puntosDeVida() == 550);
+		Tablero.getTablero().reiniciarTablero();
 	}
 	
 	@Test
 	public void test07NubesNoAfectanAlgoformerEnModoAereo(){
 		Algoformer megatron = new Megatron();
-		Posicion inicio = new Posicion(50,50);
-		Posicion fin = new Posicion (60,60);
+		Posicion inicio = new Posicion(5,5);
+		Posicion fin = new Posicion (10,10);
 		TerrenoAereo nube = new Nube();
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(58, 50 , megatron);
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(6, 6 , megatron);
 		Tablero.getTablero().generarZonaAereo(inicio,fin,nube);		
 		megatron.transformar();
-		megatron.moverAlgoformer(63, 58);
-		Assert.assertTrue(megatron.getPosicion().getFila() == 63);
-        Assert.assertTrue(megatron.getPosicion().getColumna() == 58);
+		megatron.moverAlgoformer(10, 10);
+		Assert.assertTrue(megatron.getPosicion().getFila() == 10);
+        Assert.assertTrue(megatron.getPosicion().getColumna() == 10);
+        Tablero.getTablero().reiniciarTablero();
 	}
 	
 	@Test (expected = AtrapadoEnNebulosaException.class)
 	public void test08UnidadAereaQuedaAtrapadaAlPasarPorNebulosaDeAndromeda(){
 		Algoformer megatron = new Megatron();
-		Posicion inicio = new Posicion(62,62);
-		Posicion fin = new Posicion (63,63);
-		TerrenoAereo nebulosa = new NebulosaDeAndromeda();
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(61, 61 , megatron);
-		Tablero.getTablero().generarZonaAereo(inicio,fin,nebulosa);	
-		megatron.transformar();
-		megatron.moverAlgoformer(62, 62);
-		Jugador jugador = new Jugador("Santiago",new Superion());
-		ArrayList<Algoformer> listaAlgoformer = new ArrayList();
+		Jugador jugador = new Jugador("Santiago");
+		ArrayList<Algoformer> listaAlgoformer = new ArrayList<Algoformer>();
 		listaAlgoformer.add(megatron);
 		jugador.agregarAlgoformers(listaAlgoformer);
+		Posicion inicio = new Posicion(15,15);
+		Posicion fin = new Posicion (17,17);
+		TerrenoAereo nebulosa = new NebulosaDeAndromeda();
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(14,14  , megatron);
+		Tablero.getTablero().generarZonaAereo(inicio,fin,nebulosa);	
+		megatron.transformar();
+		megatron.moverAlgoformer(15, 15);
 		jugador.jugar(0, fin);
+		Tablero.getTablero().reiniciarTablero();
 	}
       
 	@Test
 	public void test09LaTormentaPsionicaBajaElAtaqueDeUnAlgoformer(){
 		Algoformer megatron = new Megatron();
-		Posicion inicio = new Posicion(60,60);
-		Posicion fin = new Posicion (75,75);
+		Posicion inicio = new Posicion(4,4);
+		Posicion fin = new Posicion (15,15);
 		TerrenoAereo tormenta = new TormentaPsionica();
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(69, 69 , megatron);
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(3, 3 , megatron);
 		Tablero.getTablero().generarZonaAereo(inicio,fin,tormenta);		
 		Algoformer optimus = new OptimusPrime();
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(71, 71, optimus);
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(5,5 , optimus);
 		megatron.transformar();
 		optimus.atacadoPor(megatron);
 		Assert.assertTrue(optimus.puntosDeVida() == 445);
-		megatron.moverAlgoformer(69, 73);
+		megatron.moverAlgoformer(4, 4);
 		optimus.atacadoPor(megatron);
 		Assert.assertTrue(optimus.puntosDeVida() == 412);
+		Tablero.getTablero().reiniciarTablero();
 	}
 	
 	@Test
 	public void test10LaTormentaPsionicaNoBajaElAtaqueAlPasarPorSegundaVez(){
 		Algoformer megatron = new Megatron();
-		Posicion inicio = new Posicion(80,80);
-		Posicion fin = new Posicion (90,90);
+		Posicion inicio = new Posicion(8,8);
+		Posicion fin = new Posicion (9,9);
 		TerrenoAereo tormenta = new TormentaPsionica();
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(79, 79 , megatron);
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(7, 7 , megatron);
 		Tablero.getTablero().generarZonaAereo(inicio,fin,tormenta);		
 		megatron.transformar();
-		megatron.moverAlgoformer(80, 80);
+		megatron.moverAlgoformer(8, 8);
 		Assert.assertTrue(megatron.getAtaque() == 33);
-		megatron.moverAlgoformer(81,81);
+		megatron.moverAlgoformer(9,9);
 		Assert.assertTrue(megatron.getAtaque() == 33);
+		Tablero.getTablero().reiniciarTablero();
 	}
 }

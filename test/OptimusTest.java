@@ -24,11 +24,9 @@ public class OptimusTest {
     
     private static Algoformer optimusPrime;
     private static Algoformer enemigo1;
-    private static Tablero tablero;
 
     @Before
     public void setUp() {
-        tablero = Tablero.getTablero();
         optimusPrime = new OptimusPrime();
         enemigo1 = new Megatron();
     }
@@ -40,75 +38,83 @@ public class OptimusTest {
     
     @Test
     public void test02CuandoOptimusAtacaEnModoHumanoideQuita50puntos(){
-        tablero.ubicarAlgoformerEnUnaPosicion(5, 5, optimusPrime);
-        tablero.ubicarAlgoformerEnUnaPosicion(7, 7, enemigo1);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(5, 5, optimusPrime);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(7, 7, enemigo1);
         enemigo1.atacadoPor(optimusPrime);
         Assert.assertTrue(enemigo1.puntosDeVida()== 500);
+        Tablero.getTablero().reiniciarTablero();
     }
     
     @Test
     public void test03CuandoOptimusAtacaEnModoAlternaivoQuita15puntos(){
-        tablero.ubicarAlgoformerEnUnaPosicion(50, 50, optimusPrime);
-        tablero.ubicarAlgoformerEnUnaPosicion(51,51, enemigo1);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(15, 15, optimusPrime);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(16,16, enemigo1);
         optimusPrime.transformar();
         enemigo1.atacadoPor(optimusPrime);
         Assert.assertTrue(enemigo1.puntosDeVida()==535);
+        Tablero.getTablero().reiniciarTablero();
     }
     
     @Test
     public void test04EnModoHumanideOptimusPuedeAtacarEnSuMaximaDistanciaDeAtaque(){
-        tablero.ubicarAlgoformerEnUnaPosicion(51, 50, optimusPrime);
-        tablero.ubicarAlgoformerEnUnaPosicion(53,50, enemigo1);
+    	Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(8, 8, optimusPrime);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(10,10, enemigo1);
         enemigo1.atacadoPor(optimusPrime);
         Assert.assertTrue(enemigo1.puntosDeVida()== 500);
+        Tablero.getTablero().reiniciarTablero();
     }
     
     @Test (expected=FueraDeRangoException.class)
     public void test05EnModoHumanoideOptimusNoPuedeAtacarMasAllaDeSuMaximaDistanciaDeAtaque(){
-        tablero.ubicarAlgoformerEnUnaPosicion(41, 50, optimusPrime);
-        tablero.ubicarAlgoformerEnUnaPosicion(44,50, enemigo1);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(8, 8, optimusPrime);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(15,15, enemigo1);
         enemigo1.atacadoPor(optimusPrime);
-        Assert.assertTrue(enemigo1.puntosDeVida()== 500);
+        Tablero.getTablero().reiniciarTablero();
     }
     
     @Test
     public void test06EnModoAlternativoOptimusPuedeAtacarEnSuMaximaDistanciaDeAtaque(){
-        tablero.ubicarAlgoformerEnUnaPosicion(52, 50, optimusPrime);
-        tablero.ubicarAlgoformerEnUnaPosicion(56,50, enemigo1);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(10, 10, optimusPrime);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(14,14, enemigo1);
         optimusPrime.transformar();
         enemigo1.atacadoPor(optimusPrime);
         Assert.assertTrue(enemigo1.puntosDeVida()== 535);
+        Tablero.getTablero().reiniciarTablero();
     }
     
     @Test (expected=FueraDeRangoException.class)
     public void test07EnModoAlternativoOptimusNoPuedeAtacarMasAllaDeSuMaximaDistanciaDeAtaque(){
-        tablero.ubicarAlgoformerEnUnaPosicion(32, 50, optimusPrime);
-        tablero.ubicarAlgoformerEnUnaPosicion(37,50, enemigo1);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(2, 2, optimusPrime);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(15,15, enemigo1);
         optimusPrime.transformar();
         enemigo1.atacadoPor(optimusPrime);
         Assert.assertTrue(enemigo1.puntosDeVida()== 535);
+        Tablero.getTablero().reiniciarTablero();
     }
 
     @Test
     public void test08OptimusConservaSuVidaLuegoDeSerTransformado(){
-        tablero.ubicarAlgoformerEnUnaPosicion(12, 50, optimusPrime);
-        tablero.ubicarAlgoformerEnUnaPosicion(11,50, enemigo1);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(12, 10, optimusPrime);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(11,10, enemigo1);
         optimusPrime.atacadoPor(enemigo1);
         optimusPrime.transformar();
         Assert.assertTrue(optimusPrime.puntosDeVida() == 490);
+        Tablero.getTablero().reiniciarTablero();
     }
     
     @Test
     public void test09OptimusSeDesplazaHasta2CasillerosEnModoHumanoide(){
-        tablero.ubicarAlgoformerEnUnaPosicion(15, 50, optimusPrime);
-        optimusPrime.moverAlgoformer(16, 52);
-        Posicion posicionDeDestino = new Posicion(16,52);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(15, 14, optimusPrime);
+        optimusPrime.moverAlgoformer(16, 16);
+        Posicion posicionDeDestino = new Posicion(16,16);
         Assert.assertTrue(optimusPrime.getPosicion().equals(posicionDeDestino));
+        Tablero.getTablero().reiniciarTablero();
     }
     
     @Test(expected=FueraDeRangoException.class)
     public void test10OptimusSeNoSeDesplazaHastaMasDe2CasillerosEnModoHumanoide(){
-        tablero.ubicarAlgoformerEnUnaPosicion(16, 50, optimusPrime);
-        optimusPrime.moverAlgoformer(19, 52);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(16, 10, optimusPrime);
+        optimusPrime.moverAlgoformer(19, 4);
+        Tablero.getTablero().reiniciarTablero();
     }
 }

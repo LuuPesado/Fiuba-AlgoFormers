@@ -68,10 +68,8 @@ public class Juego {
     }
     
     public void jugar(int numeroDeAlgoformer, Posicion posicion) {
-        while (!hayGanador()){
     		turno.jugadorActual().jugar(numeroDeAlgoformer, posicion);
     		turno.bajarTemporales();
-        }
     }
     
     public Jugador getJugadorAutobots(){
