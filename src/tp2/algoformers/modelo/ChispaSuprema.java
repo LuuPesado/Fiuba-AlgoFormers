@@ -29,16 +29,6 @@ public class ChispaSuprema implements Contenido{
     	return atrapada;
     }
 
-	@Override
-<<<<<<< HEAD
-	public boolean estaOcupado() {
-		return true;
-	}
-
-	@Override
-	public void atacadoPor(Algoformer unAlgoformer) {
-		// TODO Auto-generated method stub Debería GANAR
-=======
 	public boolean estaOcupado(){
 		return false;
 	}
@@ -49,21 +39,15 @@ public class ChispaSuprema implements Contenido{
 	@Override
 	public void atacadoPor(Algoformer unAlgoformer){
 		unAlgoformer.moverAlgoformer(posicion.getFila(), posicion.getColumna());
->>>>>>> 054ad7b45fe7c695789f926c9dbc48303ad03a27
 		
 	}
 
-	@Override
-<<<<<<< HEAD
-	public boolean esUnBuff() {
-=======
+
 	public boolean esUnBuff(){
->>>>>>> 054ad7b45fe7c695789f926c9dbc48303ad03a27
 		return false;
 	}
 
 	@Override
-<<<<<<< HEAD
 	public void setDireccionDeImagen(String unaDireccion) {
 		direccionDeImagen = unaDireccion;
 		
@@ -72,13 +56,5 @@ public class ChispaSuprema implements Contenido{
 	@Override
 	public String getDireccionDeImagen() {
 		return direccionDeImagen;
-=======
-	public void setDireccionDeImagen(String unaDireccion){		
-	}
-
-	@Override
-	public String getDireccionDeImagen(){
-		return null;
->>>>>>> 054ad7b45fe7c695789f926c9dbc48303ad03a27
 	}
 }

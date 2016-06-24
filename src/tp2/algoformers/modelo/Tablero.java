@@ -31,6 +31,10 @@ public class Tablero {
        return Tablero.instance;
     }
     
+    public void reiniciarTablero(){
+    	Tablero.instance = null;
+    }
+    
     public Fila fila(int posicion){
         return filas[posicion-1];
     }

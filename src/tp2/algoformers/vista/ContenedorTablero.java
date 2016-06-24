@@ -28,6 +28,8 @@ public class ContenedorTablero extends BorderPane {
 				contenedorImagenTerrenoTerrestre.setFitWidth(33);
 				contenedorImagenTerrenoTerrestre.setImage(imagenTerrenoTerrestre);
 				
+				
+				
 				String direccionTerrenoAereo = tablero.fila(j).columna(i).getTerrenoAereo().getDireccionDeImagen();
 				Image imagenTerrenoAereo = new Image(direccionTerrenoAereo);
 				ImageView contenedorImagenTerrenoAereo = new ImageView();
