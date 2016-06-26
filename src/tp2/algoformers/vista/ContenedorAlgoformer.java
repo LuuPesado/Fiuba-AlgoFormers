@@ -1,5 +1,6 @@
 package tp2.algoformers.vista;
 
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -8,13 +9,18 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import tp2.algoformers.modelo.Algoformer;
+import tp2.algoformers.modelo.algoformers.Algoformer;
 
 public class ContenedorAlgoformer extends BorderPane {
 
+	Canvas canvas;
+	private Algoformer algoformer;
+	private Image imagen;
+	private ImageView contenedorImagen;
 	public ContenedorAlgoformer(Algoformer unAlgoformer){
-		Image imagen = new Image(unAlgoformer.getDireccionDeImagen());
-		ImageView contenedorImagen = new ImageView();
+		this.algoformer = unAlgoformer;
+		this.imagen = new Image(unAlgoformer.getDireccionDeImagen());
+		this.contenedorImagen = new ImageView();
 		contenedorImagen.setFitHeight(100);
 		contenedorImagen.setFitWidth(70);
 		contenedorImagen.setImage(imagen);
@@ -48,5 +54,7 @@ public class ContenedorAlgoformer extends BorderPane {
 		VBox texto = new VBox(nombre, vida, ataque, distanciaDeAtaque, velocidadDeDesplazamiento);
         this.setRight(texto);
 	}
-	
+	//public void dibujar(){
+	//	canvas.getGraphicsContext2D().ge
+	//}
 }

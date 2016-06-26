@@ -2,6 +2,9 @@ package tp2.algoformers.modelo;
 
 import java.util.ArrayList;
 
+import tp2.algoformers.modelo.algoformers.Algoformer;
+import tp2.algoformers.modelo.excepciones.NoPuedeFusionarseException;
+
 
 public class Jugador {
     private String nombre;

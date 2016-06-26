@@ -1,5 +1,7 @@
 package tp2.algoformers.modelo;
 
+import tp2.algoformers.modelo.algoformers.Algoformer;
+
 public class Vacio implements Contenido{
 	
     private Posicion posicion;

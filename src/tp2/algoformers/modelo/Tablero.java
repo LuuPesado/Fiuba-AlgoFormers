@@ -1,5 +1,13 @@
 package tp2.algoformers.modelo;
 
+import tp2.algoformers.modelo.algoformers.Algoformer;
+import tp2.algoformers.modelo.buffs.Buff;
+import tp2.algoformers.modelo.excepciones.NoHayUnAlgoformerEnEsaPosicion;
+import tp2.algoformers.modelo.terrenos.Nube;
+import tp2.algoformers.modelo.terrenos.Rocosa;
+import tp2.algoformers.modelo.terrenos.TerrenoAereo;
+import tp2.algoformers.modelo.terrenos.TerrenoTerrestre;
+
 public class Tablero {
     
     public Fila filas[];
@@ -49,9 +57,9 @@ public class Tablero {
     }
 
     public void ubicarChispaSuprema(ChispaSuprema chispaSuprema) {
-        Posicion posicion = new Posicion(CANTIDAD_FILAS/2,CANTIDAD_COLUMNAS/2);
+        Posicion posicion = new Posicion(CANTIDAD_FILAS+1/2,CANTIDAD_FILAS+1/2);
         chispaSuprema.setPosicion(posicion);
-        this.fila(CANTIDAD_FILAS/2).columna(CANTIDAD_COLUMNAS/2).agregarContenido(chispaSuprema);
+        this.fila((CANTIDAD_FILAS+1)/2).columna((CANTIDAD_COLUMNAS+1)/2).agregarContenido(chispaSuprema);
     }
     
     public int cantidadDeFilas(){

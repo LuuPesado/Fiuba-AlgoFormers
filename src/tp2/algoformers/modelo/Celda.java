@@ -1,5 +1,11 @@
 package tp2.algoformers.modelo;
 
+import tp2.algoformers.modelo.algoformers.Algoformer;
+import tp2.algoformers.modelo.buffs.Buff;
+import tp2.algoformers.modelo.excepciones.LaCeldaYaTieneUnAlgoformer;
+import tp2.algoformers.modelo.terrenos.TerrenoAereo;
+import tp2.algoformers.modelo.terrenos.TerrenoTerrestre;
+
 public class Celda {
     
     private Contenido contenido;
@@ -62,11 +68,11 @@ public class Celda {
         terrenoTerrestre.afectarHumanoide(unAlgoformer);
     }
 
-    void afectarVehiculoAereo(Algoformer unAlgoformer) {
+    public void afectarVehiculoAereo(Algoformer unAlgoformer) {
         terrenoAereo.afectarVehiculo(unAlgoformer);
     }
 
-    void afectarVehiculoTerrestre(Algoformer unAlgoformer) {
+    public void afectarVehiculoTerrestre(Algoformer unAlgoformer) {
          terrenoTerrestre.afectarVehiculo(unAlgoformer);
     }
 

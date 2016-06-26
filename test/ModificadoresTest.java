@@ -4,12 +4,12 @@ import org.junit.Test;
 import tp2.algoformers.modelo.AfectadoPorNebulosa;
 import tp2.algoformers.modelo.AfectadoPorPantano;
 import tp2.algoformers.modelo.AfectadoPorTormenta;
-import tp2.algoformers.modelo.Buff;
-import tp2.algoformers.modelo.BurbujaInmaculada;
-import tp2.algoformers.modelo.Debuff;
-import tp2.algoformers.modelo.DobleCanion;
-import tp2.algoformers.modelo.Flash;
-import tp2.algoformers.modelo.Modificadores;
+import tp2.algoformers.modelo.buffs.Buff;
+import tp2.algoformers.modelo.buffs.BurbujaInmaculada;
+import tp2.algoformers.modelo.buffs.Debuff;
+import tp2.algoformers.modelo.buffs.DobleCanion;
+import tp2.algoformers.modelo.buffs.Flash;
+import tp2.algoformers.modelo.buffs.Modificadores;
 
 public class ModificadoresTest {
 	

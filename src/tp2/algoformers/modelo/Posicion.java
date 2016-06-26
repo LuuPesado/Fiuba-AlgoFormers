@@ -1,6 +1,6 @@
 package tp2.algoformers.modelo;
 
-
+import tp2.algoformers.modelo.excepciones.FueraDeRangoException;
 
 public class Posicion {
     

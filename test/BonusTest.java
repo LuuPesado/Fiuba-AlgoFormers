@@ -1,15 +1,16 @@
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import tp2.algoformers.modelo.Algoformer;
-import tp2.algoformers.modelo.Buff;
-import tp2.algoformers.modelo.BurbujaInmaculada;
+
 import tp2.algoformers.modelo.Contenido;
-import tp2.algoformers.modelo.DobleCanion;
-import tp2.algoformers.modelo.Flash;
-import tp2.algoformers.modelo.Megatron;
-import tp2.algoformers.modelo.OptimusPrime;
 import tp2.algoformers.modelo.Tablero;
+import tp2.algoformers.modelo.algoformers.Algoformer;
+import tp2.algoformers.modelo.algoformers.Megatron;
+import tp2.algoformers.modelo.algoformers.OptimusPrime;
+import tp2.algoformers.modelo.buffs.Buff;
+import tp2.algoformers.modelo.buffs.BurbujaInmaculada;
+import tp2.algoformers.modelo.buffs.DobleCanion;
+import tp2.algoformers.modelo.buffs.Flash;
 
 public class BonusTest {
 	

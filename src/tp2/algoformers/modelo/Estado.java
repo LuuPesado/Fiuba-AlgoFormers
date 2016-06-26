@@ -1,5 +1,9 @@
 package tp2.algoformers.modelo;
 
+import tp2.algoformers.modelo.algoformers.Algoformer;
+import tp2.algoformers.modelo.algoformers.Megatron;
+import tp2.algoformers.modelo.algoformers.Ratchet;
+
 public interface Estado {
 
     public Estado transformarOptimus(Algoformer algoformer);

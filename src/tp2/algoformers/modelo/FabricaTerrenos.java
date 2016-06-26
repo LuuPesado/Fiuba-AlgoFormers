@@ -3,6 +3,15 @@ package tp2.algoformers.modelo;
 import java.util.ArrayList;
 import java.util.Random;
 
+import tp2.algoformers.modelo.terrenos.Espinas;
+import tp2.algoformers.modelo.terrenos.NebulosaDeAndromeda;
+import tp2.algoformers.modelo.terrenos.Nube;
+import tp2.algoformers.modelo.terrenos.Pantano;
+import tp2.algoformers.modelo.terrenos.Rocosa;
+import tp2.algoformers.modelo.terrenos.TerrenoAereo;
+import tp2.algoformers.modelo.terrenos.TerrenoTerrestre;
+import tp2.algoformers.modelo.terrenos.TormentaPsionica;
+
 public class FabricaTerrenos {
 	
 	private int filas;

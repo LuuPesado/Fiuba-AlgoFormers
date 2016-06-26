@@ -3,22 +3,22 @@ import java.util.ArrayList;
 import org.junit.Assert;
 import org.junit.Test;
 
-import tp2.algoformers.modelo.Algoformer;
-import tp2.algoformers.modelo.AtrapadoEnNebulosaException;
-import tp2.algoformers.modelo.Espinas;
 import tp2.algoformers.modelo.Jugador;
-import tp2.algoformers.modelo.Megatron;
-import tp2.algoformers.modelo.NebulosaDeAndromeda;
-import tp2.algoformers.modelo.Nube;
-import tp2.algoformers.modelo.OptimusPrime;
-import tp2.algoformers.modelo.Pantano;
 import tp2.algoformers.modelo.Posicion;
-import tp2.algoformers.modelo.Rocosa;
 import tp2.algoformers.modelo.Tablero;
-import tp2.algoformers.modelo.TerrenoAereo;
-import tp2.algoformers.modelo.TerrenoTerrestre;
-import tp2.algoformers.modelo.TormentaPsionica;
-import tp2.algoformers.modelo.UnHumanoideNoPuedeCruzarUnPantano;
+import tp2.algoformers.modelo.algoformers.Algoformer;
+import tp2.algoformers.modelo.algoformers.Megatron;
+import tp2.algoformers.modelo.algoformers.OptimusPrime;
+import tp2.algoformers.modelo.excepciones.AtrapadoEnNebulosaException;
+import tp2.algoformers.modelo.excepciones.UnHumanoideNoPuedeCruzarUnPantano;
+import tp2.algoformers.modelo.terrenos.Espinas;
+import tp2.algoformers.modelo.terrenos.NebulosaDeAndromeda;
+import tp2.algoformers.modelo.terrenos.Nube;
+import tp2.algoformers.modelo.terrenos.Pantano;
+import tp2.algoformers.modelo.terrenos.Rocosa;
+import tp2.algoformers.modelo.terrenos.TerrenoAereo;
+import tp2.algoformers.modelo.terrenos.TerrenoTerrestre;
+import tp2.algoformers.modelo.terrenos.TormentaPsionica;
 
 public class TerrenoTest {
 

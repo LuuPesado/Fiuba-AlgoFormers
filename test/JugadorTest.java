@@ -9,16 +9,17 @@ import java.util.ArrayList;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import tp2.algoformers.modelo.Algoformer;
-import tp2.algoformers.modelo.Bumblebee;
-import tp2.algoformers.modelo.Frenzy;
-import tp2.algoformers.modelo.Bonecrusher;
+
 import tp2.algoformers.modelo.Jugador;
-import tp2.algoformers.modelo.Megatron;
-import tp2.algoformers.modelo.OptimusPrime;
 import tp2.algoformers.modelo.Posicion;
-import tp2.algoformers.modelo.Ratchet;
 import tp2.algoformers.modelo.Tablero;
+import tp2.algoformers.modelo.algoformers.Algoformer;
+import tp2.algoformers.modelo.algoformers.Bonecrusher;
+import tp2.algoformers.modelo.algoformers.Bumblebee;
+import tp2.algoformers.modelo.algoformers.Frenzy;
+import tp2.algoformers.modelo.algoformers.Megatron;
+import tp2.algoformers.modelo.algoformers.OptimusPrime;
+import tp2.algoformers.modelo.algoformers.Ratchet;
 
 /**
  *

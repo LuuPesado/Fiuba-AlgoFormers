@@ -6,9 +6,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import tp2.algoformers.modelo.Nube;
-import tp2.algoformers.modelo.Rocosa;
 import tp2.algoformers.modelo.Tablero;
+import tp2.algoformers.modelo.terrenos.Nube;
+import tp2.algoformers.modelo.terrenos.Rocosa;
 
 public class ContenedorTablero extends BorderPane {
 
@@ -29,7 +29,6 @@ public class ContenedorTablero extends BorderPane {
 				contenedorImagenTerrenoTerrestre.setImage(imagenTerrenoTerrestre);
 				
 				
-				
 				String direccionTerrenoAereo = tablero.fila(j).columna(i).getTerrenoAereo().getDireccionDeImagen();
 				Image imagenTerrenoAereo = new Image(direccionTerrenoAereo);
 				ImageView contenedorImagenTerrenoAereo = new ImageView();
@@ -44,6 +43,7 @@ public class ContenedorTablero extends BorderPane {
 				//mostrar contenido
 				String direccionContenido = tablero.fila(j).columna(i).getContenido().getDireccionDeImagen();
 				Image imagenContenido = new Image(direccionContenido);
+				VistaContenido contenedorContenido;
 				ImageView contenedorImagenContenido = new ImageView();
 				contenedorImagenContenido.setFitHeight(33);
 				contenedorImagenContenido.setFitWidth(33);

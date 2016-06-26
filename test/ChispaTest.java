@@ -2,10 +2,10 @@ import org.junit.Test;
 
 import junit.framework.Assert;
 import tp2.algoformers.modelo.ChispaSuprema;
-import tp2.algoformers.modelo.OptimusPrime;
 import tp2.algoformers.modelo.Tablero;
+import tp2.algoformers.modelo.algoformers.OptimusPrime;
 
-@SuppressWarnings("deprecation")
+
 public class ChispaTest {
 
 	@Test

@@ -1,5 +1,8 @@
 package tp2.algoformers.modelo;
 
+import tp2.algoformers.modelo.buffs.Debuff;
+import tp2.algoformers.modelo.excepciones.AtrapadoEnNebulosaException;
+
 public class AfectadoPorNebulosa extends Debuff {
 	
 	public AfectadoPorNebulosa(){

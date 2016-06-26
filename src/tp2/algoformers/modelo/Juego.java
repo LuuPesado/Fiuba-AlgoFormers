@@ -2,6 +2,16 @@ package tp2.algoformers.modelo;
 
 import java.util.ArrayList;
 
+import tp2.algoformers.modelo.algoformers.Algoformer;
+import tp2.algoformers.modelo.algoformers.Bonecrusher;
+import tp2.algoformers.modelo.algoformers.Bumblebee;
+import tp2.algoformers.modelo.algoformers.Frenzy;
+import tp2.algoformers.modelo.algoformers.Megatron;
+import tp2.algoformers.modelo.algoformers.Menasor;
+import tp2.algoformers.modelo.algoformers.OptimusPrime;
+import tp2.algoformers.modelo.algoformers.Ratchet;
+import tp2.algoformers.modelo.algoformers.Superion;
+
 public class Juego {
     private Jugador jugadorAutobots;
     private Jugador jugadorDecepticons;

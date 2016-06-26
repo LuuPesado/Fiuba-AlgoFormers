@@ -1,16 +1,18 @@
 import org.junit.Assert;
 import org.junit.Test;
-import tp2.algoformers.modelo.Algoformer;
-import tp2.algoformers.modelo.Bonecrusher;
-import tp2.algoformers.modelo.FueraDeRangoException;
-import tp2.algoformers.modelo.Humanoide;
-import tp2.algoformers.modelo.Megatron;
-import tp2.algoformers.modelo.NoPuedoAtacarUnCompanieroException;
-import tp2.algoformers.modelo.OptimusPrime;
-import tp2.algoformers.modelo.Ratchet;
+
+import tp2.algoformers.modelo.Estado;
 import tp2.algoformers.modelo.Tablero;
-import tp2.algoformers.modelo.Vehiculo;
-import tp2.algoformers.modelo.VehiculoTerrestre;
+import tp2.algoformers.modelo.algoformers.Algoformer;
+import tp2.algoformers.modelo.algoformers.Bonecrusher;
+import tp2.algoformers.modelo.algoformers.Humanoide;
+import tp2.algoformers.modelo.algoformers.Megatron;
+import tp2.algoformers.modelo.algoformers.OptimusPrime;
+import tp2.algoformers.modelo.algoformers.Ratchet;
+import tp2.algoformers.modelo.algoformers.Vehiculo;
+import tp2.algoformers.modelo.algoformers.VehiculoTerrestre;
+import tp2.algoformers.modelo.excepciones.FueraDeRangoException;
+import tp2.algoformers.modelo.excepciones.NoPuedoAtacarUnCompanieroException;
 
 public class AlgoformerTest {
     
@@ -18,9 +20,9 @@ public class AlgoformerTest {
     @Test
     public void test01cuandoCreoUnAlgoformerEsHumanoide(){
         Algoformer algoformer = new Megatron();
-        Class estado = algoformer.estado().getClass();
+        Class<? extends Estado> estado = algoformer.estado().getClass();
         Humanoide humanoide = new Humanoide();
-        Class estadoActual = humanoide.getClass();
+        Class<? extends Estado> estadoActual = humanoide.getClass();
         Assert.assertTrue(estado == estadoActual);
     }
     
@@ -29,9 +31,9 @@ public class AlgoformerTest {
     public void test02puedoTransformarUnAlgoformerEnAmbasDirecciones(){
         Algoformer algoformer = new OptimusPrime();
         algoformer.transformar();
-        Class estado = algoformer.estado().getClass();
+        Class<? extends Estado> estado = algoformer.estado().getClass();
         Vehiculo vehiculo = new VehiculoTerrestre();
-        Class estadoActual = vehiculo.getClass();
+        Class<? extends Estado>    estadoActual = vehiculo.getClass();
         Assert.assertTrue(estado == estadoActual);
         algoformer.transformar();
         estado = algoformer.estado().getClass();
