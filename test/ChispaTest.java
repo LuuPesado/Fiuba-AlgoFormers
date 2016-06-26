@@ -14,7 +14,7 @@ public class ChispaTest {
 		Tablero.getTablero().ubicarChispaSuprema(chispaSuprema);
 		OptimusPrime optimus = new OptimusPrime();
 		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(8,8,optimus);
-		optimus.moverAlgoformer(9, 9);
+		optimus.moverAlgoformer(10, 10);
 		Assert.assertTrue(chispaSuprema.hayGanador());
 		Tablero.getTablero().reiniciarTablero();
 	}

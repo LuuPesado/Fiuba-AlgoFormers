@@ -128,26 +128,7 @@ public abstract class Algoformer implements Contenido{
     public int puntosDeVida(){
         return this.puntosDeVida;
     }
-   
-    
-    //Mover a Posicion
-    private Posicion calcularSiguientePosicion(Posicion posicionNueva){
-    	int siguienteFila = this.posicion.getFila();
-    	int siguienteColumna = this.posicion.getColumna();
-    	if ((( this.posicion.getFila() - posicionNueva.getFila() ) < 0 ) && ( this.posicion.getFila() != posicionNueva.getFila() )){
-    		siguienteFila++;
-    	} else if ( this.posicion.getFila() != posicionNueva.getFila() ){
-    		siguienteFila--;
-    	}
-    	if ((( this.posicion.getColumna() - posicionNueva.getColumna() ) < 0 ) && ( this.posicion.getColumna() != posicionNueva.getColumna() )){
-    		siguienteColumna++;
-    	} else if ( this.posicion.getColumna() != posicionNueva.getColumna() ){
-    		siguienteColumna--;
-    	}
-    	Posicion siguientePosicion = new Posicion(siguienteFila,siguienteColumna);
-        return siguientePosicion;
-    }
-    
+ 
     
     public void agregarBuff(Contenido unBuff){
     	this.modificadores.agregarBuff(unBuff);
@@ -161,7 +142,7 @@ public abstract class Algoformer implements Contenido{
     	Posicion posicionNueva = new Posicion(fila, columna);
         int pasos = this.posicion.controlarRango(posicionNueva, this.modificadores.afectarVelocidad(velocidadDeDesplazamiento));
         while ( pasos > 0 ){
-        	Posicion siguientePosicion = this.calcularSiguientePosicion(posicionNueva);
+        	Posicion siguientePosicion = posicionNueva.calcularSiguientePosicion(this.posicion);
         	Celda celda = Tablero.getTablero().fila(fila).columna(columna);
         	Tablero.getTablero().sacarAlgoformer(this.posicion);
         	Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(siguientePosicion.getFila(), siguientePosicion.getColumna(), this);

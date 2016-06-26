@@ -44,7 +44,22 @@ public class Posicion {
         return esIgual;
     }
     
-    
+    public Posicion calcularSiguientePosicion(Posicion posicionAnterior){
+    	int siguienteFila = posicionAnterior.getFila();
+    	int siguienteColumna = posicionAnterior.getColumna();
+    	if ((( posicionAnterior.getFila() - this.fila ) < 0 ) && ( posicionAnterior.getFila() != this.fila )){
+    		siguienteFila++;
+    	} else if ( posicionAnterior.getFila() != this.fila ){
+    		siguienteFila--;
+    	}
+    	if ((( posicionAnterior.getColumna() - this.columna ) < 0 ) && ( posicionAnterior.getColumna() != this.columna )){
+    		siguienteColumna++;
+    	} else if ( posicionAnterior.getColumna() != this.columna ){
+    		siguienteColumna--;
+    	}
+    	Posicion siguientePosicion = new Posicion(siguienteFila,siguienteColumna);
+        return siguientePosicion;
+    }
     
     
  }
