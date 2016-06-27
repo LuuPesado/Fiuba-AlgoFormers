@@ -11,12 +11,19 @@ import tp2.algoformers.modelo.terrenos.Nube;
 import tp2.algoformers.modelo.terrenos.Rocosa;
 
 public class ContenedorTablero extends BorderPane {
-
-	public ContenedorTablero(){
-		int filas = Tablero.getTablero().cantidadDeFilas();
-		int columnas = Tablero.getTablero().cantidadDeColumnas();
 	
-	    HBox contenedorHorizontal = new HBox();
+	private int filas;
+	private int columnas;
+	
+	public ContenedorTablero(){
+		this.filas = Tablero.getTablero().cantidadDeFilas();
+		this.columnas = Tablero.getTablero().cantidadDeColumnas();
+		this.dibujar();
+	}
+	   
+
+public void dibujar(){
+	 HBox contenedorHorizontal = new HBox();
 	    for (int i = 1; i <= columnas; i++){ 
 	    	VBox contenedorVertical = new VBox();
 			for (int j = 1; j <= filas; j++){ 

@@ -18,26 +18,36 @@ public class NuestroContenedorPrincipal extends BorderPane {
 	 BarraDeMenu menuBar;
 	 Canvas canvasCentral;
 	 Button botonJugada;
+	 private Juego juego;
+	 private Jugador jugador1;
+	 private Jugador jugador2;
+	 private Stage stage;
+	 private ContenedorTablero contenedorTablero;
 	 
 	 public NuestroContenedorPrincipal(Stage stage){
-		 Jugador jugador1 = new Jugador("Autobots");
-		 Jugador jugador2 = new Jugador("Decepticons");
-		 Juego juego = new Juego(jugador1, jugador2);
-		 botonJugada = new Button();
+		 this.stage = stage;
+		 this.jugador1 = new Jugador("Autobots");
+		 this.jugador2 = new Jugador("Decepticons");
+		 this.juego = new Juego(jugador1, jugador2);
 		 juego.crearTablero();
+		 this.setTablero();
 		 this.setJugador1(jugador1);
 		 this.setJugador2(jugador2);
-		 this.setMenu(stage);
-		 this.setTablero();
+		 this.setMenu(this.stage);
 	 }
 	
-	 private void setMenu(Stage stage) {
+	 private Botonera setBotonera() {
+		 Botonera botonera = new Botonera(juego, contenedorTablero);
+		 return botonera;
+	}
+
+	private void setMenu(Stage stage) {
 	    this.menuBar = new BarraDeMenu(stage);
 	    this.setTop(menuBar);
 	}
 
 	 private void setTablero(){
-		 ContenedorTablero contenedorTablero = new ContenedorTablero();
+		 this.contenedorTablero = new ContenedorTablero();
 		 
 		 VBox contenedorVertical = new VBox(contenedorTablero);
 	     contenedorVertical.setSpacing(10);
@@ -55,12 +65,12 @@ public class NuestroContenedorPrincipal extends BorderPane {
      	VBox contenedorVertical1 = new VBox(nombreJugador1);
 		contenedorVertical1.setSpacing(10);
 		contenedorVertical1.setPadding(new Insets(15));	 
-	    
+	    contenedorVertical1.getChildren().add(this.setBotonera());
+	     
 	     for  (int i=0; i<unJugador.getAlgoformers().size(); i++){
 	    	 ContenedorAlgoformer unContenedor = new ContenedorAlgoformer(unJugador.getAlgoformers().get(i));
 	    	 contenedorVertical1.getChildren().add(unContenedor);
 	     }
-    
 	     this.setLeft(contenedorVertical1);
 
 	 }
@@ -75,12 +85,13 @@ public class NuestroContenedorPrincipal extends BorderPane {
      	VBox contenedorVertical1 = new VBox(nombreJugador1);
 		contenedorVertical1.setSpacing(10);
 		contenedorVertical1.setPadding(new Insets(15));
+		contenedorVertical1.getChildren().add(this.setBotonera());
 
 	     for  (int i=0; i<unJugador.getAlgoformers().size(); i++){
 	    	 ContenedorAlgoformer unContenedor = new ContenedorAlgoformer(unJugador.getAlgoformers().get(i));
 	    	 contenedorVertical1.getChildren().add(unContenedor);
 	     }
-    
+	     
 	     this.setRight(contenedorVertical1);
 
 	 }

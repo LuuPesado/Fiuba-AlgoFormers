@@ -41,6 +41,7 @@ public class Jugador {
     public void miTurno(Algoformer algoformer, Posicion posicion){
         Tablero tablero = Tablero.getTablero();
         (tablero.fila(posicion.getFila()).columna(posicion.getColumna()).getContenido()).atacadoPor(algoformer);
+        
         this.borrarAlgoformersMuertos();
     }
 

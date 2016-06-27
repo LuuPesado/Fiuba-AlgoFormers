@@ -15,12 +15,17 @@ import tp2.algoformers.modelo.algoformers.Superion;
 public class Juego {
     private Jugador jugadorAutobots;
     private Jugador jugadorDecepticons;
-    public ArrayList<Algoformer> autobots;
-    public ArrayList<Algoformer> decepticons;
-    public ChispaSuprema chispaSuprema;
-    public Turno turno;
+    private ArrayList<Algoformer> autobots;
+    private ArrayList<Algoformer> decepticons;
+    private ChispaSuprema chispaSuprema;
+    private Turno turno;
     
-    public Juego(Jugador jugadorAutobots, Jugador jugadorDecepticons){
+    public Turno getTurno() {
+		return turno;
+	}
+
+
+	public Juego(Jugador jugadorAutobots, Jugador jugadorDecepticons){
     	
         this.jugadorAutobots = jugadorAutobots;
         this.jugadorDecepticons = jugadorDecepticons;

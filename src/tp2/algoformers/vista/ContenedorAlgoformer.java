@@ -14,11 +14,10 @@ import tp2.algoformers.modelo.algoformers.Algoformer;
 public class ContenedorAlgoformer extends BorderPane {
 
 	Canvas canvas;
-	private Algoformer algoformer;
 	private Image imagen;
 	private ImageView contenedorImagen;
+	
 	public ContenedorAlgoformer(Algoformer unAlgoformer){
-		this.algoformer = unAlgoformer;
 		this.imagen = new Image(unAlgoformer.getDireccionDeImagen());
 		this.contenedorImagen = new ImageView();
 		contenedorImagen.setFitHeight(100);
