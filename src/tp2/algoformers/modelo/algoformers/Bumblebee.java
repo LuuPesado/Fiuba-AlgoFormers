@@ -8,7 +8,7 @@ public class Bumblebee extends Autobot {
        this.ataque = 40;
        this.distanciaDeAtaque = 1;
        this.velocidadDeDesplazamiento = 2;
-       this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/bumblebee.jpg");
+       this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/bumblebee.png");
    }
     
    public void transformar(){

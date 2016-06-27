@@ -12,16 +12,16 @@ import tp2.algoformers.modelo.terrenos.Rocosa;
 
 public class ContenedorTablero extends BorderPane {
 
-	public ContenedorTablero(Tablero tablero, Rocosa rocosa, Nube nube){
-		int filas = tablero.cantidadDeFilas();
-		int columnas = tablero.cantidadDeColumnas();
-		
+	public ContenedorTablero(){
+		int filas = Tablero.getTablero().cantidadDeFilas();
+		int columnas = Tablero.getTablero().cantidadDeColumnas();
+	
 	    HBox contenedorHorizontal = new HBox();
-	    for (int i = 1; i <= columnas; i++){ //deberia ir columnas en lugar de 18
+	    for (int i = 1; i <= columnas; i++){ 
 	    	VBox contenedorVertical = new VBox();
-			for (int j = 1; j <= filas; j++){ //deberia ir filas en lugar de 18
+			for (int j = 1; j <= filas; j++){ 
 				//mostrar terrenos
-				String direccionTerrenoTerrestre = tablero.fila(j).columna(i).getTerrenoTerrestre().getDireccionDeImagen();
+				String direccionTerrenoTerrestre = Tablero.getTablero().fila(j).columna(i).getTerrenoTerrestre().getDireccionDeImagen();
 				Image imagenTerrenoTerrestre = new Image(direccionTerrenoTerrestre);
 				ImageView contenedorImagenTerrenoTerrestre = new ImageView();
 				contenedorImagenTerrenoTerrestre.setFitHeight(33);
@@ -29,7 +29,7 @@ public class ContenedorTablero extends BorderPane {
 				contenedorImagenTerrenoTerrestre.setImage(imagenTerrenoTerrestre);
 				
 				
-				String direccionTerrenoAereo = tablero.fila(j).columna(i).getTerrenoAereo().getDireccionDeImagen();
+				String direccionTerrenoAereo = Tablero.getTablero().fila(j).columna(i).getTerrenoAereo().getDireccionDeImagen();
 				Image imagenTerrenoAereo = new Image(direccionTerrenoAereo);
 				ImageView contenedorImagenTerrenoAereo = new ImageView();
 				contenedorImagenTerrenoAereo.setFitHeight(33);
@@ -41,13 +41,14 @@ public class ContenedorTablero extends BorderPane {
 
 				
 				//mostrar contenido
-				String direccionContenido = tablero.fila(j).columna(i).getContenido().getDireccionDeImagen();
+				String direccionContenido = Tablero.getTablero().fila(j).columna(i).getContenido().getDireccionDeImagen();
 				Image imagenContenido = new Image(direccionContenido);
 				VistaContenido contenedorContenido;
 				ImageView contenedorImagenContenido = new ImageView();
 				contenedorImagenContenido.setFitHeight(33);
 				contenedorImagenContenido.setFitWidth(33);
 				contenedorImagenContenido.setImage(imagenContenido);
+				contenedorImagenContenido.setOpacity(0.3);
 				
 				//Superponer imagenes
 				StackPane contenedorImagenesSuperpuestas = new StackPane();

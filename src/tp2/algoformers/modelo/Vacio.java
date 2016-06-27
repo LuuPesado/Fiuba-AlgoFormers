@@ -8,7 +8,7 @@ public class Vacio implements Contenido{
     private String direccionDeImagen;
     public Vacio(int fila, int columna) {
         posicion = new Posicion(fila, columna);
-        this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/NubeTablero.png");
+        this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/transparente.png");
     }
     
     

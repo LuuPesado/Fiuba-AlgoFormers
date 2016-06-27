@@ -41,16 +41,15 @@ public class Juego {
     }
     
     public void crearTablero(){
-        Tablero tablero = Tablero.getTablero();
-        int filas = tablero.cantidadDeFilas();
-        int columnas = tablero.cantidadDeColumnas();
-        tablero.ubicarAlgoformerEnUnaPosicion(1,1, autobots.get(0));
-        tablero.ubicarAlgoformerEnUnaPosicion(2,1, autobots.get(1));
-        tablero.ubicarAlgoformerEnUnaPosicion(1,2, autobots.get(2));
-        tablero.ubicarAlgoformerEnUnaPosicion(filas, columnas, decepticons.get(0));
-        tablero.ubicarAlgoformerEnUnaPosicion(filas-1,columnas, decepticons.get(1));
-        tablero.ubicarAlgoformerEnUnaPosicion(filas, columnas-1, decepticons.get(2));
-        tablero.ubicarChispaSuprema(chispaSuprema);
+        int filas = Tablero.getTablero().cantidadDeFilas();
+        int columnas = Tablero.getTablero().cantidadDeColumnas();
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(1,1, autobots.get(0));
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(2,1, autobots.get(1));
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(1,2, autobots.get(2));
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(filas, columnas, decepticons.get(0));
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(filas-1,columnas, decepticons.get(1));
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(filas, columnas-1, decepticons.get(2));
+        Tablero.getTablero().ubicarChispaSuprema(chispaSuprema);
     }
     
     public Algoformer devolverAutobot(int numero){
@@ -77,10 +76,11 @@ public class Juego {
     	return ganador;
     }
     
-    public void jugar(int numeroDeAlgoformer, Posicion posicion) {
+    /*public void iniciarJuego() {
+    		
     		turno.jugadorActual().jugar(numeroDeAlgoformer, posicion);
     		turno.bajarTemporales();
-    }
+    }*/
     
     public Jugador getJugadorAutobots(){
     	return jugadorAutobots;

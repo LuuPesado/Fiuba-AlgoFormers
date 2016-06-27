@@ -8,22 +8,22 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import tp2.algoformers.modelo.Juego;
 import tp2.algoformers.modelo.Jugador;
-import tp2.algoformers.modelo.Tablero;
-import tp2.algoformers.modelo.terrenos.Nube;
-import tp2.algoformers.modelo.terrenos.Rocosa;
 import tp2.algoformers.vista.BarraDeMenu;
 import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public class NuestroContenedorPrincipal extends BorderPane {
 	 BarraDeMenu menuBar;
 	 Canvas canvasCentral;
+	 Button botonJugada;
 	 
 	 public NuestroContenedorPrincipal(Stage stage){
 		 Jugador jugador1 = new Jugador("Autobots");
 		 Jugador jugador2 = new Jugador("Decepticons");
 		 Juego juego = new Juego(jugador1, jugador2);
+		 botonJugada = new Button();
 		 juego.crearTablero();
 		 this.setJugador1(jugador1);
 		 this.setJugador2(jugador2);
@@ -37,10 +37,7 @@ public class NuestroContenedorPrincipal extends BorderPane {
 	}
 
 	 private void setTablero(){
-		 Tablero tablero = Tablero.getTablero();
-		 Rocosa rocosa = new Rocosa();
-		 Nube nube = new Nube();
-		 ContenedorTablero contenedorTablero = new ContenedorTablero(tablero, rocosa, nube);
+		 ContenedorTablero contenedorTablero = new ContenedorTablero();
 		 
 		 VBox contenedorVertical = new VBox(contenedorTablero);
 	     contenedorVertical.setSpacing(10);

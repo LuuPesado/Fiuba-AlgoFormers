@@ -119,7 +119,7 @@ public class TerrenoTest {
 		Tablero.getTablero().generarZonaAereo(inicio,fin,nebulosa);	
 		megatron.transformar();
 		megatron.moverAlgoformer(15, 15);
-		jugador.jugar(0, fin);
+		jugador.jugar(jugador.getAlgoformers().get(0), fin);
 		Tablero.getTablero().reiniciarTablero();
 	}
       

@@ -3,6 +3,7 @@ package tp2.algoformers.modelo;
 import java.util.ArrayList;
 
 import tp2.algoformers.modelo.algoformers.Algoformer;
+import tp2.algoformers.modelo.excepciones.EseAlgoformerPerteneceAlOtroJugadorException;
 import tp2.algoformers.modelo.excepciones.NoPuedeFusionarseException;
 
 
@@ -23,21 +24,18 @@ public class Jugador {
         this.algoformers = unaListaDeAlgoformers;
     }
 
-    public Algoformer elegirAlgoformer(int numeroDeAlgoformer) {
-        //Despues en vez de enviarla como parametro se va a elegir mediante la interfaz grafica
-        return algoformers.get(numeroDeAlgoformer);
+    public Algoformer elegirAlgoformer(Algoformer unAlgoformer) {
+        if (!this.algoformers.contains(unAlgoformer)){
+        	throw new EseAlgoformerPerteneceAlOtroJugadorException();
+        }
+    	return unAlgoformer;
     }  
     
-    private Posicion elegirPosicion(Posicion unaPosicion) {
-        //Despues en vez de enviarla como parametro se va a elegir mediante la interfaz grafica
-        return unaPosicion;
-    }
-    
-    public void jugar(int numeroDeAlgoformer, Posicion unaPosicion){
-        Algoformer algoformer = this.elegirAlgoformer(numeroDeAlgoformer);
+      
+    public void jugar(Algoformer unAlgoformer, Posicion unaPosicion){
+        Algoformer algoformer = this.elegirAlgoformer(unAlgoformer);
         algoformer.getModificadores().afectarTurnos();
-        Posicion posicion = this.elegirPosicion(unaPosicion);
-        this.miTurno(algoformer, posicion);
+        this.miTurno(algoformer, unaPosicion);
     }
     
     public void miTurno(Algoformer algoformer, Posicion posicion){
