@@ -18,6 +18,9 @@ public class ChispaSuprema implements Contenido{
     	atrapada = true;
     }
     
+    public boolean esUnAlgoformer(){
+    	return false;
+    }
     
     public void setPosicion(Posicion posicion){
         this.posicion = posicion;

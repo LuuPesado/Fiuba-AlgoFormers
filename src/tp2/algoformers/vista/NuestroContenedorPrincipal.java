@@ -8,6 +8,8 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import tp2.algoformers.modelo.Juego;
 import tp2.algoformers.modelo.Jugador;
+import tp2.algoformers.modelo.Posicion;
+import tp2.algoformers.modelo.algoformers.Algoformer;
 import tp2.algoformers.vista.BarraDeMenu;
 import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
@@ -24,6 +26,7 @@ public class NuestroContenedorPrincipal extends BorderPane {
 	 private Stage stage;
 	 private ContenedorTablero contenedorTablero;
 	 
+	 
 	 public NuestroContenedorPrincipal(Stage stage){
 		 this.stage = stage;
 		 this.jugador1 = new Jugador("Autobots");
@@ -31,9 +34,9 @@ public class NuestroContenedorPrincipal extends BorderPane {
 		 this.juego = new Juego(jugador1, jugador2);
 		 juego.crearTablero();
 		 this.setTablero();
+		 this.setMenu(this.stage);
 		 this.setJugador1(jugador1);
 		 this.setJugador2(jugador2);
-		 this.setMenu(this.stage);
 	 }
 	
 	 private Botonera setBotonera() {
@@ -48,8 +51,8 @@ public class NuestroContenedorPrincipal extends BorderPane {
 
 	 private void setTablero(){
 		 this.contenedorTablero = new ContenedorTablero();
-		 
 		 VBox contenedorVertical = new VBox(contenedorTablero);
+		 //contenedorVertical.getChildren().add(this.setBotonera());
 	     contenedorVertical.setSpacing(10);
 	     contenedorVertical.setPadding(new Insets(15));
 	     this.setCenter(contenedorVertical);

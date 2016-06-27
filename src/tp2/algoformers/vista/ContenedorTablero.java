@@ -6,14 +6,20 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import tp2.algoformers.modelo.Contenido;
+import tp2.algoformers.modelo.Posicion;
 import tp2.algoformers.modelo.Tablero;
+import tp2.algoformers.modelo.algoformers.Algoformer;
 import tp2.algoformers.modelo.terrenos.Nube;
 import tp2.algoformers.modelo.terrenos.Rocosa;
+import tp2.algoformers.vista.eventos.ElegirContenidoEventHandler;
 
 public class ContenedorTablero extends BorderPane {
 	
 	private int filas;
 	private int columnas;
+	private Contenido unAlgoformer;
+	private Posicion unaPosicion;
 	
 	public ContenedorTablero(){
 		this.filas = Tablero.getTablero().cantidadDeFilas();
@@ -28,38 +34,20 @@ public void dibujar(){
 	    	VBox contenedorVertical = new VBox();
 			for (int j = 1; j <= filas; j++){ 
 				//mostrar terrenos
-				String direccionTerrenoTerrestre = Tablero.getTablero().fila(j).columna(i).getTerrenoTerrestre().getDireccionDeImagen();
-				Image imagenTerrenoTerrestre = new Image(direccionTerrenoTerrestre);
-				ImageView contenedorImagenTerrenoTerrestre = new ImageView();
-				contenedorImagenTerrenoTerrestre.setFitHeight(33);
-				contenedorImagenTerrenoTerrestre.setFitWidth(33);
-				contenedorImagenTerrenoTerrestre.setImage(imagenTerrenoTerrestre);
 				
+				ImageView contenedorImagenTerrenoTerrestre = this.dibujarTerrenoTerrestre(i, j);
 				
-				String direccionTerrenoAereo = Tablero.getTablero().fila(j).columna(i).getTerrenoAereo().getDireccionDeImagen();
-				Image imagenTerrenoAereo = new Image(direccionTerrenoAereo);
-				ImageView contenedorImagenTerrenoAereo = new ImageView();
-				contenedorImagenTerrenoAereo.setFitHeight(33);
-				contenedorImagenTerrenoAereo.setFitWidth(33);
-				contenedorImagenTerrenoAereo.setImage(imagenTerrenoAereo);
-				
-				contenedorImagenTerrenoTerrestre.setOpacity(0.6);
-				contenedorImagenTerrenoAereo.setOpacity(1);
-
+				ImageView contenedorImagenTerrenoAereo = this.dibujarTerrenoAereo(i, j);
 				
 				//mostrar contenido
-				String direccionContenido = Tablero.getTablero().fila(j).columna(i).getContenido().getDireccionDeImagen();
-				Image imagenContenido = new Image(direccionContenido);
-				VistaContenido contenedorContenido;
-				ImageView contenedorImagenContenido = new ImageView();
-				contenedorImagenContenido.setFitHeight(33);
-				contenedorImagenContenido.setFitWidth(33);
-				contenedorImagenContenido.setImage(imagenContenido);
-				contenedorImagenContenido.setOpacity(0.3);
+				Contenido contenido = Tablero.getTablero().fila(j).columna(i).getContenido();
+				VistaContenido contenedorContenido = new VistaContenido(contenido);
+				this.unAlgoformer = contenedorContenido.getContenido();
+				this.unaPosicion = contenedorContenido.getContenido().getPosicion();
 				
 				//Superponer imagenes
 				StackPane contenedorImagenesSuperpuestas = new StackPane();
-				contenedorImagenesSuperpuestas.getChildren().addAll(contenedorImagenTerrenoAereo, contenedorImagenTerrenoTerrestre, contenedorImagenContenido); 
+				contenedorImagenesSuperpuestas.getChildren().addAll(contenedorImagenTerrenoAereo, contenedorImagenTerrenoTerrestre, contenedorContenido); 
 				contenedorVertical.getChildren().add(contenedorImagenesSuperpuestas);
 				contenedorVertical.setSpacing(2);
 
@@ -70,4 +58,32 @@ public void dibujar(){
 	    this.setCenter(contenedorHorizontal);
 		
 	}
+
+
+private ImageView dibujarTerrenoAereo(int i, int j) {
+	String direccionTerrenoAereo = Tablero.getTablero().fila(j).columna(i).getTerrenoAereo().getDireccionDeImagen();
+	Image imagenTerrenoAereo = new Image(direccionTerrenoAereo);
+	ImageView contenedorImagenTerrenoAereo = new ImageView();
+	contenedorImagenTerrenoAereo.setFitHeight(33);
+	contenedorImagenTerrenoAereo.setFitWidth(33);
+	contenedorImagenTerrenoAereo.setImage(imagenTerrenoAereo);
+	contenedorImagenTerrenoAereo.setOpacity(1);
+	return contenedorImagenTerrenoAereo;
+}
+ 
+
+private ImageView dibujarTerrenoTerrestre(int i, int j) {
+	String direccionTerrenoTerrestre = Tablero.getTablero().fila(j).columna(i).getTerrenoTerrestre().getDireccionDeImagen();
+	Image imagenTerrenoTerrestre = new Image(direccionTerrenoTerrestre);
+	ImageView contenedorImagenTerrenoTerrestre = new ImageView();
+	contenedorImagenTerrenoTerrestre.setFitHeight(33);
+	contenedorImagenTerrenoTerrestre.setFitWidth(33);
+	contenedorImagenTerrenoTerrestre.setImage(imagenTerrenoTerrestre);
+	contenedorImagenTerrenoTerrestre.setOpacity(0.6);
+	return contenedorImagenTerrenoTerrestre;
+}
+
+
+
+
 }

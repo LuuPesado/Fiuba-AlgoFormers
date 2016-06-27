@@ -57,6 +57,11 @@ public abstract class Algoformer implements Contenido{
     }
     
     @Override
+    public boolean esUnAlgoformer(){
+    	return true;
+    }
+    
+    @Override
     public boolean estaOcupado(){
         return true;
     }

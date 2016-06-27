@@ -20,7 +20,10 @@ public class Vacio implements Contenido{
     	return false;
     }
     
-
+    public boolean esUnAlgoformer(){
+    	return false;
+    }
+    
     public void atacadoPor(Algoformer unAlgoformer) {
         unAlgoformer.moverAlgoformer(posicion.getFila(), posicion.getColumna());
     }

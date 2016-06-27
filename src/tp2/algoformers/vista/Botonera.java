@@ -26,11 +26,14 @@ public class Botonera extends BorderPane {
 		this.setCenter(contenedorBotones);
 
 	}
+	
+	
 
 	private Button setBotonJugar() {
 		Button botonJugar = new Button("Jugar");
 		BotonJugarEventHandler jugarEventHandler = new BotonJugarEventHandler(juego, contenedorTablero);
 		botonJugar.setOnAction(jugarEventHandler);
+		Controlador.getControlador().recibirBotonJugar(jugarEventHandler);
 		return botonJugar;
 	}
 

@@ -17,5 +17,7 @@ public interface Contenido {
 	public String getDireccionDeImagen();
 
 	public boolean hayChispa();
+
+	public boolean esUnAlgoformer();
 	
 }

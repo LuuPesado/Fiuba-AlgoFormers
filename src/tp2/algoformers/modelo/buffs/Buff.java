@@ -19,9 +19,14 @@ public class Buff implements Contenido{
     	return true;
     }
 
+	public boolean esUnAlgoformer(){
+		return false;
+	}
+	
 	public boolean hayChispa(){
 		return false;
 	}
+	
 	@Override
 	public boolean estaOcupado() {
 		return false;
