@@ -29,6 +29,9 @@ public class Modificadores {
 	
 	
 	public int afectarPasos(int pasos){
+		if (this.debuffs.contains(new AfectadoPorNebulosa())){
+			return 0;
+		}
 		if ( this.debuffs.contains(new AfectadoPorPantano()) ){
 			return new AfectadoPorPantano().afectarPasos(pasos);
 		} else {

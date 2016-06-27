@@ -157,4 +157,18 @@ public class TerrenoTest {
 		Assert.assertTrue(megatron.getAtaque() == 33);
 		Tablero.getTablero().reiniciarTablero();
 	}
+	
+	@Test 
+	public void test11UnidadAereaQuedaAtrapadaAlPasarPorNebulosaDeAndromedaYNoPuedeContinuar(){
+		Algoformer megatron = new Megatron();
+		Posicion inicio = new Posicion(15,15);
+		Posicion fin = new Posicion (17,17);
+		TerrenoAereo nebulosa = new NebulosaDeAndromeda();
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(14,14  , megatron);
+		Tablero.getTablero().generarZonaAereo(inicio,fin,nebulosa);	
+		megatron.transformar();
+		megatron.moverAlgoformer(16, 16);
+		Assert.assertTrue(megatron.getPosicion().getFila() == 15);
+		Tablero.getTablero().reiniciarTablero();
+	}
 }

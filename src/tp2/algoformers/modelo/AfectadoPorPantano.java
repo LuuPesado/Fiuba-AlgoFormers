@@ -12,6 +12,7 @@ public class AfectadoPorPantano extends Debuff{
 	
 	
 	public int afectarPasos(int pasos){
+		this.bajarDuracion();
 		return pasos--;
 	}
 
