@@ -8,8 +8,6 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import tp2.algoformers.modelo.Juego;
 import tp2.algoformers.modelo.Jugador;
-import tp2.algoformers.modelo.Posicion;
-import tp2.algoformers.modelo.algoformers.Algoformer;
 import tp2.algoformers.vista.BarraDeMenu;
 import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
@@ -33,10 +31,8 @@ public class NuestroContenedorPrincipal extends BorderPane {
 		 this.jugador2 = new Jugador("Decepticons");
 		 this.juego = new Juego(jugador1, jugador2);
 		 juego.crearTablero();
-		 this.setTablero();
-		 this.setMenu(this.stage);
-		 this.setJugador1(jugador1);
-		 this.setJugador2(jugador2);
+		 this.dibujar();
+		 Controlador.getControlador().getContenedorPrincipal(this);
 	 }
 	
 	 private Botonera setBotonera() {
@@ -98,6 +94,18 @@ public class NuestroContenedorPrincipal extends BorderPane {
 	     this.setRight(contenedorVertical1);
 
 	 }
+
+	public void update() {
+		this.dibujar();
+		
+	}
+
+	private void dibujar() {
+		this.setTablero();
+		this.setMenu(this.stage);
+		this.setJugador1(jugador1);
+		this.setJugador2(jugador2);
+	}
 		 
 }
 

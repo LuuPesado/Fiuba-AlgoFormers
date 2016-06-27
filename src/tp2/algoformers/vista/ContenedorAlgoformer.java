@@ -16,9 +16,15 @@ public class ContenedorAlgoformer extends BorderPane {
 	Canvas canvas;
 	private Image imagen;
 	private ImageView contenedorImagen;
+	private Algoformer unAlgoformer;
 	
 	public ContenedorAlgoformer(Algoformer unAlgoformer){
+		this.unAlgoformer = unAlgoformer;
 		this.imagen = new Image(unAlgoformer.getDireccionDeImagen());
+		this.dibujar();
+	}
+	public void dibujar(){
+
 		this.contenedorImagen = new ImageView();
 		contenedorImagen.setFitHeight(100);
 		contenedorImagen.setFitWidth(70);
@@ -53,7 +59,4 @@ public class ContenedorAlgoformer extends BorderPane {
 		VBox texto = new VBox(nombre, vida, ataque, distanciaDeAtaque, velocidadDeDesplazamiento);
         this.setRight(texto);
 	}
-	//public void dibujar(){
-	//	canvas.getGraphicsContext2D().ge
-	//}
 }

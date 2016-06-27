@@ -44,7 +44,6 @@ public class ChispaSuprema implements Contenido{
 	@Override
 	public void atacadoPor(Algoformer unAlgoformer){
 		unAlgoformer.moverAlgoformer(posicion.getFila(), posicion.getColumna());
-		
 	}
 
 

@@ -7,19 +7,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import tp2.algoformers.modelo.Contenido;
-import tp2.algoformers.modelo.Posicion;
 import tp2.algoformers.modelo.Tablero;
-import tp2.algoformers.modelo.algoformers.Algoformer;
-import tp2.algoformers.modelo.terrenos.Nube;
-import tp2.algoformers.modelo.terrenos.Rocosa;
-import tp2.algoformers.vista.eventos.ElegirContenidoEventHandler;
 
 public class ContenedorTablero extends BorderPane {
 	
 	private int filas;
 	private int columnas;
-	private Contenido unAlgoformer;
-	private Posicion unaPosicion;
+
 	
 	public ContenedorTablero(){
 		this.filas = Tablero.getTablero().cantidadDeFilas();
@@ -42,8 +36,6 @@ public void dibujar(){
 				//mostrar contenido
 				Contenido contenido = Tablero.getTablero().fila(j).columna(i).getContenido();
 				VistaContenido contenedorContenido = new VistaContenido(contenido);
-				this.unAlgoformer = contenedorContenido.getContenido();
-				this.unaPosicion = contenedorContenido.getContenido().getPosicion();
 				
 				//Superponer imagenes
 				StackPane contenedorImagenesSuperpuestas = new StackPane();

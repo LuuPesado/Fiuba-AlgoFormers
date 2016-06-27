@@ -7,6 +7,7 @@ public class Controlador {
 
 	private static Controlador instance = null;
 	private BotonJugarEventHandler botonJugar;
+	private NuestroContenedorPrincipal contenedor;
 	
 	private Controlador(){
 		
@@ -27,5 +28,12 @@ public class Controlador {
 	public void darContenido(Contenido elegido) {
 		botonJugar.recibirContenido(elegido);
 	}
-	    
+	
+	public void getContenedorPrincipal(NuestroContenedorPrincipal contenedor){
+		this.contenedor = contenedor;
+	}
+	
+	public void update(){
+		contenedor.update();
+	}
 }
