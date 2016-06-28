@@ -1,6 +1,7 @@
 package tp2.algoformers.vista;
 
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -45,12 +46,28 @@ public class NuestroContenedorPrincipal extends BorderPane {
 	    this.setTop(menuBar);
 	}
 
+	private VBox setNombreJugadorActual(){
+		Jugador jugadorActual = juego.getTurno().devolverJugadorSiguiente();
+		Label nombre = new Label();
+		String texto = "Turno: " + jugadorActual.getNombre();
+        nombre.setText(texto);
+        nombre.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 16));
+        nombre.setTextFill(Color.BLUE);
+        VBox contenedor = new VBox(nombre);
+        return contenedor;
+	}
+	
 	 private void setTablero(){
 		 this.contenedorTablero = new ContenedorTablero();
 		 VBox contenedorVertical = new VBox(contenedorTablero);
+		 //contenedorVertical.getChildren().add(this.setTurno());
 		 //contenedorVertical.getChildren().add(this.setBotonera());
-	     contenedorVertical.setSpacing(10);
-	     contenedorVertical.setPadding(new Insets(15));
+	     //contenedorVertical.setSpacing(10);
+	     //contenedorVertical.setPadding(new Insets(15));
+	     HBox contenedorHorizontal = new HBox();
+	     contenedorHorizontal.getChildren().add(this.setNombreJugadorActual());
+		 contenedorHorizontal.getChildren().add(this.setBotonera());
+		 contenedorVertical.getChildren().add(contenedorHorizontal);
 	     this.setCenter(contenedorVertical);
 	 }
 	 
@@ -64,7 +81,7 @@ public class NuestroContenedorPrincipal extends BorderPane {
      	VBox contenedorVertical1 = new VBox(nombreJugador1);
 		contenedorVertical1.setSpacing(10);
 		contenedorVertical1.setPadding(new Insets(15));	 
-	    contenedorVertical1.getChildren().add(this.setBotonera());
+	    //contenedorVertical1.getChildren().add(this.setBotonera());
 	     
 	     for  (int i=0; i<unJugador.getAlgoformers().size(); i++){
 	    	 ContenedorAlgoformer unContenedor = new ContenedorAlgoformer(unJugador.getAlgoformers().get(i));
@@ -84,7 +101,7 @@ public class NuestroContenedorPrincipal extends BorderPane {
      	VBox contenedorVertical1 = new VBox(nombreJugador1);
 		contenedorVertical1.setSpacing(10);
 		contenedorVertical1.setPadding(new Insets(15));
-		contenedorVertical1.getChildren().add(this.setBotonera());
+		//contenedorVertical1.getChildren().add(this.setBotonera());
 
 	     for  (int i=0; i<unJugador.getAlgoformers().size(); i++){
 	    	 ContenedorAlgoformer unContenedor = new ContenedorAlgoformer(unJugador.getAlgoformers().get(i));
@@ -97,7 +114,6 @@ public class NuestroContenedorPrincipal extends BorderPane {
 
 	public void update() {
 		this.dibujar();
-		
 	}
 
 	private void dibujar() {

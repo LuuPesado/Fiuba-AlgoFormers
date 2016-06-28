@@ -56,8 +56,8 @@ private ImageView dibujarTerrenoAereo(int i, int j) {
 	String direccionTerrenoAereo = Tablero.getTablero().fila(j).columna(i).getTerrenoAereo().getDireccionDeImagen();
 	Image imagenTerrenoAereo = new Image(direccionTerrenoAereo);
 	ImageView contenedorImagenTerrenoAereo = new ImageView();
-	contenedorImagenTerrenoAereo.setFitHeight(33);
-	contenedorImagenTerrenoAereo.setFitWidth(33);
+	contenedorImagenTerrenoAereo.setFitHeight(32);
+	contenedorImagenTerrenoAereo.setFitWidth(32);
 	contenedorImagenTerrenoAereo.setImage(imagenTerrenoAereo);
 	contenedorImagenTerrenoAereo.setOpacity(1);
 	return contenedorImagenTerrenoAereo;
@@ -68,8 +68,8 @@ private ImageView dibujarTerrenoTerrestre(int i, int j) {
 	String direccionTerrenoTerrestre = Tablero.getTablero().fila(j).columna(i).getTerrenoTerrestre().getDireccionDeImagen();
 	Image imagenTerrenoTerrestre = new Image(direccionTerrenoTerrestre);
 	ImageView contenedorImagenTerrenoTerrestre = new ImageView();
-	contenedorImagenTerrenoTerrestre.setFitHeight(33);
-	contenedorImagenTerrenoTerrestre.setFitWidth(33);
+	contenedorImagenTerrenoTerrestre.setFitHeight(32);
+	contenedorImagenTerrenoTerrestre.setFitWidth(32);
 	contenedorImagenTerrenoTerrestre.setImage(imagenTerrenoTerrestre);
 	contenedorImagenTerrenoTerrestre.setOpacity(0.6);
 	return contenedorImagenTerrenoTerrestre;
