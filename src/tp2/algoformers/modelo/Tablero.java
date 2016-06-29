@@ -57,7 +57,7 @@ public class Tablero {
     }
 
     public void ubicarChispaSuprema(ChispaSuprema chispaSuprema) {
-        Posicion posicion = new Posicion(CANTIDAD_FILAS+1/2,CANTIDAD_FILAS+1/2);
+        Posicion posicion = new Posicion((CANTIDAD_FILAS+1)/2,(CANTIDAD_FILAS+1)/2);
         chispaSuprema.setPosicion(posicion);
         this.fila((CANTIDAD_FILAS+1)/2).columna((CANTIDAD_COLUMNAS+1)/2).agregarContenido(chispaSuprema);
     }
