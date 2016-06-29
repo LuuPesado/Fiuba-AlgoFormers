@@ -9,7 +9,6 @@ import tp2.algoformers.modelo.Juego;
 import tp2.algoformers.modelo.Jugador;
 import tp2.algoformers.modelo.Posicion;
 import tp2.algoformers.modelo.algoformers.Algoformer;
-import tp2.algoformers.modelo.excepciones.EseAlgoformerPerteneceAlOtroJugadorException;
 import tp2.algoformers.modelo.excepciones.FueraDeRangoException;
 import tp2.algoformers.modelo.excepciones.NoPuedoAtacarUnCompanieroException;
 import tp2.algoformers.vista.ContenedorTablero;
@@ -21,10 +20,8 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
 	private Algoformer unAlgoformer = null;
 	private Posicion unaPosicion;
 	private ContenedorTablero contenedorTablero;
-	private Juego juego;
 	
 	public BotonJugarEventHandler(Juego juego, ContenedorTablero contenedorTablero) {
-		this.juego = juego;
 		this.jugador = juego.getTurno().jugadorActual();
 		this.contenedorTablero = contenedorTablero;
 	}
@@ -42,7 +39,6 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
 		}
 	}
 	
-	
 	@Override
 	public void handle(ActionEvent arg0) {
 		if ((unAlgoformer != null) && (unaPosicion != null)){
@@ -53,10 +49,6 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
 			return;
 		} catch (NoPuedoAtacarUnCompanieroException e){
 			this.mostrarAlertaNoPuedoAtacar();
-			return;
-		}
-		if (juego.hayGanador()){
-			this.anunciarGanador(jugador);
 			return;
 		}
 		this.contenedorTablero.dibujar();
@@ -85,12 +77,4 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
         alert.show();
 	}
 	
-	private void anunciarGanador(Jugador jugador){
-		Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Fin de juego");
-        String nombreGanador = jugador.getNombre();
-        alert.setHeaderText("GANADOR: " + nombreGanador);
-        alert.show();
-	}
-
 }
