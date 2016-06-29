@@ -19,15 +19,13 @@ public class Tablero {
         filas = new Fila[CANTIDAD_FILAS];
         for (int i = 0; i<CANTIDAD_FILAS;i++){
             filas[i] = new Fila(i, CANTIDAD_COLUMNAS);
-         }
+        }
         TerrenoTerrestre rocoso = new Rocosa();
         TerrenoAereo nube = new Nube();
     	for (int i = 1; i <= CANTIDAD_FILAS; i++){
     		for (int j = 1; j <= CANTIDAD_COLUMNAS; j++){
     			this.fila(i).columna(j).asignarTerrenoTerrestre(rocoso);
     			this.fila(i).columna(j).asignarTerrenoAereo(nube);
-    	
-    		
     		}
     	}
     }
