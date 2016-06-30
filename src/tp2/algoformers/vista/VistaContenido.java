@@ -29,7 +29,7 @@ public class VistaContenido extends ImageView {
 		this.setFitHeight(32);
 		this.setFitWidth(32);
 		this.setImage(imagenContenido);
-		this.setOpacity(0.3);
+		this.setOpacity(1);
 	}
 
 }

@@ -39,7 +39,7 @@ public void dibujar(){
 				
 				//Superponer imagenes
 				StackPane contenedorImagenesSuperpuestas = new StackPane();
-				contenedorImagenesSuperpuestas.getChildren().addAll(contenedorImagenTerrenoAereo, contenedorImagenTerrenoTerrestre, contenedorContenido); 
+				contenedorImagenesSuperpuestas.getChildren().addAll(contenedorImagenTerrenoTerrestre, contenedorImagenTerrenoAereo, contenedorContenido); 
 				contenedorVertical.getChildren().add(contenedorImagenesSuperpuestas);
 				contenedorVertical.setSpacing(2);
 
@@ -71,7 +71,7 @@ private ImageView dibujarTerrenoTerrestre(int i, int j) {
 	contenedorImagenTerrenoTerrestre.setFitHeight(32);
 	contenedorImagenTerrenoTerrestre.setFitWidth(32);
 	contenedorImagenTerrenoTerrestre.setImage(imagenTerrenoTerrestre);
-	contenedorImagenTerrenoTerrestre.setOpacity(0.6);
+	contenedorImagenTerrenoTerrestre.setOpacity(1);
 	return contenedorImagenTerrenoTerrestre;
 }
 
