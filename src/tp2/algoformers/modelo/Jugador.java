@@ -91,6 +91,9 @@ public class Jugador {
     	int i=0;
         while (i<algoformers.size()){
         	if (algoformers.get(i).puntosDeVida()<=0){
+        		Algoformer algoformerMuerto = algoformers.get(i);
+        		Posicion posicion = algoformerMuerto.getPosicion();
+        		Tablero.getTablero().sacarAlgoformer(posicion);
         		algoformers.remove(i);
         	} else {
         		i++;

@@ -52,12 +52,18 @@ public class Juego {
         Tablero.getTablero().ubicarChispaSuprema(chispaSuprema);
         int fil = Tablero.getTablero().cantidadDeFilas();
         int colum = Tablero.getTablero().cantidadDeColumnas();
-        this.crearFabricas(fil, colum);
+        this.crearFabricaTerrenos(fil, colum);
+        this.crearFabricaBuffs(fil, colum);
     }
     
-    private void crearFabricas(int filas, int columnas){
+    private void crearFabricaTerrenos(int filas, int columnas){
     	FabricaTerrenos fabrica = new FabricaTerrenos(filas, columnas);
 		fabrica.fabricarTerrenosAlAzar(1, 1, 2, 2); //pongo cualquier numero
+    }
+    
+    private void crearFabricaBuffs(int filas, int columnas){
+    	FabricaBuffs fabrica = new FabricaBuffs(filas, columnas);
+		fabrica.fabricarBuffsAlAzar(5, 4, 4); //pongo cualquier numero
     }
     
     public Turno getTurno() {
