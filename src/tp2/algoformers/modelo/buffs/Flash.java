@@ -8,7 +8,7 @@ public class Flash extends Buff{
 		super(fila, columna);
 		duracion = 3;
 		nombre = "Flash";
-		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/FlashTablero.png";
+		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/Flash.png";
 	}
 
 	public int afectarVelocidad(int velocidad) {

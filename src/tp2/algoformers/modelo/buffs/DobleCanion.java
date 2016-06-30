@@ -8,7 +8,7 @@ public class DobleCanion extends Buff{
 		super(fila, columna);
 		duracion = 3;
 		nombre = "Canion";
-		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/DobleCanionTablero.png";
+		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/DobleCanion.png";
 	}
 
 	public int afectarAtaque(int ataque){
