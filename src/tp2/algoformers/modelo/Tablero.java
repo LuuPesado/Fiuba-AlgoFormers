@@ -2,7 +2,6 @@ package tp2.algoformers.modelo;
 
 import tp2.algoformers.modelo.algoformers.Algoformer;
 import tp2.algoformers.modelo.buffs.Buff;
-import tp2.algoformers.modelo.excepciones.NoHayUnAlgoformerEnEsaPosicion;
 import tp2.algoformers.modelo.terrenos.Nube;
 import tp2.algoformers.modelo.terrenos.Rocosa;
 import tp2.algoformers.modelo.terrenos.TerrenoAereo;
@@ -66,13 +65,6 @@ public class Tablero {
     
     public int cantidadDeColumnas(){
         return CANTIDAD_COLUMNAS;
-    }
-    
-    public Contenido getAlgoformer(int fila, int columna){
-    	if ( !this.fila(fila).columna(columna).estaOcupada() ){
-    		throw new NoHayUnAlgoformerEnEsaPosicion();
-    	}
-    	return this.fila(fila).columna(columna).getContenido();
     }
     
     public void generarZonaTerrestre(Posicion inicio, Posicion fin, TerrenoTerrestre terreno){

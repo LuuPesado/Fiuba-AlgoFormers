@@ -9,8 +9,12 @@ import tp2.algoformers.modelo.Juego;
 import tp2.algoformers.modelo.Jugador;
 import tp2.algoformers.modelo.Posicion;
 import tp2.algoformers.modelo.algoformers.Algoformer;
+import tp2.algoformers.modelo.excepciones.AtrapadoEnNebulosaException;
+import tp2.algoformers.modelo.excepciones.EseAlgoformerPerteneceAlOtroJugadorException;
 import tp2.algoformers.modelo.excepciones.FueraDeRangoException;
+import tp2.algoformers.modelo.excepciones.LaCeldaYaTieneUnAlgoformer;
 import tp2.algoformers.modelo.excepciones.NoPuedoAtacarUnCompanieroException;
+import tp2.algoformers.modelo.excepciones.UnHumanoideNoPuedeCruzarUnPantano;
 import tp2.algoformers.vista.ContenedorTablero;
 import tp2.algoformers.vista.Controlador;
 
@@ -46,9 +50,27 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
 			jugador.jugar(unAlgoformer, unaPosicion);
 		} catch (FueraDeRangoException e){
 			this.mostrarAlertaFueraDeRango();
+			unAlgoformer = null;
 			return;
 		} catch (NoPuedoAtacarUnCompanieroException e){
 			this.mostrarAlertaNoPuedoAtacar();
+			unAlgoformer = null;
+			return;
+		} catch (LaCeldaYaTieneUnAlgoformer e){
+			this.mostrarAlertaYaTieneAlgoformer();
+			unAlgoformer = null;
+			return;
+		} catch (UnHumanoideNoPuedeCruzarUnPantano e){
+			this.mostrarHumanoideNoPuede();
+			unAlgoformer = null;
+			return;
+		} catch (AtrapadoEnNebulosaException e){
+			this.mostrarAtrapadoEnNebulosa();
+			unAlgoformer = null;
+			return;
+		} catch (EseAlgoformerPerteneceAlOtroJugadorException e){
+			this.mostrarAlertaPerteneceOtroJugador();
+			unAlgoformer = null;
 			return;
 		}
 		this.contenedorTablero.dibujar();
@@ -72,6 +94,50 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
         alert.setTitle("Excepción");
         alert.setHeaderText("No puede atacar un compañero");
         String mensaje = "Algoformers del mismo equipo no puede atacarse entre sí."
+        		+ " Intente nuevamente.";
+        alert.setContentText(mensaje);
+        alert.show();
+	}
+	
+	private void mostrarAlertaYaTieneAlgoformer(){
+		Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Excepción");
+        alert.setHeaderText("La celda ya tiene un algoformer");
+        String mensaje = "Está intentando atravesar una celda que está ocupada."
+        		+ " Intente nuevamente.";
+        alert.setContentText(mensaje);
+        alert.show();
+	}
+	
+	private void mostrarHumanoideNoPuede(){
+		Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Excepción");
+        alert.setHeaderText("No puede cruzar pantano");
+        String mensaje = "Algoformer en modo humanoide no puede hacerlo."
+        		+ " Intente nuevamente.";
+        alert.setContentText(mensaje);
+        alert.show();
+        //no funciona bien
+	}
+	
+	private void mostrarAtrapadoEnNebulosa(){
+		Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Excepción");
+        alert.setHeaderText("Atrapado en nebulosa");
+        String mensaje = "Su algoformer se liberará pasados 3 turnos."
+        		+ " Utilice otro algoformer.";
+        alert.setContentText(mensaje);
+        alert.show();
+        //NO FUNCIONA
+        //No atrapa al algoformer cuando solo lo atraviesa (es decir cuando paso sin querer por ahi).
+        //Y cuando me muevo a una posicion nebulosa lo atrapa eternamente.
+	}
+	
+	private void mostrarAlertaPerteneceOtroJugador(){
+		Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Excepción");
+        alert.setHeaderText("Algoformer del otro equipo");
+        String mensaje = "Ha elegido un algoformer del otro jugador."
         		+ " Intente nuevamente.";
         alert.setContentText(mensaje);
         alert.show();
