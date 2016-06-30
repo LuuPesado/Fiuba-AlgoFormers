@@ -5,6 +5,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import tp2.algoformers.modelo.Contenido;
+import tp2.algoformers.modelo.Vacio;
 import tp2.algoformers.modelo.excepciones.EseAlgoformerPerteneceAlOtroJugadorException;
 import tp2.algoformers.vista.eventos.ElegirContenidoEventHandler;
 
@@ -29,6 +30,11 @@ public class VistaContenido extends ImageView {
 		this.setFitHeight(32);
 		this.setFitWidth(32);
 		this.setImage(imagenContenido);
+		//este if es horrible, ya se, pero asi pongo la opacidad del contenido en 0 solo si es vacio
+		if (contenido.getClass().getName() == "tp2.algoformers.modelo.Vacio"){
+			this.setOpacity(0);
+			return;
+		}
 		this.setOpacity(1);
 	}
 
