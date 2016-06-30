@@ -12,6 +12,8 @@ import tp2.algoformers.modelo.Jugador;
 import tp2.algoformers.vista.BarraDeMenu;
 import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
@@ -57,18 +59,33 @@ public class NuestroContenedorPrincipal extends BorderPane {
         return contenedor;
 	}
 	
-	 private void setTablero(){
+	 private void setJuego(){
 		 this.contenedorTablero = new ContenedorTablero();
 		 VBox contenedorVertical = new VBox(contenedorTablero);
-		 //contenedorVertical.getChildren().add(this.setTurno());
-		 //contenedorVertical.getChildren().add(this.setBotonera());
-	     //contenedorVertical.setSpacing(10);
-	     //contenedorVertical.setPadding(new Insets(15));
-	     HBox contenedorHorizontal = new HBox();
+		 HBox contenedorHorizontal = new HBox();
+		 if (juego.hayGanador()){
+			 contenedorHorizontal.getChildren().add(this.anunciarGanador());
+			 contenedorVertical.getChildren().add(contenedorHorizontal);
+			 this.setCenter(contenedorVertical);
+			 return; //si hay ganador no muestro mas la botonera
+		 }
 	     contenedorHorizontal.getChildren().add(this.setNombreJugadorActual());
 		 contenedorHorizontal.getChildren().add(this.setBotonera());
 		 contenedorVertical.getChildren().add(contenedorHorizontal);
-	     this.setCenter(contenedorVertical);
+		 this.setCenter(contenedorVertical);
+	 }
+	 
+	 private VBox anunciarGanador(){
+		 //escribo el ganador debajo del tablero
+		 Jugador jugadorGanador = juego.getTurno().devolverJugadorActual();
+	     String nombreGanador = jugadorGanador.getNombre();
+	     Label nombre = new Label();
+		 String texto = "GANADOR: " + nombreGanador;
+	     nombre.setText(texto);
+	     nombre.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 20));
+	     nombre.setTextFill(Color.BLACK);
+	     VBox contenedor = new VBox(nombre);
+	     return contenedor;
 	 }
 	 
 	 private void setJugador1(Jugador unJugador){
@@ -117,10 +134,10 @@ public class NuestroContenedorPrincipal extends BorderPane {
 	}
 
 	private void dibujar() {
-		this.setTablero();
 		this.setMenu(this.stage);
 		this.setJugador1(jugador1);
 		this.setJugador2(jugador2);
+		this.setJuego();
 	}
 		 
 }

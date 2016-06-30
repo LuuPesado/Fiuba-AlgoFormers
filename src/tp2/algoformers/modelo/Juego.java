@@ -1,6 +1,7 @@
 package tp2.algoformers.modelo;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import tp2.algoformers.modelo.algoformers.Algoformer;
 import tp2.algoformers.modelo.algoformers.Bonecrusher;
@@ -19,14 +20,8 @@ public class Juego {
     private ArrayList<Algoformer> decepticons;
     private ChispaSuprema chispaSuprema;
     private Turno turno;
-    
-    public Turno getTurno() {
-		return turno;
-	}
-
 
 	public Juego(Jugador jugadorAutobots, Jugador jugadorDecepticons){
-    	
         this.jugadorAutobots = jugadorAutobots;
         this.jugadorDecepticons = jugadorDecepticons;
         this.autobots = new ArrayList<Algoformer>();
@@ -44,7 +39,7 @@ public class Juego {
         this.turno = new Turno(jugadorAutobots, jugadorDecepticons, chispaSuprema);
         chispaSuprema = new ChispaSuprema();
     }
-    
+
     public void crearTablero(){
         int filas = Tablero.getTablero().cantidadDeFilas();
         int columnas = Tablero.getTablero().cantidadDeColumnas();
@@ -55,7 +50,19 @@ public class Juego {
         Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(filas-1,columnas, decepticons.get(1));
         Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(filas, columnas-1, decepticons.get(2));
         Tablero.getTablero().ubicarChispaSuprema(chispaSuprema);
+        int fil = Tablero.getTablero().cantidadDeFilas();
+        int colum = Tablero.getTablero().cantidadDeColumnas();
+        this.crearFabricas(fil, colum);
     }
+    
+    private void crearFabricas(int filas, int columnas){
+    	FabricaTerrenos fabrica = new FabricaTerrenos(filas, columnas);
+		fabrica.fabricarTerrenosAlAzar(1, 1, 2, 2); //pongo cualquier numero
+    }
+    
+    public Turno getTurno() {
+		return turno;
+	}
     
     public Algoformer devolverAutobot(int numero){
         return autobots.get(numero);
@@ -64,8 +71,6 @@ public class Juego {
     public Algoformer devolverDecepticon(int numero){
         return decepticons.get(numero);
     }
-    
-   
     
     public boolean hayGanador(){
     	boolean ganador = false;

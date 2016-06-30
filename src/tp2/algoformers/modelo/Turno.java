@@ -36,6 +36,10 @@ public class Turno {
 		return jugadorSiguiente;
 	}
 	
+	public Jugador devolverJugadorActual(){
+		return jugadorActual;
+	}
+	
 	/*public void realizarAccion(){
 		Algoformer algoformer = jugador.elegirAlgoformer(elegido);
 		int accion = jugador.elegirAccion();
