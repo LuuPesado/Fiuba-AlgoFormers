@@ -66,7 +66,7 @@ public class Tablero {
     public int cantidadDeColumnas(){
         return CANTIDAD_COLUMNAS;
     }
-    
+   
     public void generarZonaTerrestre(Posicion inicio, Posicion fin, TerrenoTerrestre terreno){
     	for (int i = inicio.getFila(); i <= fin.getFila(); i++){
     		for (int j = inicio.getColumna(); j <= fin.getColumna(); j++){
@@ -79,6 +79,14 @@ public class Tablero {
     	for (int i = inicio.getFila(); i <= fin.getFila(); i++){
     		for (int j = inicio.getColumna(); j <= fin.getColumna(); j++){
     			this.fila(i).columna(j).asignarTerrenoAereo(terreno);
+    		}
+    	}
+    }
+    
+    public void vaciarTablero(){
+    	for (int i = 1; i <= CANTIDAD_FILAS; i++){
+    		for (int j = 1; j <= CANTIDAD_COLUMNAS; j++){
+    			this.fila(i).columna(j).asignarVacio();
     		}
     	}
     }

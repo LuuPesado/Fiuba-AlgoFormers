@@ -21,6 +21,10 @@ public class Celda {
     public Contenido getContenido(){
         return contenido;
     }
+    public void asignarVacio(){
+    	contenido = new Vacio(posicion.getFila(), posicion.getColumna());
+    }
+    
     public void asignarTerrenoTerrestre(TerrenoTerrestre unTerreno){
     	this.terrenoTerrestre = unTerreno;
     }

@@ -43,6 +43,7 @@ public class Juego {
     public void crearTablero(){
         int filas = Tablero.getTablero().cantidadDeFilas();
         int columnas = Tablero.getTablero().cantidadDeColumnas();
+        Tablero.getTablero().vaciarTablero();
         Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(1,1, autobots.get(0));
         Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(2,1, autobots.get(1));
         Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(1,2, autobots.get(2));
@@ -55,8 +56,8 @@ public class Juego {
         this.crearFabricaTerrenos(fil, colum);
         this.crearFabricaBuffs(fil, colum);
     }
-    
-    private void crearFabricaTerrenos(int filas, int columnas){
+
+	private void crearFabricaTerrenos(int filas, int columnas){
     	FabricaTerrenos fabrica = new FabricaTerrenos(filas, columnas);
 		fabrica.fabricarTerrenosAlAzar(1, 1, 2, 2); //pongo cualquier numero
     }

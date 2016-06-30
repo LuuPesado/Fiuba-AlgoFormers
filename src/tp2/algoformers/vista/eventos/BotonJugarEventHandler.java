@@ -22,7 +22,7 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
 
 	private Jugador jugador;
 	private Algoformer unAlgoformer = null;
-	private Posicion unaPosicion;
+	private Posicion unaPosicion = null;
 	private ContenedorTablero contenedorTablero;
 	
 	public BotonJugarEventHandler(Juego juego, ContenedorTablero contenedorTablero) {
@@ -32,19 +32,22 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
 
 	//Hay que modificar esto pero masomenos funciona, de esta forma si se toca al Algoformer una vez y despues "jugar" se transforma.
 	public void recibirContenido(Contenido unContenido){
-		if (unContenido.esUnAlgoformer() && (unAlgoformer == null)){
-			unAlgoformer = ( (Algoformer) unContenido );
-			unaPosicion = unContenido.getPosicion();
-		} else {
+		if (!unContenido.esUnAlgoformer()){
 			unaPosicion = unContenido.getPosicion();
 		}
-		if (unAlgoformer != null){
+		if (unContenido.esUnAlgoformer()){
+			unAlgoformer = ( (Algoformer) unContenido );
+			
+		}else{
 			unaPosicion = unContenido.getPosicion();
 		}
 	}
 	
 	@Override
 	public void handle(ActionEvent arg0) {
+		if ((unAlgoformer == null) || (unaPosicion == null)){
+			this.mostrarFaltaElegirAlgo();
+		}
 		if ((unAlgoformer != null) && (unaPosicion != null)){
 		try {
 			jugador.jugar(unAlgoformer, unaPosicion);
@@ -77,6 +80,7 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
 		Controlador.getControlador().update();
 		}
 		unAlgoformer = null;
+		unaPosicion = null;
 	}
 	
 	private void mostrarAlertaFueraDeRango(){
@@ -85,6 +89,23 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
         alert.setHeaderText("Fuera de rango");
         String mensaje = "El algoformer no puede alcanzar la posición seleccionada."
         		+ " Intente nuevamente.";
+        alert.setContentText(mensaje);
+        alert.show();
+	}
+	
+	private void mostrarFaltaElegirAlgo(){
+		Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Excepción");
+        alert.setHeaderText("Falta elegir algo");
+        String mensaje = "HOLA";
+        if ((this.unAlgoformer == null) && (this.unaPosicion == null)){
+        	mensaje = "Ambos son nulos";
+        }else if (this.unAlgoformer == null){
+        	mensaje = "El algoformer es nulo. POSICION fila: " + this.unaPosicion.getFila() + "columna:" + this.unaPosicion.getColumna(); 
+        }else if (this.unaPosicion == null){
+        	mensaje = "posicion nula. ALGOFORMER fila: " + this.unAlgoformer.getPosicion().getFila() 
+        	+ "columna" + this.unAlgoformer.getPosicion().getColumna(); 
+        }
         alert.setContentText(mensaje);
         alert.show();
 	}

@@ -18,7 +18,7 @@ public class VistaContenido extends ImageView {
 		String direccionContenido = contenido.getDireccionDeImagen();
 		this.imagenContenido = new Image(direccionContenido);
 		this.setVistaContenido();
-		this.setOnMouseClicked(new ElegirContenidoEventHandler(this.contenido));
+		this.setOnMouseClicked(new ElegirContenidoEventHandler(this.getContenido()));
 	}
 
 	public Contenido getContenido() {
