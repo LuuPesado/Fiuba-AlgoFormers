@@ -8,7 +8,7 @@ public class OptimusPrime extends Autobot{
        this.ataque = 50;
        this.distanciaDeAtaque = 2;
        this.velocidadDeDesplazamiento = 2; 
-       this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/optimusPrime.png");
+       this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/algoformers/optimusPrime.png");
    }
     
    @Override

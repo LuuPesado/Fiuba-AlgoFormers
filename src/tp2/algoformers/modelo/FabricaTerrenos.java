@@ -22,8 +22,6 @@ public class FabricaTerrenos {
 	public void fabricarTerrenosAlAzar(int cantidadNebulosas, int cantidadTormentas, int cantidadPantanos, int cantidadEspinas){
 		Posicion inicio = new Posicion(1,1);
 		Posicion fin = new Posicion(filas,columnas);
-		//Tablero.getTablero().generarZonaAereo(inicio, fin, new Nube());
-		//Tablero.getTablero().generarZonaTerrestre(inicio, fin, new Rocosa());
 		this.generarTerrenosAereos(inicio, fin, cantidadTormentas, new TormentaPsionica());
 		this.generarTerrenosAereos(inicio, fin, cantidadNebulosas, new NebulosaDeAndromeda());
 		this.generarTerrenosTerrestres(inicio, fin, cantidadPantanos, new Pantano());

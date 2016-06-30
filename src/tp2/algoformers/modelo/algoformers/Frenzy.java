@@ -8,7 +8,7 @@ public class Frenzy extends Decepticon {
        this.ataque = 10;
        this.distanciaDeAtaque = 5;
        this.velocidadDeDesplazamiento = 2;
-       this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/frenzy.png");
+       this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/algoformers/frenzy.png");
    }
     
    public void transformar(){

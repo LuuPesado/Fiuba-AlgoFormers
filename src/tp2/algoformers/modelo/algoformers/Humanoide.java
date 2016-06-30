@@ -13,7 +13,7 @@ public class Humanoide implements Estado {
         algoformer.setAtaque(15);
         algoformer.setDistanciaDeAtaque(4);
         algoformer.setVelocidadDeDesplazamiento(5);
-        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/vehiculoOptimus.png");
+        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/algoformers/vehiculoOptimus.png");
 
         return new VehiculoTerrestre();
     }
@@ -23,7 +23,7 @@ public class Humanoide implements Estado {
         algoformer.setAtaque(20);
         algoformer.setDistanciaDeAtaque(3);
         algoformer.setVelocidadDeDesplazamiento(5);
-        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/vehiculoBumblebee.png");
+        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/algoformers/vehiculoBumblebee.png");
         return new VehiculoTerrestre();
            }
 
@@ -32,7 +32,7 @@ public class Humanoide implements Estado {
         algoformer.setAtaque(30);
         algoformer.setDistanciaDeAtaque(3);
         algoformer.setVelocidadDeDesplazamiento(8);
-        algoformer.setDireccionDeImagen("file:src/tp2/algoformer/vista/imagenes/vehiculoBonecrusher.png");
+        algoformer.setDireccionDeImagen("file:src/tp2/algoformer/vista/imagenes/algoformers/vehiculoBonecrusher.png");
         return new VehiculoTerrestre();
     }
 
@@ -41,7 +41,7 @@ public class Humanoide implements Estado {
         algoformer.setAtaque(25);
         algoformer.setDistanciaDeAtaque(2);
         algoformer.setVelocidadDeDesplazamiento(6);
-        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/vehiculoFrenzy.png");
+        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/algoformers/vehiculoFrenzy.png");
         return new VehiculoTerrestre();
     }
 
@@ -50,7 +50,7 @@ public class Humanoide implements Estado {
        	algoformer.setAtaque(algoformer.getModificadores().afectarAtaquePorTormenta(55));
         algoformer.setDistanciaDeAtaque(2);
         algoformer.setVelocidadDeDesplazamiento(8);
-        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/vehiculoMegatron.png");
+        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/algoformers/vehiculoMegatron.png");
         return new VehiculoAereo();
     }
          
@@ -59,7 +59,7 @@ public class Humanoide implements Estado {
       	algoformer.setAtaque(algoformer.getModificadores().afectarAtaquePorTormenta(35));
         algoformer.setDistanciaDeAtaque(2);
         algoformer.setVelocidadDeDesplazamiento(8);
-        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/vehiculoRatchet.png");
+        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/algoformers/vehiculoRatchet.png");
         return new VehiculoAereo();
     }     
 

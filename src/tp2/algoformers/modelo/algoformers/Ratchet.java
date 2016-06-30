@@ -10,7 +10,7 @@ public class Ratchet extends Autobot {
        this.ataque = 5;
        this.distanciaDeAtaque = 5;
        this.velocidadDeDesplazamiento = 1;
-       this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/ratchet.png");
+       this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/algoformers/ratchet.png");
    }
     
    public void transformar(){
