@@ -16,4 +16,7 @@ public abstract class Debuff {
 		return ((Debuff) unDebuff).getNombre() == this.nombre;
 	}
 
+	public int getDuracion(){
+		return duracion;
+	}
 }

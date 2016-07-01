@@ -1,4 +1,5 @@
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import tp2.algoformers.modelo.AfectadoPorNebulosa;
@@ -21,8 +22,8 @@ public class ModificadoresTest {
 	public static Debuff tormenta;
 	public static Debuff nebulosa;
 	
-	@BeforeClass
-	public static void setUpBeforeClass(){
+	@Before
+	public void setUpBeforeClass(){
 		modificadores = new Modificadores();
 		dobleCanion = new DobleCanion(0,0);
 		burbuja = new BurbujaInmaculada(0,0);
@@ -63,10 +64,26 @@ public class ModificadoresTest {
 	}
 
 	@Test 
-	public void test05agregoUnaTormentaALosModificadores(){
+	public void test06agregoUnaTormentaALosModificadores(){
 		modificadores.agregarDebuff(tormenta);
 		Assert.assertTrue(modificadores.incluyeDebuff(new AfectadoPorTormenta()));
 	}
-
+	
+	@Test
+	public void test07seDisminuyeLaDuracionDeLosBuffs(){
+		flash.bajarDuracion(); 
+		Assert.assertTrue(flash.getDuracion() == 2);
+		flash.bajarDuracion();
+		Assert.assertTrue(flash.getDuracion() == 1);
+	}
+	
+	@Test
+	public void test08losModificadoresPuedenBajarLaDuracionDeTodosLosBuffsQueContienen(){
+		modificadores.agregarBuff(burbuja);
+		modificadores.agregarBuff(dobleCanion);
+		modificadores.bajarTemporales();
+		Assert.assertTrue(burbuja.getDuracion() == 1);
+		Assert.assertTrue(dobleCanion.getDuracion() == 2);
+	}
 }
 

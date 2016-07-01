@@ -18,6 +18,8 @@ public class Buff implements Contenido{
 	public boolean esUnBuff(){
     	return true;
     }
+	
+	
 
 	public boolean esUnAlgoformer(){
 		return false;
@@ -59,7 +61,11 @@ public class Buff implements Contenido{
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	public int getDuracion(){
+		return duracion;
+	}
+	
 	@Override
 	public String getDireccionDeImagen() {
 		// TODO Auto-generated method stub
