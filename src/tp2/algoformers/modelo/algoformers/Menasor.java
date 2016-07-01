@@ -12,6 +12,7 @@ public class Menasor extends Decepticon{
 	       this.ataque = 115;
 	       this.distanciaDeAtaque = 2;
 	       this.velocidadDeDesplazamiento = 2; 
+	       this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/algoformers/Menasor.png");
 	   }
 	    
 	   public void transformar(){

@@ -65,14 +65,14 @@ public class Jugador {
         return muertos;
     }
     
-    public boolean ningunAlgoformerAfectadoPorNebulosa(){
-        boolean noAfectado = true;
+    public boolean algoformersAfectadosPorNebulosa(){
+        boolean afectados = false;
         int i = 0;
-        while (noAfectado && i<algoformers.size()){
-                noAfectado = (algoformers.get(i).afectadoPorDebuff(new AfectadoPorNebulosa()));
+        while (!afectados && i<algoformers.size()){
+                afectados = (algoformers.get(i).afectadoPorDebuff(new AfectadoPorNebulosa()));
                 i++;
         }
-        return noAfectado;
+        return afectados;
     }
     
     public boolean todosAlgoformersEnRango(Algoformer unAlgoformer){
@@ -109,18 +109,23 @@ public class Jugador {
 	}
 	
 	public boolean puedoFusionar(Algoformer unAlgoformer){
-		return (this.estanTodosVivos() && this.ningunAlgoformerAfectadoPorNebulosa() && this.todosAlgoformersEnRango(unAlgoformer));
+		return (this.estanTodosVivos() && !this.algoformersAfectadosPorNebulosa() && this.todosAlgoformersEnRango(unAlgoformer));
 	}
 	
 	public void fusionar(Algoformer unAlgoformer){
-		
 		if (!this.puedoFusionar(unAlgoformer)){
 			throw new NoPuedeFusionarseException();
 		}
 		this.fusion.sumarPuntosDeVida(algoformers);
 		int fila = unAlgoformer.getPosicion().getFila();
 		int columna = unAlgoformer.getPosicion().getColumna();
-		algoformers.remove(unAlgoformer);
+		for (int i = 0; i<algoformers.size(); i++){
+			Posicion posicion = algoformers.get(i).getPosicion();
+			Tablero.getTablero().sacarAlgoformer(posicion);
+		}
+		while (algoformers.size()>0){
+			algoformers.remove(0);
+		}
 		algoformers.add(this.fusion);
 		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(fila, columna, fusion);
 	}

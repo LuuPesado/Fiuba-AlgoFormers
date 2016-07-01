@@ -6,12 +6,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import tp2.algoformers.modelo.Contenido;
 import tp2.algoformers.modelo.Juego;
-import tp2.algoformers.modelo.Jugador;
 import tp2.algoformers.modelo.Posicion;
 import tp2.algoformers.modelo.algoformers.Algoformer;
 import tp2.algoformers.modelo.excepciones.AtrapadoEnNebulosaException;
 import tp2.algoformers.modelo.excepciones.EseAlgoformerPerteneceAlOtroJugadorException;
 import tp2.algoformers.modelo.excepciones.FueraDeRangoException;
+import tp2.algoformers.modelo.excepciones.FusionNoPuedeTransformarseException;
 import tp2.algoformers.modelo.excepciones.LaCeldaYaTieneUnAlgoformer;
 import tp2.algoformers.modelo.excepciones.NoPuedoAtacarUnCompanieroException;
 import tp2.algoformers.modelo.excepciones.UnHumanoideNoPuedeCruzarUnPantano;
@@ -20,13 +20,13 @@ import tp2.algoformers.vista.Controlador;
 
 public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
 
-	private Jugador jugador;
 	private Algoformer unAlgoformer = null;
 	private Posicion unaPosicion = null;
 	private ContenedorTablero contenedorTablero;
+	private Juego juego;
 	
 	public BotonJugarEventHandler(Juego juego, ContenedorTablero contenedorTablero) {
-		this.jugador = juego.getTurno().jugadorActual();
+		this.juego = juego;
 		this.contenedorTablero = contenedorTablero;
 	}
 
@@ -50,7 +50,7 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
 		}
 		if ((unAlgoformer != null) && (unaPosicion != null)){
 		try {
-			jugador.jugar(unAlgoformer, unaPosicion);
+			juego.getTurno().jugadorActual().jugar(unAlgoformer, unaPosicion);
 		} catch (FueraDeRangoException e){
 			this.mostrarAlertaFueraDeRango();
 			unAlgoformer = null;
@@ -73,6 +73,10 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
 			return;
 		} catch (EseAlgoformerPerteneceAlOtroJugadorException e){
 			this.mostrarAlertaPerteneceOtroJugador();
+			unAlgoformer = null;
+			return;
+		} catch (FusionNoPuedeTransformarseException e){
+			this.mostrarFusionNoPuedeTransformarse();
 			unAlgoformer = null;
 			return;
 		}
@@ -159,6 +163,16 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
         alert.setTitle("Excepción");
         alert.setHeaderText("Algoformer del otro equipo");
         String mensaje = "Ha elegido un algoformer del otro jugador."
+        		+ " Intente nuevamente.";
+        alert.setContentText(mensaje);
+        alert.show();
+	}
+	
+	private void mostrarFusionNoPuedeTransformarse(){
+		Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Excepción");
+        alert.setHeaderText("Fusión no puede transformarse");
+        String mensaje = "Las fusiones sólo aceptan modo humanoide."
         		+ " Intente nuevamente.";
         alert.setContentText(mensaje);
         alert.show();

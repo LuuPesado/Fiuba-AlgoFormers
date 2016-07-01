@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import tp2.algoformers.modelo.Juego;
+import tp2.algoformers.vista.eventos.BotonFusionarEventHandler;
 import tp2.algoformers.vista.eventos.BotonJugarEventHandler;
 
 public class Botonera extends BorderPane {
@@ -27,8 +28,6 @@ public class Botonera extends BorderPane {
 
 	}
 	
-	
-
 	private Button setBotonJugar() {
 		Button botonJugar = new Button("Jugar");
 		BotonJugarEventHandler jugarEventHandler = new BotonJugarEventHandler(juego, contenedorTablero);
@@ -39,6 +38,9 @@ public class Botonera extends BorderPane {
 
 	private Button setBotonFusionar() {
 		Button botonFusionar = new Button("Fusionar");
+		BotonFusionarEventHandler fusionarEventHandler = new BotonFusionarEventHandler(juego, contenedorTablero);
+		botonFusionar.setOnAction(fusionarEventHandler);
+		Controlador.getControlador().recibirBotonFusionar(fusionarEventHandler);
 		return botonFusionar;
 	}
 }
