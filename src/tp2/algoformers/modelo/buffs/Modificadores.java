@@ -79,34 +79,34 @@ public class Modificadores {
 	}
 
 	public void bajarTemporales(){
-		int i = buffs.size();
-		while (i > 0){
+		int i = 0;
+		while ( i < buffs.size()){
 			((Buff) buffs.get(i)).bajarDuracion();
-			i--;
+			i++;
 		}
-		int j = buffs.size();
-		while (j > 0){
+		int j = 0;
+		while (j < debuffs.size()){
 			debuffs.get(j).bajarDuracion();
-			j--;
+			j++;
 		}
 		this.sacarExpirados();
 	}
 	
 	private void sacarExpirados(){
-		int i = buffs.size();
-		while (i > 0){
+		int i = 0;
+		while (i < buffs.size()){
 			Buff buff = (Buff) buffs.get(i);
-			if ( buff.duracion == 0){
+			if ( buff.getDuracion() == 0){
 				buffs.remove(i);
-				i--;
 			}
+			i++;
 		}
-		int j = buffs.size();
-		while (j > 0){
-			if (debuffs.get(j).duracion == 0){
-				debuffs.remove(j);
-				j--;
+		int j = 0;
+		while (j < debuffs.size()){
+			if (debuffs.get(j).getDuracion() == 0){
+				debuffs.remove(j);				
 			}
+			j++;
 		}
 	}
 	
