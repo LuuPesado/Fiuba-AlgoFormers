@@ -25,6 +25,7 @@ public class Controlador {
 	}
 	
 	
+	
 	public void darContenido(Contenido elegido) {
 		botonJugar.recibirContenido(elegido);
 	}

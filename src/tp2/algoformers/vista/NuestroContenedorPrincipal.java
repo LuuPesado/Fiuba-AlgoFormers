@@ -130,9 +130,9 @@ public class NuestroContenedorPrincipal extends BorderPane {
 	 }
 
 	public void update() {
-		this.dibujar();
-		this.juego.getTurno().bajarTemporales();
 		this.juego.getTurno().borrarAlgoformersMuertos();
+		this.dibujar();
+		this.juego.getTurno().bajarTemporales();		
 	}
 
 	private void dibujar() {
