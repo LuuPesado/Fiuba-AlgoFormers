@@ -37,7 +37,6 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
 		}
 		if (unContenido.esUnAlgoformer() && (unAlgoformer == null)){
 			unAlgoformer = ( (Algoformer) unContenido );
-			unaPosicion = unContenido.getPosicion();
 		}else{
 			unaPosicion = unContenido.getPosicion();
 		}

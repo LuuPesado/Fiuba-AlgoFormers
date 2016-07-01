@@ -32,7 +32,7 @@ public class Humanoide implements Estado {
         algoformer.setAtaque(30);
         algoformer.setDistanciaDeAtaque(3);
         algoformer.setVelocidadDeDesplazamiento(8);
-        algoformer.setDireccionDeImagen("file:src/tp2/algoformer/vista/imagenes/algoformers/vehiculoBonecrusher.png");
+        algoformer.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/algoformers/vehiculoBonecrusher.png");
         return new VehiculoTerrestre();
     }
 
