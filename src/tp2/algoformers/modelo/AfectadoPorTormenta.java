@@ -6,6 +6,7 @@ public class AfectadoPorTormenta extends Debuff {
 
 	public AfectadoPorTormenta(){
 		nombre = "Tormenta";
+		duracion = 1;
 	}
 	
 	public int afectarAtaque(int ataque){
