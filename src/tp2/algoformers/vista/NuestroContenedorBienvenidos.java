@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
@@ -33,15 +34,19 @@ public class NuestroContenedorBienvenidos extends VBox {
 	        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT , BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
 	        this.setBackground(new Background(imagenDeFondo));
 
+	        Image logoTransformers = new Image("file:src/tp2/algoformers/vista/imagenes/Transformers.png");
+	        ImageView mostrarLogo = new ImageView(logoTransformers);
+	        
 	        Label etiqueta = new Label();
 	        etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
 
-	        etiqueta.setText("Bienvenidos al juego de los Algoformers. Haga click en entrar");
+	        etiqueta.setText("Ingrese el nombre de cada jugador");
 	        etiqueta.setTextFill(Color.BLACK);
 	        
 	        ContenedorElegirJugadores elegirJugadores = new ContenedorElegirJugadores(stage);
+	       
 	        
-	        this.getChildren().addAll(etiqueta, elegirJugadores);
+	        this.getChildren().addAll(mostrarLogo, etiqueta, elegirJugadores);
 	    }
 
 	}

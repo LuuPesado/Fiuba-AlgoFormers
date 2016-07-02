@@ -19,6 +19,7 @@ public class ContenedorElegirJugadores extends HBox{
 	
 	public ContenedorElegirJugadores(Stage stage){
 		this.setSpacing(30);
+		this.setMaxWidth(700);
         this.setColumnaAutobots();
         this.setColumnaDecepticons();
         this.setBotonEntrar(stage);
@@ -30,14 +31,16 @@ public class ContenedorElegirJugadores extends HBox{
 	private void setBotonEntrar(Stage stage) {
         
 		VBox contenedorVertical = new VBox();
-        
+        contenedorVertical.setSpacing(15);
 		botonEntrar = new Button();
         botonEntrar.setText("Entrar");
+        botonEntrar.setMinSize(75, 25);
 		BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage);
         botonEntrar.setOnAction(botonEntrarHandler);
         
         Button botonBorrar = new Button();
         botonBorrar.setText("Borrar");
+        botonBorrar.setMinSize(75, 25);
         
         contenedorVertical.getChildren().addAll(botonEntrar, botonBorrar);
         this.getChildren().add(contenedorVertical);
