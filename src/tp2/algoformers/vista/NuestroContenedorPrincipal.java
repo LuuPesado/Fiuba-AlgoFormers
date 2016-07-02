@@ -61,13 +61,15 @@ public class NuestroContenedorPrincipal extends BorderPane {
 			 contenedorHorizontal.getChildren().add(this.anunciarGanador());
 			 contenedorVertical.getChildren().add(contenedorHorizontal);
 			 this.setCenter(contenedorVertical);
-			 return; //si hay ganador no muestro mas la botonera
+			 //return; //si hay ganador no muestro mas la botonera
+		 } else{
+			 contenedorHorizontal.setSpacing(10);
+		     contenedorHorizontal.getChildren().add(this.setNombreJugadorActual());
+			 contenedorHorizontal.getChildren().add(this.setBotonera());
+			 contenedorVertical.getChildren().add(contenedorHorizontal);
+			 this.setCenter(contenedorVertical);
 		 }
-		 contenedorHorizontal.setSpacing(10);
-	     contenedorHorizontal.getChildren().add(this.setNombreJugadorActual());
-		 contenedorHorizontal.getChildren().add(this.setBotonera());
-		 contenedorVertical.getChildren().add(contenedorHorizontal);
-		 this.setCenter(contenedorVertical);
+		 
 	 }
 	 
 	 private VBox anunciarGanador(){

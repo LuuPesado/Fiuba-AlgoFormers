@@ -53,31 +53,31 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
 		} catch (FueraDeRangoException e){
 			this.mostrarAlertaFueraDeRango();
 			unAlgoformer = null;
-			return;
+			//return;
 		} catch (NoPuedoAtacarUnCompanieroException e){
 			this.mostrarAlertaNoPuedoAtacar();
 			unAlgoformer = null;
-			return;
+			//return;
 		} catch (LaCeldaYaTieneUnAlgoformer e){
 			this.mostrarAlertaYaTieneAlgoformer();
 			unAlgoformer = null;
-			return;
+			//return;
 		} catch (UnHumanoideNoPuedeCruzarUnPantano e){
 			this.mostrarHumanoideNoPuede();
 			unAlgoformer = null;
-			return;
+			//return;
 		} catch (AtrapadoEnNebulosaException e){
 			this.mostrarAtrapadoEnNebulosa();
 			unAlgoformer = null;
-			return;
+			//return;
 		} catch (EseAlgoformerPerteneceAlOtroJugadorException e){
 			this.mostrarAlertaPerteneceOtroJugador();
 			unAlgoformer = null;
-			return;
+			//return;
 		} catch (FusionNoPuedeTransformarseException e){
 			this.mostrarFusionNoPuedeTransformarse();
 			unAlgoformer = null;
-			return;
+			//return;
 		}
 		this.contenedorTablero.dibujar();
 		Controlador.getControlador().update();

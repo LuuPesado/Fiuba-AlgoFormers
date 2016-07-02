@@ -74,7 +74,7 @@ public class RatchetTest {
     }
     @Test
     public void test06EnModoAlternativoRatchetPuedeAtacarEnSuMaximaDistanciaDeAtaque(){
-        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(2, 2, ratchet);
+        Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(2, 3, ratchet);
         Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(4,4, enemigo1);
         ratchet.transformar();
         enemigo1.atacadoPor(ratchet);

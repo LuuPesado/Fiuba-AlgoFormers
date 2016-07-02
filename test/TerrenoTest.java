@@ -129,7 +129,7 @@ public class TerrenoTest {
 		Posicion inicio = new Posicion(4,4);
 		Posicion fin = new Posicion (15,15);
 		TerrenoAereo tormenta = new TormentaPsionica();
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(3, 3 , megatron);
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(3, 4 , megatron);
 		Tablero.getTablero().generarZonaAereo(inicio,fin,tormenta);		
 		Algoformer optimus = new OptimusPrime();
 		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(5,5 , optimus);

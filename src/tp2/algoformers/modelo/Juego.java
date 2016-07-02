@@ -91,13 +91,7 @@ public class Juego {
     	}
     	return ganador;
     }
-    
-    /*public void iniciarJuego() {
-    		
-    		turno.jugadorActual().jugar(numeroDeAlgoformer, posicion);
-    		turno.bajarTemporales();
-    }*/
-    
+  
     public Jugador getJugadorAutobots(){
     	return jugadorAutobots;
     }

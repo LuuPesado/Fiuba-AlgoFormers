@@ -25,8 +25,6 @@ public class Modificadores {
 	public void agregarDebuff(Debuff unDebuff){
 		debuffs.add(unDebuff);
 	}
-
-	
 	
 	public int afectarPasos(int pasos){
 		if (this.debuffs.contains(new AfectadoPorNebulosa())){
@@ -53,7 +51,6 @@ public class Modificadores {
 		}
 	}
 
-	
 	public int afectarAtaquePorCanion(int ataque) {
 		if ( this.buffs.contains(new DobleCanion(0,0)) ){
 			return new DobleCanion(0,0).afectarAtaque(ataque);

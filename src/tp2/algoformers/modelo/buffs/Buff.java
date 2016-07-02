@@ -19,8 +19,6 @@ public class Buff implements Contenido{
     	return true;
     }
 	
-	
-
 	public boolean esUnAlgoformer(){
 		return false;
 	}
