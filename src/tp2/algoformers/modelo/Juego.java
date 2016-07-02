@@ -1,7 +1,6 @@
 package tp2.algoformers.modelo;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import tp2.algoformers.modelo.algoformers.Algoformer;
 import tp2.algoformers.modelo.algoformers.Bonecrusher;

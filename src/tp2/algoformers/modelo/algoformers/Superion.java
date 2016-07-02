@@ -1,6 +1,5 @@
 package tp2.algoformers.modelo.algoformers;
 
-import java.util.ArrayList;
 
 import tp2.algoformers.modelo.excepciones.FusionNoPuedeTransformarseException;
 

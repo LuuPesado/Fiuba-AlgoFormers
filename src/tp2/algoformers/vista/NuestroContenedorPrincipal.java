@@ -21,8 +21,6 @@ public class NuestroContenedorPrincipal extends BorderPane {
 	 Canvas canvasCentral;
 	 Button botonJugada;
 	 private Juego juego;
-	 private Jugador jugadorAutobots;
-	 private Jugador jugadorDecepticons;
 	 private Stage stage;
 	 private ContenedorTablero contenedorTablero;
 	 
@@ -34,10 +32,6 @@ public class NuestroContenedorPrincipal extends BorderPane {
 		 Controlador.getControlador().setContenedorPrincipal(this);
 	 }
 	
-	 public void renombrarJugadores(String nombreJugador1, String nombreJugador2){
-		 this.juego.getJugadorAutobots().setNombre(nombreJugador1);
-		 this.juego.getJugadorDecepticons().setNombre(nombreJugador2);
-	 }
 	 private Botonera setBotonera() {
 		 Botonera botonera = new Botonera(juego, contenedorTablero);
 		 return botonera;
@@ -69,6 +63,7 @@ public class NuestroContenedorPrincipal extends BorderPane {
 			 this.setCenter(contenedorVertical);
 			 return; //si hay ganador no muestro mas la botonera
 		 }
+		 contenedorHorizontal.setSpacing(10);
 	     contenedorHorizontal.getChildren().add(this.setNombreJugadorActual());
 		 contenedorHorizontal.getChildren().add(this.setBotonera());
 		 contenedorVertical.getChildren().add(contenedorHorizontal);
@@ -101,7 +96,7 @@ public class NuestroContenedorPrincipal extends BorderPane {
 	    //contenedorVertical1.getChildren().add(this.setBotonera());
 	     
 	     for  (int i=0; i<unJugador.getAlgoformers().size(); i++){
-	    	 ContenedorAlgoformer unContenedor = new ContenedorAlgoformer(unJugador.getAlgoformers().get(i));
+	    	 ContenedorAlgoformer unContenedor = new ContenedorAlgoformer(unJugador.getAlgoformers().get(i), Color.BLUE);
 	    	 contenedorVertical1.getChildren().add(unContenedor);
 	     }
 	     this.setLeft(contenedorVertical1);
@@ -121,7 +116,7 @@ public class NuestroContenedorPrincipal extends BorderPane {
 		//contenedorVertical1.getChildren().add(this.setBotonera());
 
 	     for  (int i=0; i<unJugador.getAlgoformers().size(); i++){
-	    	 ContenedorAlgoformer unContenedor = new ContenedorAlgoformer(unJugador.getAlgoformers().get(i));
+	    	 ContenedorAlgoformer unContenedor = new ContenedorAlgoformer(unJugador.getAlgoformers().get(i), Color.RED);
 	    	 contenedorVertical1.getChildren().add(unContenedor);
 	     }
 	     

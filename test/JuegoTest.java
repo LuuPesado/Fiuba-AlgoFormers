@@ -4,10 +4,9 @@ import org.junit.BeforeClass;
 
 import tp2.algoformers.modelo.Juego;
 import tp2.algoformers.modelo.Jugador;
-import tp2.algoformers.modelo.Posicion;
-import tp2.algoformers.modelo.Tablero;
-import tp2.algoformers.modelo.excepciones.FueraDeRangoException;
 
+
+@SuppressWarnings("unused")
 public class JuegoTest {
     
     private static Juego juego;

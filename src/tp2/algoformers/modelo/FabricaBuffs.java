@@ -5,10 +5,7 @@ import java.util.Random;
 import tp2.algoformers.modelo.buffs.BurbujaInmaculada;
 import tp2.algoformers.modelo.buffs.DobleCanion;
 import tp2.algoformers.modelo.buffs.Flash;
-import tp2.algoformers.modelo.terrenos.Espinas;
-import tp2.algoformers.modelo.terrenos.NebulosaDeAndromeda;
-import tp2.algoformers.modelo.terrenos.Pantano;
-import tp2.algoformers.modelo.terrenos.TormentaPsionica;
+
 
 public class FabricaBuffs {
 

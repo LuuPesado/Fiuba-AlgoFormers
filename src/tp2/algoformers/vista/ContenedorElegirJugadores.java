@@ -29,11 +29,18 @@ public class ContenedorElegirJugadores extends HBox{
 	
 	private void setBotonEntrar(Stage stage) {
         
-        botonEntrar = new Button();
+		VBox contenedorVertical = new VBox();
+        
+		botonEntrar = new Button();
         botonEntrar.setText("Entrar");
 		BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage);
         botonEntrar.setOnAction(botonEntrarHandler);
-        this.getChildren().add(botonEntrar);
+        
+        Button botonBorrar = new Button();
+        botonBorrar.setText("Borrar");
+        
+        contenedorVertical.getChildren().addAll(botonEntrar, botonBorrar);
+        this.getChildren().add(contenedorVertical);
 
 	}
 	

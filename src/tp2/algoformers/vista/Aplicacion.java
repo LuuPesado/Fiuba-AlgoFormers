@@ -3,8 +3,6 @@ package tp2.algoformers.vista;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import tp2.algoformers.vista.NuestroContenedorPrincipal;
-
 
 public class Aplicacion extends Application {
 

@@ -3,11 +3,9 @@ package tp2.algoformers.vista.eventos;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import tp2.algoformers.modelo.Juego;
 import tp2.algoformers.modelo.Jugador;
-import tp2.algoformers.vista.ContenedorElegirJugadores;
 import tp2.algoformers.vista.Controlador;
 import tp2.algoformers.vista.NuestroContenedorPrincipal;
 
@@ -26,7 +24,6 @@ public class BotonEntrarEventHandler implements EventHandler<ActionEvent>{
     @Override
     public void handle(ActionEvent actionEvent) {
         this.setTablero();
-
     }
     
     public void setTablero(){

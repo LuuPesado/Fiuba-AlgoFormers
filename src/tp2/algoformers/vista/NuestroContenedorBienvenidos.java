@@ -2,8 +2,6 @@ package tp2.algoformers.vista;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
@@ -16,7 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import tp2.algoformers.vista.eventos.BotonEntrarEventHandler;
+
 
 public class NuestroContenedorBienvenidos extends VBox {
 
