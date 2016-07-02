@@ -1,6 +1,5 @@
 package tp2.algoformers.vista;
 
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -15,20 +14,25 @@ import javafx.scene.canvas.Canvas;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 
-public class NuestroContenedorPrincipal extends BorderPane {
-	 BarraDeMenu menuBar;
+public class NuestroContenedorPrincipal extends ScrollPane {
+
 	 Canvas canvasCentral;
 	 Button botonJugada;
 	 private Juego juego;
 	 private Stage stage;
 	 private ContenedorTablero contenedorTablero;
-	 
+	 private VBox pantalla;
+	 private HBox contenedorJuego;
 	 
 	 public NuestroContenedorPrincipal(Stage stage, Juego unJuego){
 		 this.juego = unJuego;
 		 juego.crearTablero();
+		 this.pantalla = new VBox();
+		 this.contenedorJuego = new HBox();
 		 this.dibujar();
+		 this.setContent(pantalla);
 		 Controlador.getControlador().setContenedorPrincipal(this);
 	 }
 	
@@ -38,8 +42,8 @@ public class NuestroContenedorPrincipal extends BorderPane {
 	}
 
 	private void setMenu(Stage stage) {
-	    this.menuBar = new BarraDeMenu(stage);
-	    this.setTop(menuBar);
+		
+	    pantalla.getChildren().add(new BarraDeMenu(stage));
 	}
 
 	private VBox setNombreJugadorActual(){
@@ -54,21 +58,21 @@ public class NuestroContenedorPrincipal extends BorderPane {
 	}
 	
 	 private void setJuego(){
+		 
 		 this.contenedorTablero = new ContenedorTablero();
 		 VBox contenedorVertical = new VBox(contenedorTablero);
 		 HBox contenedorHorizontal = new HBox();
 		 if (juego.hayGanador()){
 			 contenedorHorizontal.getChildren().add(this.anunciarGanador());
 			 contenedorVertical.getChildren().add(contenedorHorizontal);
-			 this.setCenter(contenedorVertical);
 			 //return; //si hay ganador no muestro mas la botonera
 		 } else{
 			 contenedorHorizontal.setSpacing(10);
 		     contenedorHorizontal.getChildren().add(this.setNombreJugadorActual());
 			 contenedorHorizontal.getChildren().add(this.setBotonera());
 			 contenedorVertical.getChildren().add(contenedorHorizontal);
-			 this.setCenter(contenedorVertical);
 		 }
+		 contenedorJuego.getChildren().add(contenedorVertical);
 		 
 	 }
 	 
@@ -85,9 +89,10 @@ public class NuestroContenedorPrincipal extends BorderPane {
 	     return contenedor;
 	 }
 	 
-	 private void setJugador1(Jugador unJugador){
+	 private void setJugador1(){
+		
 		Label nombreJugador1 = new Label();
-		nombreJugador1.setText(unJugador.getNombre());
+		nombreJugador1.setText(juego.getJugadorAutobots().getNombre());
 		nombreJugador1.setFont(Font.font("courier new", FontWeight.BOLD, 24));
 		nombreJugador1.setTextFill(Color.BLACK);
 
@@ -97,17 +102,17 @@ public class NuestroContenedorPrincipal extends BorderPane {
 		contenedorVertical1.setPadding(new Insets(15));	 
 	    //contenedorVertical1.getChildren().add(this.setBotonera());
 	     
-	     for  (int i=0; i<unJugador.getAlgoformers().size(); i++){
-	    	 ContenedorAlgoformer unContenedor = new ContenedorAlgoformer(unJugador.getAlgoformers().get(i), Color.BLUE);
+	     for  (int i=0; i<juego.getJugadorAutobots().getAlgoformers().size(); i++){
+	    	 ContenedorAlgoformer unContenedor = new ContenedorAlgoformer(juego.getJugadorAutobots().getAlgoformers().get(i), Color.BLUE);
 	    	 contenedorVertical1.getChildren().add(unContenedor);
 	     }
-	     this.setLeft(contenedorVertical1);
-
+	     contenedorJuego.getChildren().add(contenedorVertical1);
 	 }
 	 
-	 private void setJugador2(Jugador unJugador){
+	 private void setJugador2(){
+		
 		Label nombreJugador1 = new Label();
-		nombreJugador1.setText(unJugador.getNombre());
+		nombreJugador1.setText(juego.getJugadorDecepticons().getNombre());
 		nombreJugador1.setFont(Font.font("courier new", FontWeight.BOLD, 24));
 		nombreJugador1.setTextFill(Color.BLACK);
 
@@ -117,12 +122,12 @@ public class NuestroContenedorPrincipal extends BorderPane {
 		contenedorVertical1.setPadding(new Insets(15));
 		//contenedorVertical1.getChildren().add(this.setBotonera());
 
-	     for  (int i=0; i<unJugador.getAlgoformers().size(); i++){
-	    	 ContenedorAlgoformer unContenedor = new ContenedorAlgoformer(unJugador.getAlgoformers().get(i), Color.RED);
+	     for  (int i=0; i<juego.getJugadorDecepticons().getAlgoformers().size(); i++){
+	    	 ContenedorAlgoformer unContenedor = new ContenedorAlgoformer(juego.getJugadorDecepticons().getAlgoformers().get(i), Color.RED);
 	    	 contenedorVertical1.getChildren().add(unContenedor);
 	     }
 	     
-	     this.setRight(contenedorVertical1);
+	     contenedorJuego.getChildren().add(contenedorVertical1);
 
 	 }
 
@@ -133,10 +138,16 @@ public class NuestroContenedorPrincipal extends BorderPane {
 	}
 
 	public void dibujar() {
-		this.setMenu(this.stage);
-		this.setJugador1(juego.getJugadorAutobots());
-		this.setJugador2(juego.getJugadorDecepticons());
+		this.setMenu(stage);
+		this.setContenedorJuego();
+		this.getChildren().add(pantalla);
+	}
+	
+	private void setContenedorJuego(){
+		this.setJugador1();
 		this.setJuego();
+		this.setJugador2();
+		pantalla.getChildren().add(contenedorJuego);
 	}
 		 
 }
