@@ -13,7 +13,6 @@ public class ContenedorTablero extends BorderPane {
 	
 	private int filas;
 	private int columnas;
-
 	
 	public ContenedorTablero(){
 		this.filas = Tablero.getTablero().cantidadDeFilas();
@@ -21,7 +20,6 @@ public class ContenedorTablero extends BorderPane {
 		this.dibujar();
 	}
 	   
-
 public void dibujar(){
 	 HBox contenedorHorizontal = new HBox();
 	    for (int i = 1; i <= columnas; i++){ 
