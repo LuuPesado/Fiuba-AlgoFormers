@@ -69,9 +69,9 @@ public class TerrenoTest {
 		Posicion inicio = new Posicion(3,3);
 		Posicion fin = new Posicion(15,15);
 		TerrenoTerrestre espinas = new Espinas();
-		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(2, 2, optimus);
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(16, 16, optimus);
 		Tablero.getTablero().generarZonaTerrestre(inicio,fin,espinas);
-		optimus.moverAlgoformer(3, 3);
+		optimus.moverAlgoformer(15, 15);
 		Assert.assertTrue(optimus.puntosDeVida() == 475);
 		Tablero.getTablero().reiniciarTablero();
 	}
