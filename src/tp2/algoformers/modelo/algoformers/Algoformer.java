@@ -33,6 +33,7 @@ public abstract class Algoformer implements Contenido{
     public void setNombre(String unNombre){
     	nombre = unNombre;
     }
+   
     public String getNombre(){
     	return nombre;
     }
@@ -48,6 +49,7 @@ public abstract class Algoformer implements Contenido{
     public int getPuntosDeVida(){
     	return puntosDeVida;
     }
+    
     public Modificadores getModificadores(){
     	return modificadores;
     }
@@ -104,6 +106,7 @@ public abstract class Algoformer implements Contenido{
     public int getDistanciaDeAtaque(){
         return this.distanciaDeAtaque;
     }
+    
     public int getVelocidad() {
         return this.velocidadDeDesplazamiento;
     }
@@ -133,8 +136,7 @@ public abstract class Algoformer implements Contenido{
     public int puntosDeVida(){
         return this.puntosDeVida;
     }
- 
-    
+   
     public void agregarBuff(Contenido unBuff){
     	this.modificadores.agregarBuff(unBuff);
     }
@@ -146,6 +148,7 @@ public abstract class Algoformer implements Contenido{
     public void moverAlgoformer(int fila, int columna){
     	Posicion posicionNueva = new Posicion(fila, columna);
         int pasos = this.posicion.controlarRango(posicionNueva, this.modificadores.afectarVelocidad(velocidadDeDesplazamiento));
+  
         while ( pasos > 0 ){
         	Posicion siguientePosicion = posicionNueva.calcularSiguientePosicion(this.posicion);
         	Celda celda = Tablero.getTablero().fila(fila).columna(columna);

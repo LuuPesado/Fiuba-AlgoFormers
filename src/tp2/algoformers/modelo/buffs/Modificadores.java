@@ -11,11 +11,13 @@ public class Modificadores {
 
 	private ArrayList<Contenido> buffs;
 	private ArrayList<Debuff> debuffs;
+	private boolean afectadoPorTormenta;
 
 	
 	public Modificadores(){
 		buffs = new ArrayList<Contenido>();
 		debuffs = new ArrayList<Debuff>();
+		afectadoPorTormenta = false;
 	}
 	
 	public void agregarBuff(Contenido unBuff){
@@ -43,8 +45,17 @@ public class Modificadores {
 		}
 	}
 
+	public boolean isAfectadoPorTormenta() {
+		return afectadoPorTormenta;
+	}
+
+	public void setAfectadoPorTormenta(boolean afectadoPorTormenta) {
+		this.afectadoPorTormenta = afectadoPorTormenta;
+	}
+
+	
 	public int afectarAtaquePorTormenta(int ataque){
-		if ( this.debuffs.contains(new AfectadoPorTormenta()) ){
+		if ( (this.debuffs.contains(new AfectadoPorTormenta())) && (!this.isAfectadoPorTormenta())){
 			return new AfectadoPorTormenta().afectarAtaque(ataque);
 		} else {
 			return ataque;

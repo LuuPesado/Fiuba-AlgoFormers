@@ -52,7 +52,7 @@ public class ContenedorAlgoformer extends BorderPane {
         distanciaDeAtaque.setTextFill(unColor);
         
         Label velocidadDeDesplazamiento = new Label();
-        velocidadDeDesplazamiento.setText("Velocidad = " + unAlgoformer.getVelocidad());
+        velocidadDeDesplazamiento.setText("Velocidad = " + unAlgoformer.getModificadores().afectarVelocidad(unAlgoformer.getVelocidad()));
         velocidadDeDesplazamiento.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 14));
         velocidadDeDesplazamiento.setTextFill(unColor);
 		
