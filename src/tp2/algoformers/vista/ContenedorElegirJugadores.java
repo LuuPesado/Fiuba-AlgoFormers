@@ -1,5 +1,6 @@
 package tp2.algoformers.vista;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -7,22 +8,44 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
+import tp2.algoformers.vista.eventos.BotonEntrarEventHandler;
 
 public class ContenedorElegirJugadores extends HBox{
 	
 	private TextField nombreJugador1;
 	private TextField nombreJugador2;
+	private Button botonEntrar;
 	
-	public ContenedorElegirJugadores(){
+	public ContenedorElegirJugadores(Stage stage){
 		this.setSpacing(30);
-        this.columnaAutobots();
-        this.columnaDecepticons();
+        this.setColumnaAutobots();
+        this.setColumnaDecepticons();
+        this.setBotonEntrar(stage);
+        Controlador.getControlador().setContenedroElegirJugador(this);
 
         
 	}
+	
+	private void setBotonEntrar(Stage stage) {
+        
+        botonEntrar = new Button();
+        botonEntrar.setText("Entrar");
+		BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage);
+        botonEntrar.setOnAction(botonEntrarHandler);
+        this.getChildren().add(botonEntrar);
 
+	}
+	
+	public String getNombreJugador1(){	
+		return (nombreJugador1.getText());
+	}
 
-	private void columnaAutobots() {
+	public String getNombreJugador2(){
+		return (nombreJugador2.getText());
+	}
+	
+	private void setColumnaAutobots() {
 		
 		VBox autobots = new VBox();
 		HBox elegirNombre = new HBox();
@@ -37,19 +60,20 @@ public class ContenedorElegirJugadores extends HBox{
         jugador1.setText("NOMBRE: ");
         jugador1.setTextFill(Color.BLACK);
         
-        
+        elegirNombre.setSpacing(10);
 		this.nombreJugador1 = new TextField();
 		
 		elegirNombre.getChildren().add(jugador1);
 		elegirNombre.getChildren().add(nombreJugador1);
 		
+		autobots.setSpacing(10);
 		autobots.getChildren().add(titulo);
 		autobots.getChildren().add(elegirNombre);
 		
 		this.getChildren().add(autobots);
 	}
 	
-	private void columnaDecepticons() {
+	private void setColumnaDecepticons() {
 		
 		VBox decepticons = new VBox();
 		HBox elegirNombre = new HBox();

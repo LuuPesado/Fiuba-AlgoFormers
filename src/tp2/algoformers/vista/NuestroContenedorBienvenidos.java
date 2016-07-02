@@ -22,7 +22,7 @@ public class NuestroContenedorBienvenidos extends VBox {
 
 	    Stage stage;
 
-	    public NuestroContenedorBienvenidos(Stage stage, Scene proximaEscena) {
+	    public NuestroContenedorBienvenidos(Stage stage) {
 
 	        super();
 
@@ -34,10 +34,6 @@ public class NuestroContenedorBienvenidos extends VBox {
 	        Image imagen = new Image("file:src/tp2/algoformers/vista/imagenes/fondoJuego3.png");
 	        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT , BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
 	        this.setBackground(new Background(imagenDeFondo));
-       
-	        
-	        Button botonEntrar = new Button();
-	        botonEntrar.setText("Entrar");
 
 	        Label etiqueta = new Label();
 	        etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
@@ -45,13 +41,9 @@ public class NuestroContenedorBienvenidos extends VBox {
 	        etiqueta.setText("Bienvenidos al juego de los Algoformers. Haga click en entrar");
 	        etiqueta.setTextFill(Color.BLACK);
 	        
-	        ContenedorElegirJugadores elegirJugadores = new ContenedorElegirJugadores();
+	        ContenedorElegirJugadores elegirJugadores = new ContenedorElegirJugadores(stage);
 	        
-
-	        BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena);
-	        botonEntrar.setOnAction(botonEntrarHandler);
-
-	        this.getChildren().addAll(etiqueta, elegirJugadores, botonEntrar);
+	        this.getChildren().addAll(etiqueta, elegirJugadores);
 	    }
 
 	}

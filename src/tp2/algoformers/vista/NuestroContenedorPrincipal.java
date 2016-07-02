@@ -12,8 +12,7 @@ import tp2.algoformers.modelo.Jugador;
 import tp2.algoformers.vista.BarraDeMenu;
 import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
@@ -22,22 +21,23 @@ public class NuestroContenedorPrincipal extends BorderPane {
 	 Canvas canvasCentral;
 	 Button botonJugada;
 	 private Juego juego;
-	 private Jugador jugador1;
-	 private Jugador jugador2;
+	 private Jugador jugadorAutobots;
+	 private Jugador jugadorDecepticons;
 	 private Stage stage;
 	 private ContenedorTablero contenedorTablero;
 	 
 	 
-	 public NuestroContenedorPrincipal(Stage stage){
-		 this.stage = stage;
-		 this.jugador1 = new Jugador("Autobots");
-		 this.jugador2 = new Jugador("Decepticons");
-		 this.juego = new Juego(jugador1, jugador2);
+	 public NuestroContenedorPrincipal(Stage stage, Juego unJuego){
+		 this.juego = unJuego;
 		 juego.crearTablero();
 		 this.dibujar();
-		 Controlador.getControlador().getContenedorPrincipal(this);
+		 Controlador.getControlador().setContenedorPrincipal(this);
 	 }
 	
+	 public void renombrarJugadores(String nombreJugador1, String nombreJugador2){
+		 this.juego.getJugadorAutobots().setNombre(nombreJugador1);
+		 this.juego.getJugadorDecepticons().setNombre(nombreJugador2);
+	 }
 	 private Botonera setBotonera() {
 		 Botonera botonera = new Botonera(juego, contenedorTablero);
 		 return botonera;
@@ -135,10 +135,10 @@ public class NuestroContenedorPrincipal extends BorderPane {
 		this.juego.getTurno().bajarTemporales();		
 	}
 
-	private void dibujar() {
+	public void dibujar() {
 		this.setMenu(this.stage);
-		this.setJugador1(jugador1);
-		this.setJugador2(jugador2);
+		this.setJugador1(juego.getJugadorAutobots());
+		this.setJugador2(juego.getJugadorDecepticons());
 		this.setJuego();
 	}
 		 

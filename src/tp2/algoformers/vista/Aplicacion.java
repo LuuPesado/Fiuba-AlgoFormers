@@ -15,15 +15,9 @@ public class Aplicacion extends Application {
     @Override
     public void start(final Stage stage) throws Exception {
 
-        stage.setTitle("Probando La Interfaz Gráfica");
-        NuestroContenedorPrincipal contenedorPrincipal = new NuestroContenedorPrincipal(stage);
-        Scene escenaJuego = new Scene(contenedorPrincipal, 640, 480);
-        stage.setScene(escenaJuego);
-        stage.setFullScreen(true);
-        stage.show();
-        
-        NuestroContenedorBienvenidos contenedorBienvenidos = new NuestroContenedorBienvenidos(stage, escenaJuego);
-        Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 640, 480);
+
+        NuestroContenedorBienvenidos contenedorBienvenidos = new NuestroContenedorBienvenidos(stage);
+        Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 700, 480);
        
         stage.setScene(escenaBienvenidos);
         stage.setFullScreen(false);

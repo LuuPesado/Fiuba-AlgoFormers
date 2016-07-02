@@ -10,6 +10,7 @@ public class Controlador {
 	private BotonJugarEventHandler botonJugar;
 	private NuestroContenedorPrincipal contenedor;
 	private BotonFusionarEventHandler botonFusionar;
+	private ContenedorElegirJugadores contenedorJuego;
 	
 	private Controlador(){
 		
@@ -22,8 +23,13 @@ public class Controlador {
 	       return Controlador.instance;
 	    }
 
+
 	public void recibirBotonJugar(BotonJugarEventHandler botonJugar){
 		this.botonJugar = botonJugar;
+	}
+	
+	public ContenedorElegirJugadores getContenedorJuego(){
+		return this.contenedorJuego;
 	}
 	
 	public void darContenido(Contenido elegido) {
@@ -31,8 +37,16 @@ public class Controlador {
 		botonFusionar.recibirContenido(elegido);
 	}
 	
-	public void getContenedorPrincipal(NuestroContenedorPrincipal contenedor){
+	public void setContenedorPrincipal(NuestroContenedorPrincipal contenedor){
 		this.contenedor = contenedor;
+	}
+	
+	public NuestroContenedorPrincipal getContenedorPrincipal(){
+		return (this.contenedor);
+	}
+	
+	public void setContenedroElegirJugador(ContenedorElegirJugadores unContenedor){
+		this.contenedorJuego = unContenedor;
 	}
 	
 	public void update(){
