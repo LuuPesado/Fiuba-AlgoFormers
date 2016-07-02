@@ -9,7 +9,7 @@ public class TormentaPsionica extends TerrenoAereo{
 	private String direccionDeImagen;
 	
 	public TormentaPsionica(){
-		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/TormentaTablero.png";
+		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/tablero/TormentaTablero.png";
 	}
 	
     @Override

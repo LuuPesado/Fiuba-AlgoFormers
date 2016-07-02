@@ -11,7 +11,7 @@ public class ChispaSuprema implements Contenido{
 
     public ChispaSuprema(){
     	atrapada = false;
-    	this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/ChispaSupremaTablero.png");
+    	this.setDireccionDeImagen("file:src/tp2/algoformers/vista/imagenes/tablero/ChispaSupremaTablero.png");
     }
     
     public void chispaAtrapada(){

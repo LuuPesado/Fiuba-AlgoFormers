@@ -8,7 +8,7 @@ public class Rocosa extends TerrenoTerrestre{
 	private String direccionDeImagen;
 	
 	public Rocosa(){
-		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/RocosoTablero.png";
+		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/tablero/RocosoTablero.png";
 	}
 	
     @Override

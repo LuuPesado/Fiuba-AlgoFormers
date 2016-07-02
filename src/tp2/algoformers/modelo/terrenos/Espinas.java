@@ -8,7 +8,7 @@ public class Espinas extends TerrenoTerrestre {
 	private String direccionDeImagen;
 	
 	public Espinas(){
-		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/EspinasTablero.png";
+		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/tablero/EspinasTablero.png";
 	}
 	
     @Override

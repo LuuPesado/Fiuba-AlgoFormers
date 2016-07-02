@@ -9,7 +9,7 @@ public class NebulosaDeAndromeda extends TerrenoAereo {
 	private String direccionDeImagen;
 	
 	public NebulosaDeAndromeda(){
-		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/NebulosaTablero.png";
+		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/tablero/NebulosaTablero.png";
 	}
 	
     @Override

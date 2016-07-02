@@ -10,7 +10,7 @@ public class Pantano extends TerrenoTerrestre {
 	private String direccionDeImagen;
 	
 	public Pantano(){
-		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/PantanoTablero.png";
+		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/tablero/PantanoTablero.png";
 	}
 	
     @Override

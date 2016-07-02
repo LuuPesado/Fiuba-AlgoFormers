@@ -8,7 +8,7 @@ public class Nube extends TerrenoAereo{
 	private String direccionDeImagen;
 	
 	public Nube(){
-		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/NubeTablero.png";
+		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/tablero/NubeTablero.png";
 	}
 	
     @Override

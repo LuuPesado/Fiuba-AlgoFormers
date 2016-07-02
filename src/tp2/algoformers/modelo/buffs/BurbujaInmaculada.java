@@ -8,7 +8,7 @@ public class BurbujaInmaculada extends Buff{
 		super(fila, columna);
 		duracion = 2;
 		nombre = "Burbuja";
-		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/BurbujaInmaculada.png";
+		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/tablero/BurbujaInmaculada.png";
 	}
 
 	public int afectarDanio() {
