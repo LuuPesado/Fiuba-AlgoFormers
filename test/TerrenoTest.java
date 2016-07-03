@@ -45,6 +45,7 @@ public class TerrenoTest {
 		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(2, 2, optimus);
 		Tablero.getTablero().generarZonaTerrestre(inicio,fin,pantano);
 		optimus.moverAlgoformer(3, 3);
+		
 		Tablero.getTablero().reiniciarTablero();
 	}
 	
@@ -169,6 +170,21 @@ public class TerrenoTest {
 		megatron.transformar();
 		megatron.moverAlgoformer(16, 16);
 		Assert.assertTrue(megatron.getPosicion().getFila() == 15);
+		Tablero.getTablero().reiniciarTablero();
+	}
+	
+	@Test 
+	public void test12LaUnidadAereaLlegaALaNebulosa(){
+		Algoformer megatron = new Megatron();
+		Posicion inicio = new Posicion(15,15);
+		Posicion fin = new Posicion (17,17);
+		TerrenoAereo nebulosa = new NebulosaDeAndromeda();
+		Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(10,10  , megatron);
+		Tablero.getTablero().generarZonaAereo(inicio,fin,nebulosa);	
+		megatron.transformar();
+		megatron.moverAlgoformer(15, 15);
+		Assert.assertTrue(megatron.getPosicion().getFila() == 15);
+		Assert.assertTrue(megatron.getPosicion().getColumna() == 15);
 		Tablero.getTablero().reiniciarTablero();
 	}
 }

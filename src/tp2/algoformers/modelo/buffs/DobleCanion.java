@@ -6,7 +6,7 @@ public class DobleCanion extends Buff{
 
 	public DobleCanion(int fila, int columna) {
 		super(fila, columna);
-		duracion = 3;
+		duracion = 4;
 		nombre = "Canion";
 		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/tablero/DobleCanion.png";
 	}

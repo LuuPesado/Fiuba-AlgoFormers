@@ -6,7 +6,7 @@ public class BurbujaInmaculada extends Buff{
 
 	public BurbujaInmaculada(int fila, int columna) {
 		super(fila, columna);
-		duracion = 2;
+		duracion = 3;
 		nombre = "Burbuja";
 		direccionDeImagen = "file:src/tp2/algoformers/vista/imagenes/tablero/BurbujaInmaculada.png";
 	}

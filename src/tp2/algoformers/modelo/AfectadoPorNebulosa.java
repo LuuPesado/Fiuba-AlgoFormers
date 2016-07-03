@@ -6,7 +6,7 @@ import tp2.algoformers.modelo.excepciones.AtrapadoEnNebulosaException;
 public class AfectadoPorNebulosa extends Debuff {
 	
 	public AfectadoPorNebulosa(){
-		duracion = 3;
+		duracion = 4;
 		nombre = "Nebulosa";
 	}
 	

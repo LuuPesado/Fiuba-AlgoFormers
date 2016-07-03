@@ -71,9 +71,9 @@ public class ModificadoresTest {
 	@Test
 	public void test07seDisminuyeLaDuracionDeLosBuffs(){
 		flash.bajarDuracion(); 
-		Assert.assertTrue(flash.getDuracion() == 2);
+		Assert.assertTrue(flash.getDuracion() == 3);
 		flash.bajarDuracion();
-		Assert.assertTrue(flash.getDuracion() == 1);
+		Assert.assertTrue(flash.getDuracion() == 2);
 	}
 	
 	@Test
@@ -81,8 +81,8 @@ public class ModificadoresTest {
 		modificadores.agregarBuff(burbuja);
 		modificadores.agregarBuff(dobleCanion);
 		modificadores.bajarTemporales();
-		Assert.assertTrue(burbuja.getDuracion() == 1);
-		Assert.assertTrue(dobleCanion.getDuracion() == 2);
+		Assert.assertTrue(burbuja.getDuracion() == 2);
+		Assert.assertTrue(dobleCanion.getDuracion() == 3);
 	}
 }
 

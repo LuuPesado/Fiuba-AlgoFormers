@@ -11,6 +11,7 @@ import tp2.algoformers.modelo.buffs.Buff;
 import tp2.algoformers.modelo.buffs.Debuff;
 import tp2.algoformers.modelo.buffs.Modificadores;
 import tp2.algoformers.modelo.excepciones.NoPuedoAtacarUnCompanieroException;
+import tp2.algoformers.modelo.excepciones.UnHumanoideNoPuedeCruzarUnPantano;
 
 public abstract class Algoformer implements Contenido{
     
@@ -148,14 +149,18 @@ public abstract class Algoformer implements Contenido{
     public void moverAlgoformer(int fila, int columna){
     	Posicion posicionNueva = new Posicion(fila, columna);
         int pasos = this.posicion.controlarRango(posicionNueva, this.modificadores.afectarVelocidad(velocidadDeDesplazamiento));
-  
         while ( pasos > 0 ){
         	Posicion siguientePosicion = posicionNueva.calcularSiguientePosicion(this.posicion);
-        	Celda celda = Tablero.getTablero().fila(fila).columna(columna);
+        	Celda celda = Tablero.getTablero().fila(siguientePosicion.getFila()).columna(siguientePosicion.getColumna());
+        	try {
+            	estado.atravesarTerreno(celda, this);
+            	} catch ( UnHumanoideNoPuedeCruzarUnPantano e) {
+            		pasos = 0;
+            		throw new UnHumanoideNoPuedeCruzarUnPantano();
+            	}
         	Tablero.getTablero().sacarAlgoformer(this.posicion);
         	Tablero.getTablero().ubicarAlgoformerEnUnaPosicion(siguientePosicion.getFila(), siguientePosicion.getColumna(), this);
-        	estado.atravesarTerreno(celda, this);
-        	pasos = modificadores.afectarPasos(pasos);
+         	pasos = modificadores.afectarPasos(pasos);
         	pasos--;
         }
     }
