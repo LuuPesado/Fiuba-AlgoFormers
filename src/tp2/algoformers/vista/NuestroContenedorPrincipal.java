@@ -27,10 +27,10 @@ public class NuestroContenedorPrincipal extends ScrollPane {
 	 private HBox contenedorJuego;
 	 
 	 public NuestroContenedorPrincipal(Stage stage, Juego unJuego){
-		 this.juego = unJuego;
-		 juego.crearTablero();
 		 this.pantalla = new VBox();
 		 this.contenedorJuego = new HBox();
+		 this.juego = unJuego;
+		 juego.crearTablero();
 		 this.dibujar();
 		 this.setContent(pantalla);
 		 Controlador.getControlador().setContenedorPrincipal(this);
@@ -138,11 +138,14 @@ public class NuestroContenedorPrincipal extends ScrollPane {
 	}
 
 	public void dibujar() {
+		this.pantalla = new VBox();
+		this.contenedorJuego = new HBox();
 		this.setMenu(stage);
 		this.setContenedorJuego();
-		this.getChildren().add(pantalla);
+		this.setContent(pantalla);
 	}
 	
+
 	private void setContenedorJuego(){
 		this.setJugador1();
 		this.setJuego();
