@@ -65,7 +65,6 @@ public class NuestroContenedorPrincipal extends ScrollPane {
 		 if (juego.hayGanador()){
 			 contenedorHorizontal.getChildren().add(this.anunciarGanador());
 			 contenedorVertical.getChildren().add(contenedorHorizontal);
-			 //return; //si hay ganador no muestro mas la botonera
 		 } else{
 			 contenedorHorizontal.setSpacing(10);
 		     contenedorHorizontal.getChildren().add(this.setNombreJugadorActual());
@@ -100,7 +99,6 @@ public class NuestroContenedorPrincipal extends ScrollPane {
      	VBox contenedorVertical1 = new VBox(nombreJugador1);
 		contenedorVertical1.setSpacing(10);
 		contenedorVertical1.setPadding(new Insets(15));	 
-	    //contenedorVertical1.getChildren().add(this.setBotonera());
 	     
 	     for  (int i=0; i<juego.getJugadorAutobots().getAlgoformers().size(); i++){
 	    	 ContenedorAlgoformer unContenedor = new ContenedorAlgoformer(juego.getJugadorAutobots().getAlgoformers().get(i), Color.BLUE);
@@ -120,7 +118,6 @@ public class NuestroContenedorPrincipal extends ScrollPane {
      	VBox contenedorVertical1 = new VBox(nombreJugador1);
 		contenedorVertical1.setSpacing(10);
 		contenedorVertical1.setPadding(new Insets(15));
-		//contenedorVertical1.getChildren().add(this.setBotonera());
 
 	     for  (int i=0; i<juego.getJugadorDecepticons().getAlgoformers().size(); i++){
 	    	 ContenedorAlgoformer unContenedor = new ContenedorAlgoformer(juego.getJugadorDecepticons().getAlgoformers().get(i), Color.RED);

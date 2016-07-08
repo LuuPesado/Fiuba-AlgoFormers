@@ -9,12 +9,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import tp2.algoformers.vista.eventos.BotonBorrarEventHandler;
 import tp2.algoformers.vista.eventos.BotonEntrarEventHandler;
 
 public class ContenedorElegirJugadores extends HBox{
 	
-	private TextField nombreJugador1;
-	private TextField nombreJugador2;
+	private TextField campoNombreJugador1;
+	private TextField campoNombreJugador2;
 	private Button botonEntrar;
 	
 	public ContenedorElegirJugadores(Stage stage){
@@ -41,18 +42,36 @@ public class ContenedorElegirJugadores extends HBox{
         Button botonBorrar = new Button();
         botonBorrar.setText("Borrar");
         botonBorrar.setMinSize(75, 25);
+        BotonBorrarEventHandler botonBorrarEventHandler = new BotonBorrarEventHandler();
+        botonBorrar.setOnAction(botonBorrarEventHandler);
         
         contenedorVertical.getChildren().addAll(botonEntrar, botonBorrar);
         this.getChildren().add(contenedorVertical);
 
 	}
 	
+	public void setCampoNombreJugador1(TextField nombreJugador1) {
+		this.campoNombreJugador1 = nombreJugador1;
+	}
+
+	public void setCampoNombreJugador2(TextField nombreJugador2) {
+		this.campoNombreJugador2 = nombreJugador2;
+	}
+
+	public TextField getCampoNombreJugador1() {
+		return campoNombreJugador1;
+	}
+
+	public TextField getCampoNombreJugador2() {
+		return campoNombreJugador2;
+	}
+
 	public String getNombreJugador1(){	
-		return (nombreJugador1.getText());
+		return (campoNombreJugador1.getText());
 	}
 
 	public String getNombreJugador2(){
-		return (nombreJugador2.getText());
+		return (campoNombreJugador2.getText());
 	}
 	
 	private void setColumnaAutobots() {
@@ -71,10 +90,10 @@ public class ContenedorElegirJugadores extends HBox{
         jugador1.setTextFill(Color.BLACK);
         
         elegirNombre.setSpacing(10);
-		this.nombreJugador1 = new TextField();
+		this.campoNombreJugador1 = new TextField();
 		
 		elegirNombre.getChildren().add(jugador1);
-		elegirNombre.getChildren().add(nombreJugador1);
+		elegirNombre.getChildren().add(campoNombreJugador1);
 		
 		autobots.setSpacing(10);
 		autobots.getChildren().add(titulo);
@@ -100,10 +119,10 @@ public class ContenedorElegirJugadores extends HBox{
         
         elegirNombre.setSpacing(10);
         
-		this.nombreJugador2 = new TextField();
+		this.campoNombreJugador2 = new TextField();
 		
 		elegirNombre.getChildren().add(jugador2);
-		elegirNombre.getChildren().add(nombreJugador2);
+		elegirNombre.getChildren().add(campoNombreJugador2);
 		
 		decepticons.getChildren().add(titulo);
 		decepticons.getChildren().add(elegirNombre);
