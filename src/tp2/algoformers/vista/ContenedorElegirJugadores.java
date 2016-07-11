@@ -44,7 +44,7 @@ public class ContenedorElegirJugadores extends HBox{
         botonBorrar.setMinSize(75, 25);
         BotonBorrarEventHandler botonBorrarEventHandler = new BotonBorrarEventHandler();
         botonBorrar.setOnAction(botonBorrarEventHandler);
-        
+//        
         contenedorVertical.getChildren().addAll(botonEntrar, botonBorrar);
         this.getChildren().add(contenedorVertical);
 
